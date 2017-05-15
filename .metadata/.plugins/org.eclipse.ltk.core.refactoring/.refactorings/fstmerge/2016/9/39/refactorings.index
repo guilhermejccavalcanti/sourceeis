@@ -1,0 +1,13 @@
+1474317255046	Rename local variable 'renamingEntry'
+1474320609508	Delete element
+1474320612274	Delete element
+1474320641256	Delete elements
+1474409114041	Rename method 'isSimilarButNotEqual'
+1474409877572	Delete element
+1474410207688	Rename method 'computeNodesContentSimilarity'
+1474410212532	Rename local variable 'previousNodeContent'
+1474410216579	Rename local variable 'newNodeContent'
+1474410222845	Rename method 'conputeStringSimilarity'
+1474411014556	Rename method 'areSimilarButNotEqual'
+1474411150615	Delete elements
+1474412518941	Delete element

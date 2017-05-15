@@ -1,0 +1,30 @@
+1489962502261	Rename enum constant 'REFERENCE'
+1489962523323	Rename local variable 'logREFERENCEEntries'
+1489962552321	Rename enum constant 'METHOD'
+1489962562477	Rename local variable 'logMETHODEntries'
+1490028019106	Move files
+1490028024905	Delete element
+1490028345897	Rename resource 'log_ssmerge_different_conflicts_textual.csv'
+1490028350187	Rename resource 'conflictstextual'
+1490033628760	Copy file
+1490041523931	Move files
+1490041587013	Move file
+1490041749171	Move file
+1490045511220	Delete elements
+1490046821825	Move files
+1490048826400	Move file
+1490059778072	Delete elements
+1490104950214	Move files
+1490109529568	Move file
+1490109532293	Move file
+1490132977793	Rename resource 'log_type_fullunparsable_conflicts.csv'
+1490132984510	Rename resource 'log_type_partialunparsable_conflicts.csv'
+1490388667590	Rename resource 'log_ssmerge_different_conflicts_ssmerge.csv'
+1490391672078	Rename local variable 'commitFileContentLeft'
+1490391736204	Rename local variable 'signature'
+1490393099988	Rename local variable 'mergeconflict'
+1490393247372	Extract method 'updateMergeConflict'
+1490402354765	Copy file
+1490404023608	Delete element
+1490404029589	Rename resource 'Copy of confsssmerge.csv'
+1490482741178	Copy file

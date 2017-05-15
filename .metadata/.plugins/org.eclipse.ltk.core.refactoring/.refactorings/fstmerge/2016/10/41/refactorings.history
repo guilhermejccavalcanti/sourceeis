@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;merger.FSTGenMerger.areSimilarOrEqual(...)&apos; to &apos;areSimilarButNotEqual&apos;&#x0D;&#x0A;- Original project: &apos;fstmerge&apos;&#x0D;&#x0A;- Original element: &apos;merger.FSTGenMerger.areSimilarOrEqual(...)&apos;&#x0D;&#x0A;- Renamed element: &apos;merger.FSTGenMerger.areSimilarButNotEqual(...)&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;areSimilarOrEqual&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.method" input="/&lt;merger{FSTGenMerger.java[FSTGenMerger~areSimilarOrEqual~QFSTNode;~QFSTNode;" name="areSimilarButNotEqual" references="true" stamp="1475557708142" version="1.0"/>
+</session>

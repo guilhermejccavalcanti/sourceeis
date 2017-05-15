@@ -1,0 +1,5 @@
+1482436186057	Rename local variable 'jfstmergeConf'
+1482436191061	Rename local variable 'jdimeMergeConflict'
+1482439431806	Rename method 'listJavaFilesPath'
+1482442517737	Extract method 'countEqualConflicts'
+1482443936058	Rename local variable 'folder'

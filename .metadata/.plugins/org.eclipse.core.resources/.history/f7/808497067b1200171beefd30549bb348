@@ -1,0 +1,23 @@
+/home/local/CIN/gjcc/fpfnanalysis/projects/OG-Platform/revisions/rev_4bba0_94e1a/rev_4bba0-94e1a/projects/OG-Financial/src/com/opengamma/financial/analytics/equity/EquityVarianceSwapConverter.java;<<<<<<< MINE
+=======
+public VarianceSwapDefinition visitEquityVarianceSwapTrade(final TradeImpl trade) {
+
+    final EquityVarianceSwapSecurity security = (EquityVarianceSwapSecurity) trade.getSecurity();
+
+    final Calendar calendar = CalendarUtil.getCalendar(_holidaySource, security.getCurrency()); // TODO CASE - Review. Holidays currently specified by currency alone
+
+    if (security.getParameterizedAsVariance()) {
+      return VarianceSwapDefinition.fromVarianceParams(security.getFirstObservationDate(), security.getLastObservationDate(),
+                                          security.getSettlementDate(), (PeriodFrequency) security.getObservationFrequency(),
+                                          security.getCurrency(), calendar, security.getAnnualizationFactor(),
+                                          security.getStrike(), security.getNotional());
+
+    } else {
+      return VarianceSwapDefinition.fromVegaParams(security.getFirstObservationDate(), security.getLastObservationDate(),
+                                          security.getSettlementDate(), (PeriodFrequency) security.getObservationFrequency(),
+                                          security.getCurrency(), calendar, security.getAnnualizationFactor(),
+                                          security.getStrike(), security.getNotional());
+    }
+
+  }
+>>>>>>> YOURS

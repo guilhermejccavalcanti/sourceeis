@@ -1,0 +1,45 @@
+1489332396868	Rename type 'SolutionType'
+1489332551339	Rename method 'logConflicts'
+1489332656741	Rename method 'm'
+1489332725217	Rename method 'findConflictsInvolvingTheSameType'
+1489332792300	Delete element
+1489332945906	Rename method 'findConflictsInvolvingSameSintaticType'
+1489332966595	Rename type 'SintaxType'
+1489341659790	Rename method 'logResolutionAnalysisConflicts'
+1489342151283	Copy file
+1489342166385	Rename resource 'tes log_yours_conflicts.csv'
+1489342176735	Rename resource 'log_fullunparsable_conflicts_ex.csv'
+1489343522119	Rename local variable 'compilationUnit'
+1489346546228	Rename method 'm'
+1489428472312	Rename local variable 'files'
+1489428606992	Rename local variable 'cu'
+1489429249704	Delete element
+1489429492773	Delete element
+1489430731874	Delete element
+1489430742361	Delete element
+1489442795666	Rename type 'CheckoutMergeCommit'
+1489443140891	Rename local variable 'commitFileContent'
+1489443149713	Rename local variable 'parsed'
+1489443175346	Rename local variable 'commitFileContentLeft'
+1489443181977	Rename local variable 'parsedleft'
+1489443186130	Rename local variable 'leftdecl'
+1489515662707	Rename local variable 'cmd'
+1489517383678	Rename local variable 'rightbody'
+1489517406570	Rename local variable 'bodysimilarity'
+1489517440694	Rename local variable 'similarName'
+1489524196367	Rename local variable 'leftcall'
+1489524318243	Rename local variable 'leftcalls'
+1489531551644	Delete element
+1489531559127	Rename resource 'Copy of log_fullunparsable_conflicts.csv'
+1489531571057	Rename resource 'logtextual.csv'
+1489531578273	Rename resource 'conflictstextual'
+1489532007025	Rename resource 'results.txt'
+1489533790860	Delete elements
+1489760350111	Move files
+1489774471460	Delete elements
+1489774484054	Delete elements
+1489775751221	Rename local variable 'hasReference'
+1489776347745	Rename resource 'log_partialunparsable_conflicts.csv'
+1489776544809	Delete elements
+1489778404121	Delete elements
+1489781929166	Move files

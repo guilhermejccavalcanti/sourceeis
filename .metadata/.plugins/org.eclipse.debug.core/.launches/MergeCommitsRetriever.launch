@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.codehaus.groovy.eclipse.groovyScriptLaunchConfiguration">
+<stringAttribute key="org.codehaus.groovy.eclipse.launch.runType" value="MergeCommitsRetriever"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/gitconflictsextractor"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<listAttribute key="org.eclipse.jdt.launching.CLASSPATH">
+<listEntry value="C:\GGTS\workspacefpfn\gitconflictsextractor\target\classes"/>
+<listEntry value="C:\GGTS\workspacefpfn\gitconflictsextractor\target\test-classes"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\codehaus\groovy\groovy-all\2.0.5\groovy-all-2.0.5.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\com\tinkerpop\gremlin\gremlin-groovy\2.3.0\gremlin-groovy-2.3.0.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\com\tinkerpop\gremlin\gremlin-java\2.3.0\gremlin-java-2.3.0.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\commons-logging\commons-logging\1.0.4\commons-logging-1.0.4.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\com\tinkerpop\pipes\2.3.0\pipes-2.3.0.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\codehaus\groovy\groovy\1.8.9\groovy-1.8.9.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\asm\asm\3.2\asm-3.2.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\asm\asm-commons\3.2\asm-commons-3.2.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\asm\asm-util\3.2\asm-util-3.2.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\asm\asm-analysis\3.2\asm-analysis-3.2.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\asm\asm-tree\3.2\asm-tree-3.2.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\fusesource\jansi\jansi\1.5\jansi-1.5.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\jline\jline\0.9.94\jline-0.9.94.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\com\tinkerpop\blueprints\blueprints-core\2.3.0\blueprints-core-2.3.0.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\codehaus\jettison\jettison\1.3.3\jettison-1.3.3.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\stax\stax-api\1.0.1\stax-api-1.0.1.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-json-org\2.1.2\jackson-datatype-json-org-2.1.2.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.1.2\jackson-core-2.1.2.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.1.2\jackson-databind-2.1.2.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.1.1\jackson-annotations-2.1.1.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\json\json\20090211\json-20090211.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\colt\colt\1.2.0\colt-1.2.0.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\concurrent\concurrent\1.3.4\concurrent-1.3.4.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\com\tinkerpop\blueprints\blueprints-neo4j-graph\2.3.0\blueprints-neo4j-graph-2.3.0.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\neo4j\neo4j-kernel\1.9.M05\neo4j-kernel-1.9.M05.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\apache\geronimo\specs\geronimo-jta_1.1_spec\1.1.1\geronimo-jta_1.1_spec-1.1.1.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\neo4j\neo4j-lucene-index\1.9.M05\neo4j-lucene-index-1.9.M05.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\apache\lucene\lucene-core\3.5.0\lucene-core-3.5.0.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\neo4j\neo4j-graph-algo\1.9.M05\neo4j-graph-algo-1.9.M05.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\neo4j\neo4j-udc\1.9.M05\neo4j-udc-1.9.M05.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\neo4j\neo4j-graph-matching\1.9.M05\neo4j-graph-matching-1.9.M05.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\neo4j\neo4j-cypher\1.9.M05\neo4j-cypher-1.9.M05.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\scala-lang\scala-library\2.10.0\scala-library-2.10.0.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\com\googlecode\concurrentlinkedhashmap\concurrentlinkedhashmap-lru\1.3.1\concurrentlinkedhashmap-lru-1.3.1.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\neo4j\neo4j-jmx\1.9.M05\neo4j-jmx-1.9.M05.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\neo4j\neo4j-ha\1.9.M05\neo4j-ha-1.9.M05.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\neo4j\neo4j-backup\1.9.M05\neo4j-backup-1.9.M05.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\neo4j\neo4j-consistency-check\1.9.M05\neo4j-consistency-check-1.9.M05.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\neo4j\neo4j-com\1.9.M05\neo4j-com-1.9.M05.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\io\netty\netty\3.5.7.Final\netty-3.5.7.Final.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\neo4j\neo4j-cluster\1.9.M05\neo4j-cluster-1.9.M05.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\apache\zookeeper\zookeeper\3.3.2\zookeeper-3.3.2.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\log4j\log4j\1.2.16\log4j-1.2.16.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\ch\qos\logback\logback-classic\0.9.30\logback-classic-0.9.30.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\ch\qos\logback\logback-core\0.9.30\logback-core-0.9.30.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\slf4j\slf4j-api\1.6.2\slf4j-api-1.6.2.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\neo4j\neo4j-management\1.9.M05\neo4j-management-1.9.M05.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\spockframework\spock-core\0.7-groovy-2.0\spock-core-0.7-groovy-2.0.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\junit\junit-dep\4.10\junit-dep-4.10.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\eclipse\jgit\org.eclipse.jgit\3.5.1.201410131835-r\org.eclipse.jgit-3.5.1.201410131835-r.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\com\jcraft\jsch\0.1.50\jsch-0.1.50.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\com\googlecode\javaewah\JavaEWAH\0.7.9\JavaEWAH-0.7.9.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\apache\httpcomponents\httpclient\4.1.3\httpclient-4.1.3.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\apache\httpcomponents\httpcore\4.1.4\httpcore-4.1.4.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\commons-codec\commons-codec\1.4\commons-codec-1.4.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\apache\ant\ant\1.8.4\ant-1.8.4.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\apache\ant\ant-launcher\1.8.4\ant-launcher-1.8.4.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\org\apache\velocity\velocity\1.7\velocity-1.7.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\commons-collections\commons-collections\3.2.1\commons-collections-3.2.1.jar"/>
+<listEntry value="C:\Users\Guilherme\.m2\repository\commons-lang\commons-lang\2.4\commons-lang-2.4.jar"/>
+<listEntry value="C:\Users\Guilherme\.groovy\greclipse\global_dsld_support"/>
+<listEntry value="C:\GGTS\ggts-3.6.4.RELEASE\plugins\org.codehaus.groovy_2.0.7.xx-201411061335-e44-RELEASE\plugin_dsld_support\"/>
+<listEntry value="C:\GGTS\workspacefpfn\astfinder\bin"/>
+<listEntry value="C:\GGTS\workspacefpfn\ssmerge\fstmerge\bin"/>
+<listEntry value="C:\GGTS\workspacefpfn\ssmerge\fstcomp\bin"/>
+<listEntry value="C:\GGTS\workspacefpfn\ssmerge\CIDE_generateAST\bin"/>
+<listEntry value="C:\GGTS\workspacefpfn\ssmerge\CIDE2_ast\bin"/>
+<listEntry value="C:\GGTS\workspacefpfn\ssmerge\CIDE_generateAST\lib\ant.jar"/>
+<listEntry value="C:\GGTS\workspacefpfn\ssmerge\fstgen\bin"/>
+<listEntry value="C:\GGTS\workspacefpfn\ssmerge\fstgen\lib\ant.jar"/>
+<listEntry value="C:\GGTS\workspacefpfn\ssmerge\fstgen\lib\junit-4.8.2.jar"/>
+<listEntry value="C:\GGTS\workspacefpfn\astfinder\dependencies\commons-io-2.4.jar"/>
+<listEntry value="C:\GGTS\workspacefpfn\astfinder\dependencies\google-collections.jar"/>
+<listEntry value="C:\GGTS\workspacefpfn\astfinder\dependencies\commons-lang3-3.4.jar"/>
+<listEntry value="C:\GGTS\workspacefpfn\astfinder\dependencies\asm-3.1.jar"/>
+<listEntry value="C:\GGTS\workspacefpfn\astfinder\dependencies\asm-commons-3.1.jar"/>
+<listEntry value="C:\GGTS\workspacefpfn\astfinder\dependencies\commands-3.3.0-I20070605-0010.jar"/>
+<listEntry value="C:\GGTS\workspacefpfn\astfinder\dependencies\org.eclipse.core.runtime-3.1.0.jar"/>
+<listEntry value="C:\GGTS\workspacefpfn\astfinder\dependencies\org.eclipse.jdt.core-3.10.0.v20140604-1726.jar"/>
+<listEntry value="C:\GGTS\workspacefpfn\astfinder\dependencies\org.eclipse.osgi_3.5.2.R35x_v20100126.jar"/>
+<listEntry value="C:\GGTS\workspacefpfn\astfinder\dependencies\org.eclipse.text_3.5.0.jar"/>
+<listEntry value="C:\GGTS\workspacefpfn\astfinder\dependencies\resources-3.3.0-v20070604.jar"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.codehaus.groovy.tools.GroovyStarter"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--classpath &quot;${workspace_loc:\CIDE2_ast}\src;${workspace_loc:\CIDE_generateAST}\lib\ant.jar;${workspace_loc:\CIDE_generateAST}\src;${workspace_loc:\astfinder}\src;${workspace_loc:\fstcomp};${workspace_loc:\fstcomp}\test;${workspace_loc:\fstgen}\lib\ant.jar;${workspace_loc:\fstgen}\lib\junit-4.8.2.jar;${workspace_loc:\fstgen}\src;${workspace_loc:\fstgen}\test;${workspace_loc:\fstmerge};${workspace_loc:\gitconflictsextractor}\src\main\java;${workspace_loc:\gitconflictsextractor}\src\test\java;C:\GGTS\workspacefpfn\astfinder\dependencies\asm-3.1.jar;C:\GGTS\workspacefpfn\astfinder\dependencies\asm-commons-3.1.jar;C:\GGTS\workspacefpfn\astfinder\dependencies\commands-3.3.0-I20070605-0010.jar;C:\GGTS\workspacefpfn\astfinder\dependencies\commons-io-2.4.jar;C:\GGTS\workspacefpfn\astfinder\dependencies\commons-lang3-3.4.jar;C:\GGTS\workspacefpfn\astfinder\dependencies\google-collections.jar;C:\GGTS\workspacefpfn\astfinder\dependencies\org.eclipse.core.runtime-3.1.0.jar;C:\GGTS\workspacefpfn\astfinder\dependencies\org.eclipse.jdt.core-3.10.0.v20140604-1726.jar;C:\GGTS\workspacefpfn\astfinder\dependencies\org.eclipse.osgi_3.5.2.R35x_v20100126.jar;C:\GGTS\workspacefpfn\astfinder\dependencies\org.eclipse.text_3.5.0.jar;C:\GGTS\workspacefpfn\astfinder\dependencies\resources-3.3.0-v20070604.jar;${workspace_loc:\CIDE2_ast}\bin;${workspace_loc:\CIDE_generateAST}\bin;${workspace_loc:\astfinder}\bin;${workspace_loc:\fstcomp}\bin;${workspace_loc:\fstgen}\bin;${workspace_loc:\fstmerge}\bin;${workspace_loc:\gitconflictsextractor}\target\classes;${workspace_loc:\gitconflictsextractor}\target\test-classes&quot; --main groovy.ui.GroovyMain &quot;${resource_loc:/gitconflictsextractor/src/main/java/MergeCommitsRetriever.groovy}&quot;"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="gitconflictsextractor"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dgroovy.home=&quot;${groovy_home}&quot;"/>
+<stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${workspace_loc:\gitconflictsextractor}"/>
+</launchConfiguration>

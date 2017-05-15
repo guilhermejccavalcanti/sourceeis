@@ -1,0 +1,4 @@
+public void bc(){
+		int x;
+		x = 1;
+	}

@@ -1,0 +1,180 @@
+/home/local/CIN/gjcc/fpfnanalysis/projects/cassandra/revisions/rev_b97c5_4d36b/rev_b97c5-4d36b/src/java/org/apache/cassandra/cql3/statements/CreateColumnFamilyStatement.java;<<<<<<< MINE
+public ParsedStatement.Prepared prepare() throws RequestValidationException
+        {
+            // Column family name
+            if (!columnFamily().matches("\\w+"))
+                throw new InvalidRequestException(String.format("\"%s\" is not a valid column family name (must be alphanumeric character only: [0-9A-Za-z]+)", columnFamily()));
+            if (columnFamily().length() > Schema.NAME_LENGTH)
+                throw new InvalidRequestException(String.format("Column family names shouldn't be more than %s characters long (got \"%s\")", Schema.NAME_LENGTH, columnFamily()));
+
+            for (Multiset.Entry<ColumnIdentifier> entry : definedNames.entrySet())
+                if (entry.getCount() > 1)
+                    throw new InvalidRequestException(String.format("Multiple definition of identifier %s", entry.getElement()));
+
+            properties.validate();
+
+            CreateColumnFamilyStatement stmt = new CreateColumnFamilyStatement(cfName, properties);
+            stmt.setBoundTerms(getBoundTerms());
+
+            Map<ByteBuffer, CollectionType> definedCollections = null;
+            for (Map.Entry<ColumnIdentifier, CQL3Type> entry : definitions.entrySet())
+            {
+                ColumnIdentifier id = entry.getKey();
+                CQL3Type pt = entry.getValue();
+                if (pt.isCollection())
+                {
+                    if (definedCollections == null)
+                        definedCollections = new HashMap<ByteBuffer, CollectionType>();
+                    definedCollections.put(id.key, (CollectionType)pt.getType());
+                }
+                stmt.columns.put(id, pt.getType()); // we'll remove what is not a column below
+            }
+
+            if (keyAliases.size() != 1)
+                throw new InvalidRequestException("You must specify one and only one PRIMARY KEY");
+
+            List<ColumnIdentifier> kAliases = keyAliases.get(0);
+
+            List<AbstractType<?>> keyTypes = new ArrayList<AbstractType<?>>(kAliases.size());
+            for (ColumnIdentifier alias : kAliases)
+            {
+                stmt.keyAliases.add(alias.key);
+                AbstractType<?> t = getTypeAndRemove(stmt.columns, alias);
+                if (t instanceof CounterColumnType)
+                    throw new InvalidRequestException(String.format("counter type is not supported for PRIMARY KEY part %s", alias));
+                keyTypes.add(t);
+            }
+            stmt.keyValidator = keyTypes.size() == 1 ? keyTypes.get(0) : CompositeType.getInstance(keyTypes);
+
+            // Handle column aliases
+            if (columnAliases.isEmpty())
+            {
+                if (useCompactStorage)
+                {
+                    // There should remain some column definition since it is a non-composite "static" CF
+                    if (stmt.columns.isEmpty())
+                        throw new InvalidRequestException("No definition found that is not part of the PRIMARY KEY");
+
+                    if (definedCollections != null)
+                        throw new InvalidRequestException("Collection types are not supported with COMPACT STORAGE");
+
+                    stmt.comparator = CFDefinition.definitionType;
+                }
+                else
+                {
+                    List<AbstractType<?>> types = new ArrayList<AbstractType<?>>(definedCollections == null ? 1 : 2);
+                    types.add(CFDefinition.definitionType);
+                    if (definedCollections != null)
+                        types.add(ColumnToCollectionType.getInstance(definedCollections));
+                    stmt.comparator = CompositeType.getInstance(types);
+                }
+            }
+            else
+            {
+                // If we use compact storage and have only one alias, it is a
+                // standard "dynamic" CF, otherwise it's a composite
+                if (useCompactStorage && columnAliases.size() == 1)
+                {
+                    if (definedCollections != null)
+                        throw new InvalidRequestException("Collection types are not supported with COMPACT STORAGE");
+                    stmt.columnAliases.add(columnAliases.get(0).key);
+                    stmt.comparator = getTypeAndRemove(stmt.columns, columnAliases.get(0));
+                    if (stmt.comparator instanceof CounterColumnType)
+                        throw new InvalidRequestException(String.format("counter type is not supported for PRIMARY KEY part %s", stmt.columnAliases.get(0)));
+                }
+                else
+                {
+                    List<AbstractType<?>> types = new ArrayList<AbstractType<?>>(columnAliases.size() + 1);
+                    for (ColumnIdentifier t : columnAliases)
+                    {
+                        stmt.columnAliases.add(t.key);
+
+                        AbstractType<?> type = getTypeAndRemove(stmt.columns, t);
+                        if (type instanceof CounterColumnType)
+                            throw new InvalidRequestException(String.format("counter type is not supported for PRIMARY KEY part %s", t.key));
+                        types.add(type);
+                    }
+
+                    if (useCompactStorage)
+                    {
+                        if (definedCollections != null)
+                            throw new InvalidRequestException("Collection types are not supported with COMPACT STORAGE");
+                    }
+                    else
+                    {
+                        // For sparse, we must add the last UTF8 component
+                        // and the collection type if there is one
+                        types.add(CFDefinition.definitionType);
+                        if (definedCollections != null)
+                            types.add(ColumnToCollectionType.getInstance(definedCollections));
+                    }
+
+                    if (types.isEmpty())
+                        throw new IllegalStateException("Nonsensical empty parameter list for CompositeType");
+                    stmt.comparator = CompositeType.getInstance(types);
+                }
+            }
+
+            if (useCompactStorage && !stmt.columnAliases.isEmpty())
+            {
+                if (stmt.columns.isEmpty())
+                {
+                    // The only value we'll insert will be the empty one, so the default validator don't matter
+                    stmt.defaultValidator = BytesType.instance;
+                    // We need to distinguish between
+                    //   * I'm upgrading from thrift so the valueAlias is null
+                    //   * I've define my table with only a PK (and the column value will be empty)
+                    // So, we use an empty valueAlias (rather than null) for the second case
+                    stmt.valueAlias = ByteBufferUtil.EMPTY_BYTE_BUFFER;
+                }
+                else
+                {
+                    if (stmt.columns.size() > 1)
+                        throw new InvalidRequestException(String.format("COMPACT STORAGE with composite PRIMARY KEY allows no more than one column not part of the PRIMARY KEY (got: %s)", StringUtils.join(stmt.columns.keySet(), ", ")));
+
+                    Map.Entry<ColumnIdentifier, AbstractType> lastEntry = stmt.columns.entrySet().iterator().next();
+                    stmt.defaultValidator = lastEntry.getValue();
+                    stmt.valueAlias = lastEntry.getKey().key;
+                    stmt.columns.remove(lastEntry.getKey());
+                }
+            }
+            else
+            {
+                // For compact, we are in the "static" case, so we need at least one column defined. For non-compact however, having
+                // just the PK is fine since we have CQL3 row marker.
+                if (useCompactStorage && stmt.columns.isEmpty())
+                    throw new InvalidRequestException("COMPACT STORAGE with non-composite PRIMARY KEY require one column not part of the PRIMARY KEY, none given");
+
+                // There is no way to insert/access a column that is not defined for non-compact storage, so
+                // the actual validator don't matter much (except that we want to recognize counter CF as limitation apply to them).
+                stmt.defaultValidator = !stmt.columns.isEmpty() && (stmt.columns.values().iterator().next() instanceof CounterColumnType)
+                    ? CounterColumnType.instance
+                    : BytesType.instance;
+            }
+
+
+            // If we give a clustering order, we must explicitly do so for all aliases and in the order of the PK
+            if (!definedOrdering.isEmpty())
+            {
+                if (definedOrdering.size() > columnAliases.size())
+                    throw new InvalidRequestException("Only clustering key columns can be defined in CLUSTERING ORDER directive");
+
+                int i = 0;
+                for (ColumnIdentifier id : definedOrdering.keySet())
+                {
+                    ColumnIdentifier c = columnAliases.get(i);
+                    if (!id.equals(c))
+                    {
+                        if (definedOrdering.containsKey(c))
+                            throw new InvalidRequestException(String.format("The order of columns in the CLUSTERING ORDER directive must be the one of the clustering key (%s must appear before %s)", c, id));
+                        else
+                            throw new InvalidRequestException(String.format("Missing CLUSTERING ORDER for column %s", c));
+                    }
+                    ++i;
+                }
+            }
+
+            return new ParsedStatement.Prepared(stmt);
+        }
+=======
+>>>>>>> YOURS

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="evaluation/|examples/|run_configurations/|scripts/" kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/fstcomp"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CIDE_generateAST"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CIDE2_ast"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/fstgen"/>
+	<classpathentry kind="lib" path="C:/GGTS/workspacefpfn/astfinder/dependencies/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="C:/GGTS/workspacefpfn/astfinder/dependencies/google-collections.jar"/>
+	<classpathentry kind="lib" path="C:/GGTS/workspacefpfn/astfinder/dependencies/commons-lang3-3.4.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/MergeConflictParserAndAnalyser"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

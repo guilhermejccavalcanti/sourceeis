@@ -1,0 +1,363 @@
+2016-09-19 13:54:43,130 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-09-19 13:59:05,898 [Worker-7] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-09-19 14:02:54,960 [Worker-7] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-09-19 14:03:32,493 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Failure to transfer org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from http://repository.codehaus.org was cached in the local repository, resolution will not be reattempted until the update interval of codehaus.org has elapsed or updates are forced. Original error: Could not transfer metadata org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from/to codehaus.org (http://repository.codehaus.org): Failed to transfer file: http://repository.codehaus.org/org/codehaus/groovy/groovy-eclipse-batch/maven-metadata.xml. Return code is: 410 , ReasonPhrase:Gone.
+2016-09-19 14:03:34,423 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Failure to transfer org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from http://repository.codehaus.org was cached in the local repository, resolution will not be reattempted until the update interval of codehaus.org has elapsed or updates are forced. Original error: Could not transfer metadata org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from/to codehaus.org (http://repository.codehaus.org): Failed to transfer file: http://repository.codehaus.org/org/codehaus/groovy/groovy-eclipse-batch/maven-metadata.xml. Return code is: 410 , ReasonPhrase:Gone.
+2016-09-19 14:03:34,689 [Worker-4] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: spgroup:GitCE:0.0.1-SNAPSHOT @ C:\GGTS\workspacefpfn\gitconflictsextractor\pom.xml.
+2016-09-19 14:03:37,666 [Worker-4] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /gitconflictsextractor/src/main/java
+2016-09-19 14:03:37,666 [Worker-4] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /gitconflictsextractor/src/test/java
+2016-09-19 14:03:37,942 [Worker-4] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 6 sec
+2016-09-19 14:03:40,952 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/main/groovy to the list of source folders
+2016-09-19 14:03:40,952 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/test/groovy to the list of test source folders
+2016-09-19 14:03:40,974 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 14:03:40,975 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-19 14:03:40,977 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 14:03:40,978 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-19 14:04:22,410 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 14:04:22,411 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-19 14:04:22,413 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 14:04:22,414 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-19 14:05:46,296 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-09-19 14:06:01,153 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Failure to transfer org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from http://repository.codehaus.org was cached in the local repository, resolution will not be reattempted until the update interval of codehaus.org has elapsed or updates are forced. Original error: Could not transfer metadata org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from/to codehaus.org (http://repository.codehaus.org): Failed to transfer file: http://repository.codehaus.org/org/codehaus/groovy/groovy-eclipse-batch/maven-metadata.xml. Return code is: 410 , ReasonPhrase:Gone.
+2016-09-19 14:06:06,950 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 14:06:06,951 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-19 14:06:06,953 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 14:06:06,954 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-19 14:09:50,623 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 14:09:50,623 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-19 14:09:50,625 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 14:09:50,625 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-19 14:11:56,951 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 14:11:56,951 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-19 14:11:56,953 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 14:11:56,953 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-19 15:07:53,369 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-09-19 15:08:18,041 [Worker-4] WARN  o.e.m.c.i.embedder.EclipseLogger - Failure to transfer org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from http://repository.codehaus.org was cached in the local repository, resolution will not be reattempted until the update interval of codehaus.org has elapsed or updates are forced. Original error: Could not transfer metadata org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from/to codehaus.org (http://repository.codehaus.org): Failed to transfer file: http://repository.codehaus.org/org/codehaus/groovy/groovy-eclipse-batch/maven-metadata.xml. Return code is: 410 , ReasonPhrase:Gone.
+2016-09-19 15:08:21,169 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 15:08:21,169 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-19 15:08:21,172 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 15:08:21,172 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-19 15:09:56,408 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 15:09:56,408 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-19 15:09:56,410 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 15:09:56,410 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-19 15:10:34,708 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 15:10:34,708 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-19 15:10:34,710 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-19 15:10:34,711 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 11:02:58,556 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Failure to transfer org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from http://repository.codehaus.org was cached in the local repository, resolution will not be reattempted until the update interval of codehaus.org has elapsed or updates are forced. Original error: Could not transfer metadata org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from/to codehaus.org (http://repository.codehaus.org): Failed to transfer file: http://repository.codehaus.org/org/codehaus/groovy/groovy-eclipse-batch/maven-metadata.xml. Return code is: 410 , ReasonPhrase:Gone.
+2016-09-20 11:03:01,619 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 11:03:01,619 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 11:03:01,619 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 11:03:01,619 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 11:07:46,387 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-09-20 19:53:23,997 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:53:23,998 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 19:53:24,000 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:53:24,000 [Worker-53] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 19:55:12,460 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:55:12,460 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 19:55:12,462 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:55:12,462 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 19:56:01,727 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:56:01,728 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 19:56:01,730 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:56:01,730 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 19:56:07,850 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:56:07,850 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 19:56:07,852 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:56:07,853 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 19:56:27,741 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:56:27,741 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 19:56:27,742 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:56:27,743 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 19:56:37,350 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:56:37,351 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 19:56:37,352 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:56:37,353 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 19:57:16,802 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:57:16,802 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 19:57:16,804 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:57:16,804 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 19:57:22,418 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:57:22,418 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 19:57:22,422 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:57:22,422 [Worker-51] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 19:57:24,754 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:57:24,755 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 19:57:24,756 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:57:24,757 [Worker-59] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 19:57:51,030 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:57:51,030 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 19:57:51,031 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:57:51,032 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 19:58:18,340 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:58:18,340 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 19:58:18,341 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 19:58:18,342 [Worker-60] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:00:49,545 [Worker-63] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:00:49,546 [Worker-63] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:00:49,548 [Worker-63] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:00:49,548 [Worker-63] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:01:24,259 [Worker-63] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:01:24,259 [Worker-63] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:01:24,260 [Worker-63] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:01:24,261 [Worker-63] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:03:20,358 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:03:20,359 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:03:20,363 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:03:20,363 [Worker-58] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:03:43,807 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:03:43,807 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:03:43,810 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:03:43,810 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:11:43,740 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:11:43,740 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:11:43,743 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:11:43,743 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:12:29,024 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:12:29,024 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:12:29,025 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:12:29,025 [Worker-61] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:12:37,222 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:12:37,222 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:12:37,223 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:12:37,224 [Worker-66] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:23:58,834 [Worker-71] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:23:58,834 [Worker-71] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:23:58,836 [Worker-71] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:23:58,837 [Worker-71] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:24:33,530 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:24:33,530 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:24:33,532 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:24:33,532 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:24:40,324 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:24:40,324 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:24:40,325 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:24:40,326 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:24:49,035 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:24:49,035 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:24:49,036 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:24:49,036 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:25:08,156 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/main/groovy to the list of source folders
+2016-09-20 20:25:08,157 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/test/groovy to the list of test source folders
+2016-09-20 20:25:08,159 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:25:08,159 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:25:08,161 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:25:08,161 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:25:51,634 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:25:51,634 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:25:51,635 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:25:51,635 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:26:00,125 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:26:00,125 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:26:00,126 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:26:00,127 [Worker-62] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:41:56,743 [Worker-85] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:41:56,743 [Worker-85] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:41:56,744 [Worker-85] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:41:56,745 [Worker-85] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:42:15,259 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:42:15,260 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:42:15,261 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:42:15,261 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:42:16,915 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:42:16,916 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:42:16,916 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:42:16,916 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:42:28,723 [Worker-89] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:42:28,723 [Worker-89] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:42:28,724 [Worker-89] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:42:28,725 [Worker-89] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:42:52,950 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/main/groovy to the list of source folders
+2016-09-20 20:42:52,950 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/test/groovy to the list of test source folders
+2016-09-20 20:42:52,952 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:42:52,952 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:42:52,953 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:42:52,954 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:42:58,781 [Worker-85] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:42:58,781 [Worker-85] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:42:58,782 [Worker-85] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:42:58,782 [Worker-85] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:43:18,631 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:43:18,631 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:43:18,632 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:43:18,633 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:44:24,184 [Worker-88] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:44:24,184 [Worker-88] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:44:24,185 [Worker-88] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:44:24,185 [Worker-88] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:44:32,242 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:44:32,242 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:44:32,243 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:44:32,244 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:44:34,688 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:44:34,688 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:44:34,689 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:44:34,689 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:46:12,592 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:46:12,592 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:46:12,593 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:46:12,593 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:46:15,211 [Worker-88] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:46:15,211 [Worker-88] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:46:15,213 [Worker-88] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:46:15,213 [Worker-88] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:46:20,742 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:46:20,742 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:46:20,744 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:46:20,744 [Worker-84] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:48:20,784 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:48:20,784 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:48:20,785 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:48:20,785 [Worker-87] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:48:21,920 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:48:21,921 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:48:21,922 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:48:21,922 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:48:26,748 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:48:26,749 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:48:26,750 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:48:26,751 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:53:10,956 [Worker-89] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:53:10,956 [Worker-89] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:53:10,957 [Worker-89] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:53:10,958 [Worker-89] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:53:16,126 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:53:16,126 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:53:16,127 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:53:16,128 [Worker-72] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:53:20,405 [Worker-93] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:53:20,405 [Worker-93] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:53:20,406 [Worker-93] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:53:20,406 [Worker-93] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:55:28,393 [Worker-93] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:55:28,393 [Worker-93] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:55:28,394 [Worker-93] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:55:28,394 [Worker-93] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-20 20:55:39,782 [Worker-89] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/main/groovy to the list of source folders
+2016-09-20 20:55:39,782 [Worker-89] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/test/groovy to the list of test source folders
+2016-09-20 20:55:39,784 [Worker-89] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:55:39,785 [Worker-89] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-20 20:55:39,786 [Worker-89] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-20 20:55:39,786 [Worker-89] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-09-22 11:22:50,852 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-09-22 11:24:47,143 [Worker-8] WARN  o.e.m.c.i.embedder.EclipseLogger - Failure to transfer org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from http://repository.codehaus.org was cached in the local repository, resolution will not be reattempted until the update interval of codehaus.org has elapsed or updates are forced. Original error: Could not transfer metadata org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from/to codehaus.org (http://repository.codehaus.org): Failed to transfer file: http://repository.codehaus.org/org/codehaus/groovy/groovy-eclipse-batch/maven-metadata.xml. Return code is: 410 , ReasonPhrase:Gone.
+2016-09-22 11:24:50,085 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/main/groovy to the list of source folders
+2016-09-22 11:24:50,085 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/test/groovy to the list of test source folders
+2016-09-22 11:24:50,780 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-22 11:24:50,780 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-09-22 11:24:50,783 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-09-22 11:24:50,783 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-03 23:14:08,317 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-10-03 23:14:22,195 [Worker-6] WARN  o.e.m.c.i.embedder.EclipseLogger - Failure to transfer org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from http://repository.codehaus.org was cached in the local repository, resolution will not be reattempted until the update interval of codehaus.org has elapsed or updates are forced. Original error: Could not transfer metadata org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from/to codehaus.org (http://repository.codehaus.org): Failed to transfer file: http://repository.codehaus.org/org/codehaus/groovy/groovy-eclipse-batch/maven-metadata.xml. Return code is: 410 , ReasonPhrase:Gone.
+2016-10-03 23:14:29,680 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-03 23:14:29,680 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-03 23:14:29,683 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-03 23:14:29,683 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-03 23:16:23,578 [Worker-7] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-10-03 23:49:01,358 [Worker-6] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-10-04 00:59:36,303 [Worker-20] WARN  o.e.m.c.i.embedder.EclipseLogger - Failure to transfer org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from http://repository.codehaus.org was cached in the local repository, resolution will not be reattempted until the update interval of codehaus.org has elapsed or updates are forced. Original error: Could not transfer metadata org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from/to codehaus.org (http://repository.codehaus.org): Failed to transfer file: http://repository.codehaus.org/org/codehaus/groovy/groovy-eclipse-batch/maven-metadata.xml. Return code is: 410 , ReasonPhrase:Gone.
+2016-10-04 00:59:38,434 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/main/groovy to the list of source folders
+2016-10-04 00:59:38,434 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/test/groovy to the list of test source folders
+2016-10-04 00:59:39,056 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 00:59:39,056 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 00:59:39,059 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 00:59:39,059 [Worker-20] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 00:59:41,710 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 00:59:41,710 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 00:59:41,712 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 00:59:41,712 [Worker-13] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 01:30:05,770 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:30:05,771 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 01:30:05,772 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:30:05,773 [Worker-23] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 01:30:09,646 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:30:09,646 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 01:30:09,647 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:30:09,648 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 01:30:26,101 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:30:26,101 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 01:30:26,102 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:30:26,102 [Worker-24] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 01:30:30,055 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:30:30,055 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 01:30:30,056 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:30:30,056 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 01:33:47,570 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:33:47,571 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 01:33:47,572 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:33:47,573 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 01:36:19,982 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:36:19,982 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 01:36:19,983 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:36:19,983 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 01:36:51,607 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:36:51,607 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 01:36:51,608 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:36:51,608 [Worker-27] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 01:37:01,201 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:37:01,202 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 01:37:01,204 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:37:01,204 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 01:37:12,197 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:37:12,197 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 01:37:12,199 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:37:12,199 [Worker-21] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 01:37:24,235 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:37:24,235 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 01:37:24,236 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:37:24,237 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 01:37:48,516 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:37:48,517 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 01:37:48,517 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:37:48,517 [Worker-29] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 01:38:06,907 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:38:06,907 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 01:38:06,909 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:38:06,909 [Worker-25] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 01:38:32,543 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:38:32,543 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 01:38:32,544 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:38:32,544 [Worker-28] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 01:51:11,217 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:51:11,217 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 01:51:11,219 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:51:11,219 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 01:51:25,874 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:51:25,875 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 01:51:25,876 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 01:51:25,876 [Worker-34] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 02:16:07,805 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 02:16:07,806 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 02:16:07,807 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 02:16:07,808 [Worker-44] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 02:16:58,588 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 02:16:58,588 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 02:16:58,590 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 02:16:58,590 [Worker-47] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 02:17:27,979 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/main/groovy to the list of source folders
+2016-10-04 02:17:27,979 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/test/groovy to the list of test source folders
+2016-10-04 02:17:27,981 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 02:17:27,981 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-04 02:17:27,983 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-04 02:17:27,984 [Worker-45] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-04 02:29:30,975 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-10-31 14:53:54,062 [Worker-2] WARN  o.e.m.c.i.embedder.EclipseLogger - Failure to transfer org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from http://repository.codehaus.org was cached in the local repository, resolution will not be reattempted until the update interval of codehaus.org has elapsed or updates are forced. Original error: Could not transfer metadata org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from/to codehaus.org (http://repository.codehaus.org): Failed to transfer file: http://repository.codehaus.org/org/codehaus/groovy/groovy-eclipse-batch/maven-metadata.xml. Return code is: 410 , ReasonPhrase:Gone.
+2016-10-31 14:53:57,484 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/main/groovy to the list of source folders
+2016-10-31 14:53:57,484 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Adding /src/test/groovy to the list of test source folders
+2016-10-31 14:53:58,453 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-31 14:53:58,453 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-31 14:53:58,453 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-31 14:53:58,453 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-10-31 14:54:22,688 [Worker-5] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2016-10-31 14:57:08,309 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-31 14:57:08,309 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-10-31 14:57:08,309 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-10-31 14:57:08,309 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources
+2016-12-20 14:14:26,768 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2016-12-20 14:14:40,522 [Worker-0] WARN  o.e.m.c.i.embedder.EclipseLogger - Failure to transfer org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from http://repository.codehaus.org was cached in the local repository, resolution will not be reattempted until the update interval of codehaus.org has elapsed or updates are forced. Original error: Could not transfer metadata org.codehaus.groovy:groovy-eclipse-batch/maven-metadata.xml from/to codehaus.org (http://repository.codehaus.org): Failed to transfer file: http://repository.codehaus.org/org/codehaus/groovy/groovy-eclipse-batch/maven-metadata.xml. Return code is: 410 , ReasonPhrase:Gone.
+2016-12-20 14:14:44,539 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-20 14:14:44,539 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\main\resources
+2016-12-20 14:14:44,542 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-12-20 14:14:44,543 [Worker-0] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\GGTS\workspacefpfn\gitconflictsextractor\src\test\resources

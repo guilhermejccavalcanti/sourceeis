@@ -1,0 +1,81 @@
+file;linedbasedConf
+C:\Users\Guilherme Cavalcanti\Desktop\test\projects\tgm\revisions\rev_c0c6d0e_4482591\rev_c0c6d0e-4482591\CaseStudy.java;<<<<<<< MINE
+	int z;
+||||||| BASE
+=======
+	int y;
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\test\projects\tgm\revisions\rev_b43d8b5_a9be6e0\rev_b43d8b5-a9be6e0\CaseStudy.java;<<<<<<< MINE
+	int a;
+	int w;
+||||||| BASE
+	int y;
+	int w;
+=======
+	int y;
+	int b;
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\test\projects\tgm\revisions\rev_af8e1d1_760454d\rev_af8e1d1-760454d\CaseStudy.java;<<<<<<< MINE
+	String foo = "ano";
+||||||| BASE
+	String foo = null;
+=======
+	String foo = "amo";
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\test\projects\tgm\revisions\rev_bbd4c21_583228c\rev_bbd4c21-583228c\CaseStudy.java;<<<<<<< MINE
+	int c;
+||||||| BASE
+=======
+	int b;
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\test\projects\tgm\revisions\rev_b4cc53e_38b56a4\rev_b4cc53e-38b56a4\CaseStudy.java;<<<<<<< MINE
+public class CaseStudy extends C {
+||||||| BASE
+public class CaseStudy extends A{
+=======
+public class CaseStudy extends B{
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\test\projects\tgm\revisions\rev_411c5f9_8d48bb6\rev_411c5f9-8d48bb6\A.java;<<<<<<< MINE
+	public String foo = null;
+||||||| BASE
+	String foo = null;
+=======
+	private String foo = null;
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\test\projects\tgm\revisions\rev_9145cee_a25b54b\rev_9145cee-a25b54b\A.java;<<<<<<< MINE
+class A extends C{
+||||||| BASE
+class A {
+=======
+class A extends B{
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\test\projects\tgm\revisions\rev_d28eee2_279cb16\rev_d28eee2-279cb16\B.java;<<<<<<< MINE
+    public int xexe(int x){
+        return x;
+    }
+||||||| BASE
+	
+=======
+	
+	public void xaxa(){
+		int x = 1;
+	}
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\test\projects\tgm\revisions\rev_6446fba_016089f\rev_6446fba-016089f\A.java;<<<<<<< MINE
+    public void mama(){
+        int x = 256;
+    }
+||||||| BASE
+	
+=======
+	public int xexe(int x){
+		return x;
+	}
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\test\projects\tgm\revisions\rev_45e388c_995d4d2\rev_45e388c-995d4d2\Converter.java;<<<<<<< MINE
+interface Converter<F, T, C> {
+||||||| BASE
+interface Converter<F, T> {
+=======
+interface Converter<A, F, T> {
+>>>>>>> YOURS

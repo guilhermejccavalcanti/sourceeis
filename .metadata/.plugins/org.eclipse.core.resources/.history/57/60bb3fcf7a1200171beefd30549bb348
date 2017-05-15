@@ -1,0 +1,18 @@
+/home/local/CIN/gjcc/fpfnanalysis/projects/lucene-solr/revisions/rev_8da43_435a2/rev_8da43-435a2/src/test/org/apache/lucene/analysis/TestTeeTokenFilter.java;<<<<<<< MINE
+protected void setUp() throws Exception {
+    super.setUp();
+    tokens1 = new String[]{"The", "quick", "Burgundy", "Fox", "jumped", "over", "the", "lazy", "Red", "Dogs"};
+    tokens2 = new String[]{"The", "Lazy", "Dogs", "should", "stay", "on", "the", "porch"};
+    buffer1 = new StringBuilder();
+
+    for (int i = 0; i < tokens1.length; i++) {
+      buffer1.append(tokens1[i]).append(' ');
+    }
+    buffer2 = new StringBuilder();
+    for (int i = 0; i < tokens2.length; i++) {
+      buffer2.append(tokens2[i]).append(' ');
+
+    }
+  }
+=======
+>>>>>>> YOURS

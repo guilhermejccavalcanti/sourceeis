@@ -1,0 +1,17 @@
+file;linedbasedConf
+C:\Users\Guilherme Cavalcanti\Desktop\test\projects\tgm\revisions\rev_c0c6d0e_4482591\rev_c0c6d0e-4482591\CaseStudy.java;<<<<<<< MINE
+	int z;
+||||||| BASE
+=======
+	int y;
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\test\projects\tgm\revisions\rev_b43d8b5_a9be6e0\rev_b43d8b5-a9be6e0\CaseStudy.java;<<<<<<< MINE
+	int a;
+	int w;
+||||||| BASE
+	int y;
+	int w;
+=======
+	int y;
+	int b;
+>>>>>>> YOURS

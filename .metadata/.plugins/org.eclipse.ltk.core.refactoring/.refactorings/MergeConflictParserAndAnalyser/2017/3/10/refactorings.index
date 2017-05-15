@@ -1,0 +1,22 @@
+1488915123304	Delete element
+1488915341030	Delete element
+1488915885518	Rename local variable 'conflictTexts'
+1488916545011	Rename package 'util'
+1488916568463	Rename package 'git'
+1488916573426	Rename package 'parser'
+1488916579520	Rename package 'app'
+1488916584182	Rename package 'analyser'
+1488916873053	Rename type 'ProjectInfoCollector'
+1488916892345	Rename type 'MergeCommitNumberFinder'
+1488984772715	Copy file
+1488985377315	Rename local variable 'mine'
+1488985388365	Rename local variable 'yours'
+1488986399460	Rename method 'extractInfo'
+1488986492033	Rename method 'findMCNumber'
+1488986934044	Rename local variable 'filetext'
+1489000528074	Rename resource 'log_fullunparsable_conflicts.csv'
+1489000537754	Copy file
+1489002655082	Rename type 'TYPE'
+1489003076184	Delete element
+1489006602366	Delete element
+1489069150255	Delete elements
