@@ -1,0 +1,2 @@
+revision;file;methodSignature;references
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisdot\revisions\rev_ff28e37_98be70a\rev_ff28e37-98be70a;\sisdot-web\src\main\java\br\mil\eb\cds\sisdot\beans\tipo\SituacaoCadastralConverter;getAsObject(FacesContext,UIComponent,String);@Override	public Object getAsObject(FacesContext context, UIComponent component, String value) {;0

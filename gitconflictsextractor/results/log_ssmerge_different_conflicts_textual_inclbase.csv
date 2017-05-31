@@ -1,0 +1,215 @@
+file;linedbasedConf
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisdot\revisions\rev_11d92e2_ba34be0\rev_11d92e2-ba34be0\sisdot-core\src\main\java\br\mil\eb\cds\sisdot\servico\FamiliaMaterialServico.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisdot\revisions\rev_11d92e2_ba34be0\rev_11d92e2-ba34be0\sisdot-core\src\main\java\br\mil\eb\cds\sisdot\servico\FamiliaMaterialServico.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisdot\revisions\rev_11d92e2_ba34be0\rev_11d92e2-ba34be0\sisdot-core\src\main\java\br\mil\eb\cds\sisdot\servico\FamiliaMaterialServico.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_f43faad_9737fd7\rev_f43faad-9737fd7\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\modelo\Nota.java;<<<<<<< MINE
+	@JsonView(Views.Listagem.class)
+	@ManyToMany(fetch = FetchType.EAGER)
+||||||| BASE
+	@JsonView(Views.Listagem.class)
+	@ManyToMany
+=======
+	@JsonView(Views.Detalhamento.class)
+	@ManyToMany
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisdot\revisions\rev_32d99e6_5d2885e\rev_32d99e6-5d2885e\sisdot-core\src\main\java\br\mil\eb\cds\sisdot\modelo\FamiliaMaterial.java;<<<<<<< MINE
+		@NamedQuery(name = "FamiliaMaterial.buscarFamiliaPorTipoClasse", query = "SELECT f FROM FamiliaMaterial f WHERE f.tipoMaterial.id = :idTipoMaterial AND f.classeMaterial.id = :idClasseMaterial"),
+		@NamedQuery(name = "FamiliaMaterial.buscar", query = "SELECT DISTINCT f FROM FamiliaMaterial f WHERE f.codigo = :codigo OR f.descricao LIKE :descricao"),
+		@NamedQuery(name = "FamiliaMaterial.buscarPorIdClasseMaterial", query = "SELECT DISTINCT f FROM FamiliaMaterial f WHERE f.classeMaterial.id = :idClasseMaterial"),
+		@NamedQuery(name = "FamiliaMaterial.buscarPorIdTipoMaterial", query = "SELECT DISTINCT f FROM FamiliaMaterial f WHERE f.tipoMaterial.id = :idTipoMaterial")
+})
+||||||| BASE
+		@NamedQuery(name = "FamiliaMaterial.buscarFamiliaPorTipoClasse", query = "SELECT f FROM FamiliaMaterial f WHERE f.tipoMaterial.id = :idTipoMaterial AND f.classeMaterial.id = :idClasseMaterial"),
+		@NamedQuery(name = "FamiliaMaterial.buscar", query = "SELECT DISTINCT f FROM FamiliaMaterial f WHERE f.codigo = :codigo OR f.descricao LIKE :descricao"),
+		@NamedQuery(name = "FamiliaMaterial.buscarPorIdClasseMaterial", query = "SELECT DISTINCT f FROM FamiliaMaterial f WHERE f.classeMaterial.id = :idClasseMaterial")})
+=======
+		@NamedQuery(name = "FamiliaMaterial.buscarFamiliaPorTipoClasse", query = "SELECT f FROM FamiliaMaterial f WHERE f.tipoMaterial.id = :idTipoMaterial AND f.classeMaterial.id = :idClasseMaterial"),		
+		@NamedQuery(name = "FamiliaMaterial.buscarPorIdClasseMaterial", query = "SELECT DISTINCT f FROM FamiliaMaterial f WHERE f.classeMaterial.id = :idClasseMaterial")})
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisdot\revisions\rev_ff28e37_98be70a\rev_ff28e37-98be70a\sisdot-web\src\main\java\br\mil\eb\cds\sisdot\beans\tipo\SituacaoCadastralConverter.java;<<<<<<< MINE
+package br.mil.eb.cds.sisdot.beans.tipo;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
+//import javax.faces.convert.FacesConverter;
+
+import org.apache.commons.lang3.StringUtils;
+
+import br.mil.eb.cds.sisdot.modelo.SituacaoCadastral;
+import br.mil.eb.cds.sisdot.util.EnumConverter;
+
+//TODO mover para pacote correto
+@ManagedBean(name="situacaoCadastralConverter")
+@RequestScoped
+public class SituacaoCadastralConverter implements Converter {
+
+	@Override
+	public Object getAsObject(FacesContext context, UIComponent component, String value) {
+		SituacaoCadastral retorno = null;
+		if (!StringUtils.isBlank(value)) {
+			retorno = (SituacaoCadastral) EnumConverter.fromLabel(SituacaoCadastral.class, value);
+		} 
+		return retorno;
+	}
+
+	@Override
+	public String getAsString(FacesContext context, UIComponent component, Object object) {		
+		//Since instanceof will return false for null references, the null check is not needed.
+		if (object instanceof SituacaoCadastral) {	
+			return ((SituacaoCadastral)object).getLabel();
+		} else {
+			return null;
+		}
+	}
+}||||||| BASE
+package br.mil.eb.cds.sisdot.beans.tipo;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
+//import javax.faces.convert.FacesConverter;
+
+import org.apache.commons.lang3.StringUtils;
+
+import br.mil.eb.cds.sisdot.modelo.SituacaoCadastral;
+
+//TODO mover para pacote correto
+@ManagedBean(name="situacaoCadastralConverter")
+@RequestScoped
+public class SituacaoCadastralConverter implements Converter {
+
+	@Override
+	public Object getAsObject(FacesContext context, UIComponent component, String value) {
+		SituacaoCadastral retorno = null;
+		if (!StringUtils.isBlank(value)) {
+			retorno = SituacaoCadastral.fromLabel(value);
+		} 
+		return retorno;
+	}
+
+	@Override
+	public String getAsString(FacesContext context, UIComponent component, Object object) {		
+		//Since instanceof will return false for null references, the null check is not needed.
+		if (object instanceof SituacaoCadastral) {	
+			return ((SituacaoCadastral)object).getLabel();
+		} else {
+			return null;
+		}
+	}
+}=======
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisdot\revisions\rev_1de4f2b_d0cf750\rev_1de4f2b-d0cf750\sisdot-web\src\main\java\br\mil\eb\cds\sisdot\beans\tipo\TipoMaterialPesquisaMB.java;<<<<<<< MINE
+@ViewScoped
+//@RequestScoped
+public class TipoMaterialPesquisaMB extends AbstractTipoMaterialMB {	
+
+	@Getter @Setter
+	private SituacaoCadastral situacaoSelecionada;
+||||||| BASE
+//@ViewScoped
+@RequestScoped
+public class TipoMaterialPesquisaMB extends AbstractTipoMaterialMB {	
+
+	@Getter @Setter
+	private SituacaoCadastral situacaoSelecionada;
+=======
+//@ViewScoped
+@RequestScoped
+public class TipoMaterialPesquisaMB extends AbstractTipoMaterialMB {
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_d14d83f_fe1f31b\rev_d14d83f-fe1f31b\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\modelo\Militar.java;<<<<<<< MINE
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+||||||| BASE
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Past;
+
+=======
+import javax.persistence.*;
+
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_46cbe3b_ae86c9f\rev_46cbe3b-ae86c9f\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\modelo\PostoGraduacao.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_46cbe3b_ae86c9f\rev_46cbe3b-ae86c9f\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\repositorio\PostoGraduacaoRepositorioJPA.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_46cbe3b_ae86c9f\rev_46cbe3b-ae86c9f\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\servico\PostoGraduacaoServico.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_46cbe3b_ae86c9f\rev_46cbe3b-ae86c9f\sisbol-core\src\test\java\br\mil\eb\cds\sisbol\boletim\modelo\PostoGraduacaoTest.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_46cbe3b_ae86c9f\rev_46cbe3b-ae86c9f\sisbol-web\src\main\java\br\mil\eb\cds\sisbol\boletim\resources\PostoGraduacaoResource.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_b58ae04_3ec9ffc\rev_b58ae04-3ec9ffc\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\servico\requisicoes\RequisicaoAssociarNota.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_b58ae04_3ec9ffc\rev_b58ae04-3ec9ffc\sisbol-web\src\main\java\br\mil\eb\cds\sisbol\boletim\resources\BoletimResource.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_b58ae04_3ec9ffc\rev_b58ae04-3ec9ffc\sisbol-web\src\main\java\br\mil\eb\cds\sisbol\boletim\resources\BoletimResource.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_b58ae04_3ec9ffc\rev_b58ae04-3ec9ffc\sisbol-web\src\main\java\br\mil\eb\cds\sisbol\boletim\resources\BoletimResource.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\modelo\NotaMilitar.java;<<<<<<< MINE
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
+||||||| BASE
+=======
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\modelo\NotaMilitar.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\modelo\NotaMilitar.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\modelo\NotaMilitarId.java;<<<<<<< MINE
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+||||||| BASE
+=======
+import lombok.EqualsAndHashCode;
+
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\modelo\NotaMilitarId.java;<<<<<<< MINE
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = {"nota", "militar"})
+||||||| BASE
+=======
+
+
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\modelo\PostoGraduacao.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\repositorio\PostoGraduacaoRepositorioJPA.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\servico\PostoGraduacaoServico.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-web\src\main\java\br\mil\eb\cds\sisbol\boletim\resources\PostoGraduacaoResource.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-web\src\test\java\br\mil\eb\cds\sisbol\features\postoGraduacao\CadastroPostoGraduacaoTest.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-web\src\test\java\br\mil\eb\cds\sisbol\features\postoGraduacao\ExcluirPostoGraduacaoTest.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-web\src\test\java\br\mil\eb\cds\sisbol\features\postoGraduacao\RecuperarPostoGraduacaoTest.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_3a745b0_86d0ba1\rev_3a745b0-86d0ba1\sisbol-web\src\test\java\br\mil\eb\cds\sisbol\features\tipoDocumento\cadastro\CadastrarTipoDocumentoRunner.java;null
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_3a745b0_86d0ba1\rev_3a745b0-86d0ba1\sisbol-web\src\test\java\br\mil\eb\cds\sisbol\features\tipoDocumento\cadastro\CadastrarTipoDocumentoSpec.java;null

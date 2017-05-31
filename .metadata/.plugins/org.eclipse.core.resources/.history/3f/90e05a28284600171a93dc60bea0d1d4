@@ -1,0 +1,114 @@
+package br.mil.eb.cds.sisdot.repositorio;
+
+import static br.mil.eb.cds.sisdot.modelo.ItemGenerico.BUSCAR;
+import static br.mil.eb.cds.sisdot.modelo.ItemGenerico.BUSCAR_POR_FAMILIA;
+import static br.mil.eb.cds.sisdot.modelo.ItemGenerico.BUSCAR_POR_PALAVRA_CHAVE;
+
+import br.mil.eb.cds.sisdot.modelo.ItemGenerico;
+import br.mil.eb.cds.sisdot.modelo.ItemGenerico_;
+import br.mil.eb.cds.sisdot.modelo.SituacaoCadastral;
+import br.unb.cic.comum.repositorio.RepositorioJPAGenerico;
+
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
+
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+import javax.persistence.TypedQuery;
+
+@Stateless
+public class ItemGenericoRepositorioJPA extends RepositorioJPAGenerico<ItemGenerico> implements ItemGenericoRepositorio {
+
+	@Inject
+	private FamiliaMaterialRepositorio familiaRepositorio;
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * br.unb.cic.comum.repositorio.RepositorioJPAGenerico#getClasseEntidade()
+	 */
+	@Override
+	protected Class<ItemGenerico> getClasseEntidade() {
+		return ItemGenerico.class;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see br.unb.cic.comum.repositorio.RepositorioJPAGenerico#
+	 * recuperarEntidadePorID(java.io.Serializable)
+	 */
+	@Override
+	public ItemGenerico recuperarEntidadePorID(Serializable id) {
+		ItemGenerico item = super.recuperarEntidadePorID(id);
+		carregar(item);
+		return item;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see br.mil.eb.cds.sisdot.repositorio.ItemGenericoRepositorio#
+	 * buscarPorCodotOuDescricao(java.lang.String)
+	 */
+	@Override
+	@Deprecated
+//	public List<ItemGenerico> buscarPorCodotOuDescricao(String valor) {
+//		TypedQuery<ItemGenerico> query = getEntityManager().createNamedQuery(BUSCAR, getClasseEntidade());
+//
+//		query.setParameter(ItemGenerico_.codot.getName(), "%" + valor + "%");
+//		query.setParameter(ItemGenerico_.descricao.getName(), "%" + valor + "%");
+//
+//		return query.getResultList();
+//	}
+	public List<ItemGenerico> buscarPorCodotOuDescricao(String valor) {
+	
+		TypedQuery<ItemGenerico> query = getEntityManager().createNamedQuery(BUSCAR, getClasseEntidade());
+		TypedQuery<ItemGenerico> query2 = getEntityManager().createNamedQuery(BUSCAR_POR_PALAVRA_CHAVE, getClasseEntidade());
+
+		query.setParameter(ItemGenerico_.codot.getName(), "%" + valor + "%");
+		query.setParameter(ItemGenerico_.descricao.getName(), "%" + valor + "%");
+		
+		if(query.getResultList().size() == 0){
+			query2.setParameter(ItemGenerico_.descricao.getName(), "%" + valor + "%");
+				
+			return query2.getResultList();
+		}
+		return query.getResultList();
+	}	
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see br.mil.eb.cds.sisdot.repositorio.ItemGenericoRepositorio#
+	 * recuperarItensPorFamilia(java.lang.Long)
+	 */
+	@Override
+	public List<ItemGenerico> recuperarItensPorFamilia(Long idFamiliaMaterial) {
+		Map<String, Object> parametros = arrayParametersToMap("idFamiliaMaterial", idFamiliaMaterial, "situacaoCadastral", SituacaoCadastral.ATIVO);
+		return buscarPorNamedQuery(BUSCAR_POR_FAMILIA, parametros);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see br.mil.eb.cds.sisdot.repositorio.ItemGenericoRepositorio#
+	 * pesquisarPorPalavraChave(java.lang.String)
+	 */
+	@Override
+	public List<ItemGenerico> pesquisarPorPalavraChave(String palavraChave) {
+		Map<String, Object> parametros = arrayParametersToMap(ItemGenerico_.descricao.getName(), palavraChave);
+		return buscarPorNamedQuery(BUSCAR_POR_PALAVRA_CHAVE, parametros);
+	}
+
+	private void carregar(ItemGenerico item) {
+		if (item != null) {
+			item.setFamiliaMaterial(familiaRepositorio.recuperarEntidadePorID(item.getFamiliaMaterial().getId()));
+			// TODO qdo deixar lazy:
+			// Hibernate.initialize(item.getPalavrasChave());
+		}
+	}
+
+}

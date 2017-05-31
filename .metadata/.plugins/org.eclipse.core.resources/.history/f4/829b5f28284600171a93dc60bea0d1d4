@@ -1,0 +1,70 @@
+package br.mil.eb.cds.sisbol.boletim.modelo;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import br.unb.cic.comum.modelo.IEntidade;
+import br.unb.cic.rest.comum.Views;
+import lombok.Data;
+
+/**
+ * Classe que representa um militar
+ * 
+ * @author camilo.souza
+ *
+ */
+@Entity
+@Table(name = "MILITAR")
+@Data
+public class Militar implements IEntidade<Long>{
+	
+	
+	/**	Serial version */
+	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * Identificador único do Militar gerado pelo banco de dados
+	 */
+	@JsonView(Views.Listagem.class)
+	@Id
+	@Column(name = "ID_MILITAR")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
+	@JsonView(Views.Listagem.class)
+	@NotBlank
+	@Column(name = "CODIGO", nullable = false, unique = true)
+	private String codigo;
+	
+	@JsonView(Views.Listagem.class)
+	@NotBlank
+	@Column(name = "NOME_COMPLETO", nullable = false)
+	private String nomeCompleto;
+	
+	@JsonView(Views.Listagem.class)
+	@Column(name = "NOME_GUERRA", nullable = false)
+	private String nomeGuerra;
+	
+	@JsonView(Views.Listagem.class)
+	@NotBlank
+	//@Temporal(TemporalType.DATE) 
+	// TODO : Implementar converter para utilizar anotação @Temporal
+	@Column(name = "DATA_NASCIMENTO", nullable = false)
+	private LocalDate dataNascimento;
+	
+	
+	@Override
+	public Long getId() {
+		return id;
+	}
+
+}

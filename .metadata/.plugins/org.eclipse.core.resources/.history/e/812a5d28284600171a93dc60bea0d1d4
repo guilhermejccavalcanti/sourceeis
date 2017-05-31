@@ -1,0 +1,247 @@
+package br.mil.eb.cds.sisbol.boletim.modelo;
+
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonView;
+
+import br.unb.cic.comum.modelo.IEntidade;
+import br.unb.cic.rest.comum.Views;
+import br.unb.cic.rest.comum.Views.Listagem;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+/**
+ * Entidade que representa uma nota.
+ * Um {@link Boletim} será composto por várias
+ * Notas, onde terá um texto com a informação do fato ocorrido.
+ * 
+ * @author camilo.souza
+ *
+ */
+@SuppressWarnings("serial")
+@Entity
+@Data
+@NoArgsConstructor
+@EqualsAndHashCode(of = {"id", "numero", "tipoBoletim"})
+@NamedQueries({
+		@NamedQuery(name = Nota.BUSCAR_POR_TIPO_BOLETIM_STATUS, 
+				query = "SELECT n FROM Nota n WHERE n.tipoBoletim.id = :idTipoBoletim and n.status = :idStatusNota ORDER BY n.dataCriacao")
+		})
+public class Nota implements IEntidade<Long> {
+	
+	public static final String BUSCAR_POR_TIPO_BOLETIM_STATUS = "Nota.BUSCAR_POR_TIPO_BOLETIM_STATUS";
+
+	/**
+	 * Boletim no qual a nota está associada
+	 */
+	@JsonView(Views.Detalhamento.class)
+	@JsonBackReference
+	@ManyToOne
+	@JoinColumn(name = "ID_BOLETIM")
+	private Boletim boletim;
+	
+	
+	@JsonView(Views.Listagem.class)
+	@NotNull
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ID_TIPO_BOLETIM", nullable = false)
+	private TipoBoletim tipoBoletim;
+	
+	/**
+	 * Identificador único da Nota gerado pelo banco de dados
+	 */
+	@JsonView(Views.Listagem.class)
+	@Id
+	@Column(name = "ID_NOTA")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
+	/**
+	 * Número da Nota informado pelo usuário
+	 * 
+	 */
+	// TODO : Regras : Positivo?, Pode repetir ? Pode alterar ?
+	// É relamente inteiro ? Caso não, segue algum padrão
+	@JsonView(Views.Listagem.class)
+	@Column(name = "NUMERO")
+	private String numero;
+	
+	/**
+	 * Data de quando a nota foi criada
+	 */
+	@JsonView(Views.Listagem.class)
+	@Column(name = "DAT_CRICACAO", nullable = false, updatable = false)
+	private Date dataCriacao;
+	
+	/**
+	 * Data da nota
+	 */
+	// TODO :Validação : Tem restrição, pode ser no futuro ? Até quanto tempo atras ?
+	@JsonView(Views.Listagem.class)
+	@NotNull
+	@Column(name = "DATA_NOTA", nullable = false)
+	private Date data;
+	
+	/**
+	 * Indica se as informações da Nota serão mostradas no boletim
+	 * que a Nota for associada
+	 */
+	@JsonView(Views.Listagem.class)
+	@Column(name = "FLG_REFERENCIA_BOLETIM")
+	private Boolean referenciaBoletim = false;
+	
+	/**
+	 * Status da Nota
+	 */
+	@JsonView(Views.Listagem.class)
+	@NotNull
+	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "IND_STATUS", nullable = false)
+	private StatusNotaEnum status = StatusNotaEnum.EM_ELABORACAO;
+	
+	/**
+	 * Tipo da Nota
+	 */
+	// TODO : Implementar TipoNota e associar
+	@JsonView(Views.Listagem.class)
+	@Column(name = "ID_TIPO_NOTA")
+	private String tipoNota;
+	
+	/**
+	 * Assunto Especifico no qual a Nota pertence
+	 */
+	// TODO : Assunto não poderá ser null
+	@JsonView(Views.Listagem.class)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ID_ASSUNTO_ESPECIFICO", nullable = true)
+	private AssuntoEspecifico assuntoEspecifico;
+	
+	/**
+	 * Militar responsável por assinar a nota
+	 */
+	// TODO : Mapear para entidade de usuários
+	@JsonView(Views.Listagem.class)
+	@Column(name = "MILITAR_ASSINA", nullable = true)
+	private String assinante;
+	
+	// TODO : Mapear para entidade de usuários
+	@JsonView(Views.Listagem.class)
+	@NotNull
+	@Column(name = "USUARIO", nullable = false)
+	private String usuario;
+
+	@OneToMany(mappedBy = "nota", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JsonView(Listagem.class)
+	private Set<NotaMilitar> militares;
+
+	/**
+	 * Texto de Abertura da Nota
+	 */
+	@JsonView(Views.Listagem.class)
+	@Lob
+	@Column(name = "TEXTO_ABERTURA", nullable = true)
+	private String textoAbertura;
+	
+	/**
+	 * Texto de Fechamento da Nota
+	 */
+	@JsonView(Views.Listagem.class)
+	@Lob
+	@Column(name = "TEXTO_FECHAMENTO", nullable = true)
+	private String textoFechamento;
+
+	@JsonView(Views.Listagem.class)
+	@NotNull
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ID_TIPO_DOCUMENTO", nullable = false)
+	private TipoDocumento tipoDocumento;
+
+	public AssuntoGeral getAssuntoGeral(){
+		if(getAssuntoEspecifico() != null){
+			return getAssuntoEspecifico().getAssuntoGeral();
+		}else{
+			return null;
+		}
+	}
+	
+	public SecaoBoletim getSecaoBoletim(){
+		if(getAssuntoGeral() != null){
+			return getAssuntoGeral().getSecaoBoletim();
+		}else{
+			return null;
+		}
+	}
+	
+	@JsonView(Views.Detalhamento.class)
+	public Long getIdBoletim(){
+		return getBoletim() != null ? getBoletim().getId() : null;
+	}
+	
+	// TODO :Implementar para obter somente conteúdo dos textos
+	// de abertura e fechamento
+	public String getTextoAberturaStr(){
+		return getTextoAbertura();
+	}
+	
+	public String getTextoFechamentoStr(){
+		return getTextoFechamento();
+	}
+
+	@Override
+	public Long getId() {
+		return id;
+	}
+	
+	public boolean isPossivelAssociarBoletim(Boletim boletim){
+		if(getBoletim() != null){
+			return false;
+		}
+		
+		if(!boletim.getTipoBoletim().equals(getTipoBoletim())){
+			return false;
+		}
+		
+		if(!getStatus().equals(getStatusPermiteAssociarBoletim())){
+			return false;
+			
+		}
+		
+		return true;
+	}
+
+	private Object getStatusPermiteAssociarBoletim() {
+		return StatusNotaEnum.PUBLICADA;
+	}
+	
+	/**
+	 * Realiza as ações necessárias para associar a nota
+	 * a um boletim informado
+	 * @param boletim boletim no qual a nota será associada
+	 */
+	public void associarABoletim(Boletim boletim) {
+		boletim.getNotas().add(this);
+		setBoletim(boletim);
+		setStatus(StatusNotaEnum.ASSOCIADA);
+	}
+	
+}

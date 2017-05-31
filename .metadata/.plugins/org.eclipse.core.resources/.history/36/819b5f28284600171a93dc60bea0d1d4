@@ -1,0 +1,8 @@
+@Override
+	protected void checarAntesDeExcluir(FamiliaMaterial familia) {		
+		List<ItemGenerico> itemGenerico = itemGenericoRepositorio.recuperarItensPorFamilia(familia.getId());
+		
+		if (itemGenerico != null && !itemGenerico.isEmpty()) {
+			throw new ErroNegocioException("Não é possível excluir uma Familia de Material vinculada a um Item Generico.");
+		}
+	}

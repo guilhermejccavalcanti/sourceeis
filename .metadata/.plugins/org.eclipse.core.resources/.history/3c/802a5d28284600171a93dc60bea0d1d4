@@ -1,0 +1,3 @@
+public String getTextoFechamentoStr(){
+		return getTextoFechamento();
+	}

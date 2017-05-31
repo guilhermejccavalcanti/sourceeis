@@ -278,8 +278,8 @@ public class FSTGenMerger extends FSTGenProcessor {
 			
 			countAcidentalFNs(conflicts,mergeResult);
 			
-			restoreEqualFiles(currentMergedRevisionFilePath);
 			Util.unMergeNonJavaFiles(currentMergedRevisionFilePath);
+			restoreEqualFiles(currentMergedRevisionFilePath);
 
 			long tf = System.currentTimeMillis();
 			long mergeTime =  ((tf-t0)/60000);
@@ -2162,10 +2162,10 @@ public class FSTGenMerger extends FSTGenProcessor {
 						File r = new File(rightFilePath);
 						l.setWritable(true);
 						r.setWritable(true);
-						l.delete();
-						r.delete();
-						//						FileUtils.forceDelete(new File(leftFilePath));
-						//						FileUtils.forceDelete(new File(rightFilePath));
+						//l.delete();
+						//r.delete();
+						FileUtils.forceDelete(new File(leftFilePath));
+						FileUtils.forceDelete(new File(rightFilePath));
 						System.out.println("ignoring equal file: " + file.getAbsolutePath());
 
 
@@ -2279,6 +2279,7 @@ public class FSTGenMerger extends FSTGenProcessor {
 			} else {
 				File finalFile = new File(file.getAbsolutePath().replaceFirst(tempAlias, resultAlias));
 				try{
+					file.setWritable(true);
 					FileUtils.moveFile(file, finalFile);
 				}catch(Exception e){
 					e.printStackTrace();

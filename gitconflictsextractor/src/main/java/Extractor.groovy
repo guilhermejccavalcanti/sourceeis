@@ -1,6 +1,5 @@
-import java.io.FileInputStream
-
 import org.eclipse.jgit.api.CleanCommand
+import org.eclipse.jgit.api.CloneCommand
 import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.api.MergeCommand
 import org.eclipse.jgit.api.MergeResult
@@ -13,10 +12,11 @@ import org.eclipse.jgit.lib.Repository
 import org.eclipse.jgit.revwalk.RevWalk
 import org.eclipse.jgit.revwalk.filter.RevFilter
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder
+import org.eclipse.jgit.transport.CredentialsProvider
+import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider
 
 import util.ChkoutCmd
 import util.RecursiveFileList
-
 
 class Extractor {
 
@@ -513,10 +513,18 @@ class Extractor {
 
 		// then clone
 		println "Cloning from " + remoteUrl + " to " + gitWorkDir + "..."
-		Git.cloneRepository()
+		CloneCommand clone = new CloneCommand()
 				.setURI(remoteUrl)
 				.setDirectory(gitWorkDir)
-				.call();
+		if(remoteUrl.contains('bitbucket')){
+			String name = "gjcc@cin.ufpe.br"
+			String password = "ganister"
+
+			// credentials
+			CredentialsProvider cp = new UsernamePasswordCredentialsProvider(name, password)
+			clone.setCredentialsProvider(cp)
+		}
+		clone.call()
 
 		// now open the created repository
 		FileRepositoryBuilder builder = new FileRepositoryBuilder()
@@ -813,9 +821,9 @@ class Extractor {
 		//new AntBuilder().zip(destfile: "C:\\Users\\Guilherme\\.m2.zip", basedir: "C:\\Users\\Guilherme\\.m2")
 		//new AntBuilder().copy(todir:"/home/local/CIN/gjcc/fpfnanalysis/samplerpl") {fileset(dir:"/home/local/CIN/gjcc/fpfnanalysis/samplerpl_bkp" , defaultExcludes: false){}}}
 
-	//		String memberName = "first";
-	//		String s = "return first() + familyName;"
-	//		println s.matches("(?s).*\\b"+memberName+"\\b.*")
+		//		String memberName = "first";
+		//		String s = "return first() + familyName;"
+		//		println s.matches("(?s).*\\b"+memberName+"\\b.*")
 
 	}
 

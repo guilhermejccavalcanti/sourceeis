@@ -1,0 +1,12 @@
+file;ssmergeConf
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisdot\revisions\rev_ff28e37_98be70a\rev_ff28e37-98be70a\sisdot-web\src\main\java\br\mil\eb\cds\sisdot\beans\tipo\SituacaoCadastralConverter.java;<<<<<<< MINE
+@Override
+	public Object getAsObject(FacesContext context, UIComponent component, String value) {
+		SituacaoCadastral retorno = null;
+		if (!StringUtils.isBlank(value)) {
+			retorno = (SituacaoCadastral) EnumConverter.fromLabel(SituacaoCadastral.class, value);
+		} 
+		return retorno;
+	}
+=======
+>>>>>>> YOURS

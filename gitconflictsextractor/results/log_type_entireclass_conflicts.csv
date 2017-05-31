@@ -1,0 +1,514 @@
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisdot\revisions\rev_ff28e37_98be70a\rev_ff28e37-98be70a\sisdot-web\src\main\java\br\mil\eb\cds\sisdot\beans\tipo\SituacaoCadastralConverter.java;<<<<<<< MINE
+package br.mil.eb.cds.sisdot.beans.tipo;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
+//import javax.faces.convert.FacesConverter;
+
+import org.apache.commons.lang3.StringUtils;
+
+import br.mil.eb.cds.sisdot.modelo.SituacaoCadastral;
+import br.mil.eb.cds.sisdot.util.EnumConverter;
+
+//TODO mover para pacote correto
+@ManagedBean(name="situacaoCadastralConverter")
+@RequestScoped
+public class SituacaoCadastralConverter implements Converter {
+
+	@Override
+	public Object getAsObject(FacesContext context, UIComponent component, String value) {
+		SituacaoCadastral retorno = null;
+		if (!StringUtils.isBlank(value)) {
+			retorno = (SituacaoCadastral) EnumConverter.fromLabel(SituacaoCadastral.class, value);
+		} 
+		return retorno;
+	}
+
+	@Override
+	public String getAsString(FacesContext context, UIComponent component, Object object) {		
+		//Since instanceof will return false for null references, the null check is not needed.
+		if (object instanceof SituacaoCadastral) {	
+			return ((SituacaoCadastral)object).getLabel();
+		} else {
+			return null;
+		}
+	}
+}=======
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisdot\revisions\rev_1de4f2b_d0cf750\rev_1de4f2b-d0cf750\sisdot-web\src\main\java\br\mil\eb\cds\sisdot\beans\tipo\TipoMaterialPesquisaMB.java;<<<<<<< MINE
+@ViewScoped
+//@RequestScoped
+public class TipoMaterialPesquisaMB extends AbstractTipoMaterialMB {	
+
+	@Getter @Setter
+	private SituacaoCadastral situacaoSelecionada;
+=======
+//@ViewScoped
+@RequestScoped
+public class TipoMaterialPesquisaMB extends AbstractTipoMaterialMB {
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_46cbe3b_ae86c9f\rev_46cbe3b-ae86c9f\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\modelo\PostoGraduacao.java;<<<<<<< MINE
+=======
+package br.mil.eb.cds.sisbol.boletim.modelo;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import br.unb.cic.comum.modelo.IEntidade;
+import br.unb.cic.rest.comum.Views;
+import lombok.Data;
+
+@SuppressWarnings("serial")
+@Data
+@Entity
+@Table(name = "POSTO_GRADUACAO")
+public class PostoGraduacao implements IEntidade<Long> {
+	
+	@JsonView(Views.Listagem.class)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID_POSTO_GRADUACAO")
+	private Long id;
+	
+	@JsonView(Views.Listagem.class)
+	@Column(name = "NOME" , length = 100)
+	private String nome;
+	
+	@Override
+	public Long getId() {
+		return id;
+	}
+	
+}>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_46cbe3b_ae86c9f\rev_46cbe3b-ae86c9f\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\repositorio\PostoGraduacaoRepositorioJPA.java;<<<<<<< MINE
+=======
+package br.mil.eb.cds.sisbol.boletim.repositorio;
+
+import javax.ejb.LocalBean;
+
+import br.mil.eb.cds.sisbol.boletim.modelo.PostoGraduacao;
+import br.unb.cic.comum.repositorio.RepositorioJPAGenerico;
+
+@SuppressWarnings("serial")
+@LocalBean
+public class PostoGraduacaoRepositorioJPA extends RepositorioJPAGenerico<PostoGraduacao>{
+	
+	@Override
+	protected Class<PostoGraduacao> getClasseEntidade() {
+		return PostoGraduacao.class;
+	}
+}>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_46cbe3b_ae86c9f\rev_46cbe3b-ae86c9f\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\servico\PostoGraduacaoServico.java;<<<<<<< MINE
+=======
+package br.mil.eb.cds.sisbol.boletim.servico;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+
+import br.mil.eb.cds.sisbol.boletim.modelo.PostoGraduacao;
+import br.mil.eb.cds.sisbol.boletim.repositorio.PostoGraduacaoRepositorioJPA;
+import br.unb.cic.comum.repositorio.RepositorioJPAGenerico;
+import br.unb.cic.comum.servico.ServicoGenerico;
+
+@SuppressWarnings("serial")
+@LocalBean
+@Stateless
+public class PostoGraduacaoServico extends ServicoGenerico<PostoGraduacao>{
+	@Inject
+	private PostoGraduacaoRepositorioJPA repositorio;
+	
+	@Override
+	protected RepositorioJPAGenerico<PostoGraduacao> getRepositorioJPA() {
+		return repositorio;
+	}
+
+	@Override
+	protected Class<PostoGraduacao> getClasseEntidade() {
+		return PostoGraduacao.class;
+	}
+}>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_46cbe3b_ae86c9f\rev_46cbe3b-ae86c9f\sisbol-core\src\test\java\br\mil\eb\cds\sisbol\boletim\modelo\PostoGraduacaoTest.java;<<<<<<< MINE
+=======
+package br.mil.eb.cds.sisbol.boletim.modelo;
+
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
+public class PostoGraduacaoTest {
+	
+	private static final long ID_POSTO_GRADUACAO = 5L;
+	private static final String NOME = "General";
+	
+	public PostoGraduacao criarPostoGraduacao(){
+		PostoGraduacao posto = new PostoGraduacao();
+		posto.setId(ID_POSTO_GRADUACAO);
+		posto.setNome(NOME);
+		return posto;
+	}
+	
+	@Test
+	public void testaCriaPostoGraduacao(){
+		PostoGraduacao posto = criarPostoGraduacao();
+		assertTrue(posto.getId() == ID_POSTO_GRADUACAO);
+		assertTrue(posto.getNome().equals(NOME));
+	}
+
+}>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_46cbe3b_ae86c9f\rev_46cbe3b-ae86c9f\sisbol-web\src\main\java\br\mil\eb\cds\sisbol\boletim\resources\PostoGraduacaoResource.java;<<<<<<< MINE
+=======
+package br.mil.eb.cds.sisbol.boletim.resources;
+
+import javax.inject.Inject;
+import javax.ws.rs.Path;
+
+import br.mil.eb.cds.sisbol.boletim.modelo.PostoGraduacao;
+import br.mil.eb.cds.sisbol.boletim.servico.PostoGraduacaoServico;
+import br.unb.cic.comum.servico.ServicoGenerico;
+import br.unb.cic.rest.comum.ResourceComum;
+import io.swagger.annotations.Api;
+import lombok.Getter;
+
+@Path("/postoGraduacao")
+@Api(value = "PostoGraduacaoResource - Classe responsÃ¡vel por conter os endpoints referente a posto/graduacao.")
+public class PostoGraduacaoResource 
+	extends ResourceComum<PostoGraduacao>{
+	
+	@Inject
+	@Getter
+	private PostoGraduacaoServico PostoGraduacaoServico;
+
+	@Override
+	protected ServicoGenerico<PostoGraduacao> getServico() {
+		return getPostoGraduacaoServico();
+	}
+
+	@Override
+	protected Class<PostoGraduacao> getClasseEntidade() {
+		return PostoGraduacao.class;
+	}
+
+}>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_b58ae04_3ec9ffc\rev_b58ae04-3ec9ffc\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\servico\requisicoes\RequisicaoAssociarNota.java;<<<<<<< MINE
+=======
+package br.mil.eb.cds.sisbol.boletim.servico.requisicoes;
+
+import lombok.Data;
+
+import java.util.List;
+
+/**
+ * Created by henriquefaria on 3/4/17.
+ */
+
+@Data
+public class RequisicaoAssociarNota {
+
+    private Long idBoletim;
+    private List<Long> idNotas;
+
+}>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\modelo\PostoGraduacao.java;<<<<<<< MINE
+=======
+package br.mil.eb.cds.sisbol.boletim.modelo;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import br.unb.cic.comum.modelo.IEntidade;
+import br.unb.cic.rest.comum.Views;
+import lombok.Data;
+
+@SuppressWarnings("serial")
+@Data
+@Entity
+@Table(name = "TB_POSTO_GRADUACAO")
+public class PostoGraduacao implements IEntidade<Long> {
+	
+	@JsonView(Views.Listagem.class)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID_POSTO_GRADUACAO")
+	private Long id;
+	
+	@JsonView(Views.Listagem.class)
+	@NotBlank
+	@Column(name = "NOME" , nullable = false, unique=true, length = 100)
+	private String nome;
+	
+	@Override
+	public Long getId() {
+		return id;
+	}
+	
+}>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\repositorio\PostoGraduacaoRepositorioJPA.java;<<<<<<< MINE
+=======
+package br.mil.eb.cds.sisbol.boletim.repositorio;
+
+import javax.ejb.LocalBean;
+
+import br.mil.eb.cds.sisbol.boletim.modelo.PostoGraduacao;
+import br.unb.cic.comum.repositorio.RepositorioJPAGenerico;
+
+@SuppressWarnings("serial")
+@LocalBean
+public class PostoGraduacaoRepositorioJPA extends RepositorioJPAGenerico<PostoGraduacao>{
+	
+	@Override
+	protected Class<PostoGraduacao> getClasseEntidade() {
+		return PostoGraduacao.class;
+	}
+}>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-core\src\main\java\br\mil\eb\cds\sisbol\boletim\servico\PostoGraduacaoServico.java;<<<<<<< MINE
+=======
+package br.mil.eb.cds.sisbol.boletim.servico;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+
+import br.mil.eb.cds.sisbol.boletim.modelo.PostoGraduacao;
+import br.mil.eb.cds.sisbol.boletim.repositorio.PostoGraduacaoRepositorioJPA;
+import br.unb.cic.comum.repositorio.RepositorioJPAGenerico;
+import br.unb.cic.comum.servico.ServicoGenerico;
+
+@SuppressWarnings("serial")
+@LocalBean
+@Stateless
+public class PostoGraduacaoServico extends ServicoGenerico<PostoGraduacao>{
+	@Inject
+	private PostoGraduacaoRepositorioJPA repositorio;
+	
+	@Override
+	protected RepositorioJPAGenerico<PostoGraduacao> getRepositorioJPA() {
+		return repositorio;
+	}
+
+	@Override
+	protected Class<PostoGraduacao> getClasseEntidade() {
+		return PostoGraduacao.class;
+	}
+}>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-web\src\main\java\br\mil\eb\cds\sisbol\boletim\resources\PostoGraduacaoResource.java;<<<<<<< MINE
+=======
+package br.mil.eb.cds.sisbol.boletim.resources;
+
+import javax.inject.Inject;
+import javax.ws.rs.Path;
+
+import br.mil.eb.cds.sisbol.boletim.modelo.PostoGraduacao;
+import br.mil.eb.cds.sisbol.boletim.servico.PostoGraduacaoServico;
+import br.unb.cic.comum.servico.ServicoGenerico;
+import br.unb.cic.rest.comum.ResourceComum;
+import io.swagger.annotations.Api;
+import lombok.Getter;
+
+@Path("/postoGraduacao")
+@Api(value = "PostoGraduacaoResource - Classe responsÃ¡vel por conter os endpoints referente a posto/graduacao.")
+public class PostoGraduacaoResource 
+	extends ResourceComum<PostoGraduacao>{
+	
+	@Inject
+	@Getter
+	private PostoGraduacaoServico postoGraduacaoServico;
+
+	@Override
+	protected ServicoGenerico<PostoGraduacao> getServico() {
+		return getPostoGraduacaoServico();
+	}
+
+	@Override
+	protected Class<PostoGraduacao> getClasseEntidade() {
+		return PostoGraduacao.class;
+	}
+
+}>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-web\src\test\java\br\mil\eb\cds\sisbol\features\postoGraduacao\CadastroPostoGraduacaoTest.java;<<<<<<< MINE
+=======
+package br.mil.eb.cds.sisbol.features.postoGraduacao;
+
+import java.util.Map;
+
+import org.junit.Test;
+
+public class CadastroPostoGraduacaoTest extends PostoGraduacaoTest{
+
+	private static final long serialVersionUID = 1L;
+	
+	@Test
+    public void testarCadastro() {
+        Map<String, Object> json = criarJson("asdf");
+        cadastrar(json, STATUS_OK);
+    }
+	
+	@Test
+    public void testarCamposObrigatorios(){
+        Map<String, Object> json = criarJson("");
+        cadastrar(json , STATUS_ERROR);
+        json = criarJson("asda");
+        cadastrar(json , STATUS_OK);
+    }
+}>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-web\src\test\java\br\mil\eb\cds\sisbol\features\postoGraduacao\ExcluirPostoGraduacaoTest.java;<<<<<<< MINE
+=======
+package br.mil.eb.cds.sisbol.features.postoGraduacao;
+
+import static io.restassured.RestAssured.delete;
+
+import java.util.Map;
+
+import org.junit.Test;
+
+public class ExcluirPostoGraduacaoTest extends PostoGraduacaoTest{
+	/** Serial version 	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Test
+    public void testeExcluirEntidadeCadastrada() {
+        Map<String, Object> json = criarJson("afaaf");
+        Integer id = cadastrar(json, STATUS_OK);
+
+        delete(ENDPOINT + getPath() + "?id=" + id).then().statusCode(204);
+        recuperarPorId(id, 204);
+    }
+
+    @Test
+    public void testeExcluiEntidadeNaoCadastrada()  {
+        delete(ENDPOINT + getPath() + "?id=" + 10000).then().statusCode(500);
+    }
+
+}>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_499ee18_943b99b\rev_499ee18-943b99b\sisbol-web\src\test\java\br\mil\eb\cds\sisbol\features\postoGraduacao\RecuperarPostoGraduacaoTest.java;<<<<<<< MINE
+=======
+package br.mil.eb.cds.sisbol.features.postoGraduacao;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Map;
+
+import org.junit.Test;
+
+import br.mil.eb.cds.sisbol.util.RespostaJson;
+
+public class RecuperarPostoGraduacaoTest extends PostoGraduacaoTest {
+	
+	/** Serial version 	 */
+	private static final long serialVersionUID = 1L;
+
+    @Test
+    public void testeListaNaoVaziaComBasePopulada() {
+        popularBase(5);
+        RespostaJson todos = recuperarTodos();
+        assertFalse(todos.isEmpty());
+    }
+
+    @Test
+    public void testeTamanhoLista() {
+        int tamanho = 5;
+        popularBase(tamanho);
+        RespostaJson todos = recuperarTodos();
+        assertTrue(todos.size() == tamanho);
+    }
+
+    public void popularBase(int qtd) {
+
+        if (qtd > 9) {
+            throw new RuntimeException("Tamanho invalido");
+        }
+
+        for (int i = 1; i <= qtd; i++ ) {
+            Map<String, Object> json1 = criarJson("Dm"+i);
+            cadastrar(json1, STATUS_OK);
+
+        }
+    }
+}>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_3a745b0_86d0ba1\rev_3a745b0-86d0ba1\sisbol-web\src\test\java\br\mil\eb\cds\sisbol\features\tipoDocumento\cadastro\CadastrarTipoDocumentoRunner.java;<<<<<<< MINE
+=======
+package br.mil.eb.cds.sisbol.features.tipoDocumento.cadastro;
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+import org.junit.runner.RunWith;
+
+/**
+ * Created by rafael on 08/05/17.
+ */
+@RunWith(Cucumber.class)
+@CucumberOptions(
+        features = "src/test/java/br/mil/eb/cds/sisbol/features/tipoDocumento/cadastro/cadastrar_tipo_documento.feature"
+)
+public class CadastrarTipoDocumentoRunner {
+}>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisbol\revisions\rev_3a745b0_86d0ba1\rev_3a745b0-86d0ba1\sisbol-web\src\test\java\br\mil\eb\cds\sisbol\features\tipoDocumento\cadastro\CadastrarTipoDocumentoSpec.java;<<<<<<< MINE
+=======
+package br.mil.eb.cds.sisbol.features.tipoDocumento.cadastro;
+
+import br.mil.eb.cds.sisbol.features.tipoDocumento.TipoDocumentoTest;
+import cucumber.api.java.Before;
+import cucumber.api.java.es.Dado;
+import cucumber.api.java.pt.Entao;
+import cucumber.api.java.pt.Quando;
+
+import java.util.Map;
+
+import static org.junit.Assert.assertTrue;
+
+/**
+ * Created by rafael on 08/05/17.
+ */
+public class CadastrarTipoDocumentoSpec extends TipoDocumentoTest{
+
+    Map<String, Object> json;
+    Integer statusCode;
+
+    @Before
+    public void before() {
+        apagarBase();
+    }
+
+    @Dado("^que eu precise criar um Tipo de Documento de nome \"([^\"]*)\"$")
+    public void que_eu_precise_criar_um_Tipo_de_Documento_de_nome(String nome) throws Throwable {
+        json = criarJson(nome);
+    }
+
+    @Quando("^eu requisitar que este Tipo de Documento seja criado$")
+    public void eu_requisitar_que_este_Tipo_de_Documento_seja_criado() throws Throwable {
+        statusCode = cadastrar(json);
+    }
+
+    @Entao("^devo receber uma confirmaÃ§Ã£o de \"([^\"]*)\" no cadastro$")
+    public void devo_receber_uma_confirmaÃ§Ã£o_de_no_cadastro(String result) throws Throwable {
+        if(result.equals("sucesso")){
+            assertTrue(statusCode == 200);
+        }else{
+            assertTrue(statusCode == 500);
+        }
+    }
+
+    @Dado("^que eu possuo um Tipo de Documento de nome \"([^\"]*)\" ja criado$")
+    public void que_eu_possuo_um_Tipo_de_Documento_de_nome_ja_criado(String nome) throws Throwable {
+        json = criarJson(nome);
+        cadastrar(json);
+    }
+}>>>>>>> YOURS
