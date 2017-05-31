@@ -1,5 +1,0 @@
-revision;file;methodsignature;leftbody;basebody;rightbody
-C:\Users\Guilherme Cavalcanti\Desktop\testeis\projects\sisdot\revisions\rev_1de4f2b_d0cf750\rev_1de4f2b-d0cf750;\sisdot-web\src\main\java\br\mil\eb\cds\sisdot\beans\tipo\TipoMaterialPesquisaMB;realizarBusca();		//logger.warn("Realizando busca .... "+parametroBusca);
-		resultadoBusca = getTipoMaterialServico().pesquisar(parametroBusca, situacaoSelecionada);		;		logger.warn("Realizando busca .... "+parametroBusca);
-		resultadoBusca = getTipoMaterialServico().pesquisar(parametroBusca, situacaoSelecionada);		;		logger.warn("Realizando busca .... "+parametroBusca);
-		resultadoBusca = getTipoMaterialServico().pesquisar(parametroBusca, SituacaoCadastral.ATIVO);
