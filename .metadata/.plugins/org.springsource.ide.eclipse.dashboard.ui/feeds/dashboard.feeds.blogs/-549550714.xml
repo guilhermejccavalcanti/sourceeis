@@ -5,7 +5,19 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2017-05-30T20:20:54Z</updated>
+  <updated>2017-05-31T18:44:29Z</updated>
+  <entry>
+    <title>Spring Web Flow 2.4.5 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2017/05/31/spring-web-flow-2-4-5-released" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Rossen Stoyanchev</name>
+    </author>
+    <id>tag:spring.io,2017-05-31:2936</id>
+    <updated>2017-05-31T18:44:29Z</updated>
+    <content type="html">&lt;p&gt;A minor maintenance release version 2.4.5 for Spring Web Flow is now available for use. &lt;/p&gt;
+&lt;p&gt;The release includes an important security fix for vulnerability report &lt;a href="https://pivotal.io/security/cve-2017-4971"&gt;CVE-2017-4971&lt;/a&gt;. Please review the report details and upgrade.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring  - May 30th, 2017</title>
     <link rel="alternate" href="https://spring.io/blog/2017/05/30/this-week-in-spring-may-30th-2017" />
@@ -1042,27 +1054,5 @@ WebFilter springSecurityFilterChain(ReactiveAuthenticationManager manager) {&#xD
 &lt;div class="paragraph"&gt;
 &lt;p&gt;&lt;a href="http://projects.spring.io/spring-amqp/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://jira.spring.io/browse/AMQP"&gt;JIRA&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-amqp/blob/master/CONTRIBUTING.adoc"&gt;Contributing&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-amqp"&gt;Help&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-amqp"&gt;Chat&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Cloud Camden SR7 Released</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/05/08/spring-cloud-camden-sr7-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Ryan Baxter</name>
-    </author>
-    <id>tag:spring.io,2017-05-05:2916</id>
-    <updated>2017-05-08T14:49:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf of the team, I am pleased to announce that Service Release 7 of the &lt;a href="http://cloud.spring.io"&gt;Spring Cloud Camden&lt;/a&gt; Release Train is available today. The release can be found in our &lt;a href="http://repo.spring.io/release"&gt;Spring Release repository&lt;/a&gt; and &lt;a href="http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22spring-cloud-dependencies%22"&gt;Maven Central&lt;/a&gt;. The documentation can be found &lt;a href="http://cloud.spring.io/spring-cloud-static/Camden.SR7/"&gt;here&lt;/a&gt;. The release notes can be found &lt;a href="https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Camden-Release-Notes#camdensr7"&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;h4&gt;&lt;a href="#the-following-modules-were-updated-as-part-of-camden-sr7" class="anchor" name="the-following-modules-were-updated-as-part-of-camden-sr7"&gt;&lt;/a&gt;The following modules were updated as part of Camden.SR7:&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Spring Cloud Commons &lt;a href="https://github.com/spring-cloud/spring-cloud-commons/milestone/24?closed=1"&gt;1.1.9.RELEASE&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Cloud Netflix &lt;a href="https://github.com/spring-cloud/spring-cloud-netflix/milestone/39?closed=1"&gt;1.2.7.RELEASE&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Cloud AWS &lt;a href="https://github.com/spring-cloud/spring-cloud-aws/milestone/15?closed=1"&gt;1.1.4.RELEASE&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Cloud Consul 1.1.4.RELEASE Dependency Fixes&lt;/li&gt;
-  &lt;li&gt;Spring Cloud Security 1.1.4.RELEASE Documentation Fixes&lt;/li&gt;
-  &lt;li&gt;Spring Cloud Sleuth &lt;a href="https://github.com/spring-cloud/spring-cloud-sleuth/milestone/24?closed=1"&gt;1.1.4.RELEASE&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Cloud Stream Brooklyn.SR3 fixes issues with Spring Cloud Bus, Hystrix, and Turbine. See this &lt;a href="https://github.com/spring-cloud/spring-cloud-stream/issues/810"&gt;issue&lt;/a&gt; for more information.&lt;/li&gt;
-  &lt;li&gt;Spring Cloud Contract &lt;a href="https://github.com/spring-cloud/spring-cloud-contract/milestone/11?closed=1"&gt;1.0.5.RELEASE&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;And, as always, we welcome feedback: either on &lt;a href="https://github.com/spring-cloud"&gt;GitHub&lt;/a&gt;, on &lt;a href="https://gitter.im/spring-cloud/spring-cloud"&gt;gitter&lt;/a&gt;, on &lt;a href="http://stackoverflow.com/questions/tagged/spring-cloud"&gt;Stack Overflow&lt;/a&gt;, or on &lt;a href="https://twitter.com/SpringCloud"&gt;Twitter&lt;/a&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>

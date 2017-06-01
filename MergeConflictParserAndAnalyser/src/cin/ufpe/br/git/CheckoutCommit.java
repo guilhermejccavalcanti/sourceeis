@@ -71,4 +71,21 @@ public class CheckoutCommit {
 		
 		if(output.contains("fatal")) throw new Exception();
 	}
+	
+	public void checkoutRepositoryCMD(String workingDirectory, String projectName, String commitNumber) throws Exception {
+		String gitcmd ="git reset --hard " + commitNumber;
+		String cmdpath= workingDirectory + projectName + "\\git";
+		Runtime run = Runtime.getRuntime();
+		Process pr 	= run.exec(gitcmd,null,new File(cmdpath));
+		
+		//status
+		BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getErrorStream()));
+		String line  	= "";
+		String output 	= "";
+		while ((line=buf.readLine())!=null) {output+=line;System.err.println(line);}
+		pr.getErrorStream().close();
+		pr.getOutputStream().close();
+		
+		if(output.contains("fatal")) throw new Exception();
+	}
 }

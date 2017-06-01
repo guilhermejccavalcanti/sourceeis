@@ -1,0 +1,20 @@
+/home/local/CIN/gjcc/fpfnanalysis/projects/OpenRefine/revisions/rev_e3fc7_ecca1/rev_e3fc7-ecca1.revisions;/main/src/com/metaweb/gridworks/expr/JythonEvaluable.java;
+static {
+        File libPath = new File("webapp/WEB-INF/lib/jython");
+        if (libPath.exists()) {
+            Properties props = new Properties();
+            props.setProperty("python.path", libPath.getAbsolutePath());
+            
+            PythonInterpreter.initialize(System.getProperties(),props, new String[] { "" });
+        }
+        _engine = new PythonInterpreter();
+    };
+static {
+        File libPath = new File("webapp/WEB-INF/lib/jython");
+        if (libPath.exists()) {
+            Properties props = new Properties();
+            props.setProperty("python.path", libPath.getAbsolutePath());
+            PythonInterpreter.initialize(System.getProperties(), props, new String[] { "" });
+        }
+        _engine = new PythonInterpreter();
+    }

@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 
+import cin.ufpe.br.blocks.MatchedBlocks;
+
 public final class ProjectsInfoCollector {
 	
 	public static ArrayList<Info> collectInfo(String filepath) throws IOException{
@@ -78,6 +80,15 @@ public final class ProjectsInfoCollector {
 		mergeConflict.leftCommit = mineCommit;
 		mergeConflict.rightCommit = yoursCommit;
 		mergeConflict.filePath = filepath;
+	}
+
+	public static void collect(MatchedBlocks block) {
+		int idx = block.revisionFile.lastIndexOf('/')+1;
+		String revision = block.revisionFile.substring(idx, (block.revisionFile.length()));
+		block.leftCommit 	=((revision.split("\\.")[0]).split("_")[1]).split("-")[0];
+		block.rightCommit	=((revision.split("\\.")[0]).split("_")[1]).split("-")[1];
+		block.projectname 	= (block.revisionFile.split("projects")[1]).split("/revisions/")[0];
+		block.projectname 	= block.projectname.substring(1,block.projectname.length());
 	}
 	
 }

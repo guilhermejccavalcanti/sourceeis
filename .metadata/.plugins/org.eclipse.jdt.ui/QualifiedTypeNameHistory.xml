@@ -27,13 +27,11 @@
 <fullyQualifiedTypeName name="org.eclipse.jgit.api.errors.GitAPIException"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="cin.ufpe.br.analyser.Analyser.SintaxType"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.apache.commons.io.FileUtils"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.github.javaparser.ast.expr.MethodCallExpr"/>
 <fullyQualifiedTypeName name="cin.ufpe.br.git.CheckoutCommit"/>
 <fullyQualifiedTypeName name="com.github.javaparser.ast.CompilationUnit"/>
-<fullyQualifiedTypeName name="cin.ufpe.br.parser.LightweightParser"/>
 <fullyQualifiedTypeName name="com.github.javaparser.ast.expr.FieldAccessExpr"/>
 <fullyQualifiedTypeName name="cin.ufpe.br.analyser.Analyser.ResolutionType"/>
 <fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
@@ -52,4 +50,11 @@
 <fullyQualifiedTypeName name="cin.ufpe.br.util.MergeConflict"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.apache.commons.lang3.tuple.Pair"/>
+<fullyQualifiedTypeName name="cin.ufpe.br.blocks.MatchedBlocks"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="cin.ufpe.br.blocks.InitializationBlocksCollector"/>
+<fullyQualifiedTypeName name="com.github.javaparser.ast.body.InitializerDeclaration"/>
+<fullyQualifiedTypeName name="cin.ufpe.br.parser.LightweightParser"/>
+<fullyQualifiedTypeName name="cin.ufpe.br.util.FileHandlerr"/>
 </qualifiedTypeNameHistroy>

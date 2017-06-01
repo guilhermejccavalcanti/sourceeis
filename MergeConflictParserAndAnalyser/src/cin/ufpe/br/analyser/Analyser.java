@@ -18,6 +18,8 @@ import java.util.logging.LogManager;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+import cin.ufpe.br.blocks.InitializationBlocksCollector;
+import cin.ufpe.br.blocks.MatchedBlocks;
 import cin.ufpe.br.git.CheckFileForMineYours;
 import cin.ufpe.br.git.CheckoutCommit;
 import cin.ufpe.br.git.MergeCommitsNumberFinder;
@@ -30,6 +32,7 @@ import cin.ufpe.br.util.ProjectsInfoCollector;
 import cin.ufpe.br.util.StdOutErrLevel;
 
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.InitializerDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.FieldAccessExpr;
 import com.github.javaparser.ast.expr.MethodCallExpr;
@@ -77,6 +80,43 @@ public final class Analyser {
 		checkMethodsDependencies();
 
 		analyseRenamingResolution();
+	}
+
+	public static void analyseInitializationBlocks(String logpath){
+		try {
+			loadProperties();
+			//1. get initialization blocks from log
+			List<MatchedBlocks> blocks = InitializationBlocksCollector.collectMineTheirsBlocksFromText(logpath);
+			for(MatchedBlocks block : blocks){
+				ProjectsInfoCollector.collect(block);
+				MergeCommitsNumberFinder.find(block);
+				try{
+					(new CheckoutCommit()).checkoutRepositoryCMD(workingDirectory, block.projectname, block.mergeCommit);
+				}catch(Exception e){
+					e.printStackTrace();
+					continue;
+				}
+				
+				//2. get initialization blocks from merged file
+				File mergedfile = new File(workingDirectory + block.projectname + "\\git\\" + block.originFile);
+				CompilationUnit parsed = LightweightParser.parse(FileHandlerr.readFile(mergedfile));
+				List<InitializerDeclaration> iblks = LightweightParser.findInitializationBlocks(parsed);
+				
+				//3. compare blocks from log and merged file
+				for(InitializerDeclaration iblk : iblks){
+					String iblkstr = iblk.toString();
+					double similarity = FileHandlerr.computeStringSimilarity(block.mineblock, iblkstr);
+					if(similarity < 0.85){
+						similarity = FileHandlerr.computeStringSimilarity(block.yoursblock, iblkstr);
+						if(similarity < 0.85) {
+							//merge merged,left,right and take conflicts
+						}
+					} 
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private static void findConflictsInvolvingSameSyntacticType(List<MergeConflict> conflicts) {
@@ -652,7 +692,9 @@ public final class Analyser {
 	}
 
 	public static void main(String[] args) {
-		try{
+		analyseInitializationBlocks("test.txt");
+		
+		/*		try{
 			logger();
 
 			long t0 = System.currentTimeMillis();
@@ -664,7 +706,7 @@ public final class Analyser {
 			System.out.println("analysis time: " + mergeTime + " minutes");
 		}catch(Exception e){
 			e.printStackTrace();
-		}
+		}*/
 
 
 		/*		try{

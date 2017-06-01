@@ -2,12 +2,12 @@ package cin.ufpe.br.parser;
 
 import java.io.File;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import cin.ufpe.br.util.FileHandlerr;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.InitializerDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.FieldAccessExpr;
 import com.github.javaparser.ast.expr.MethodCallExpr;
@@ -31,15 +31,13 @@ public final class LightweightParser {
 				return m;
 		}
 		return null;
-
-		/*		return parsedCode.getNodesByType(MethodDeclaration.class).stream()
-				.filter(c -> 
-				FileHandler.getStringContentIntoSingleLineNoSpacing(FileHandler.findMethodSignatures(c.toString()).get(0))
-				.equals(
-						FileHandler.getStringContentIntoSingleLineNoSpacing(methodSignature))
-						)
-						.collect(Collectors.toList()).get(0);*/
 	}
+	
+	public static List<InitializerDeclaration> findInitializationBlocks(CompilationUnit parsedCode){
+		List<InitializerDeclaration> declarations = parsedCode.getNodesByType(InitializerDeclaration.class);
+		return declarations;
+	}
+
 
 	void findMethodCalls(MethodDeclaration methodDeclaration, List<File> filesToSearchIn, List<String> solverpaths){
 		for(File file : filesToSearchIn){

@@ -1,0 +1,19 @@
+package cin.ufpe.br.blocks;
+
+import java.util.ArrayList;
+
+public class MatchedBlocks {
+
+	public String mineblock;
+	public String yoursblock;
+	public String mergeblock;
+	public String originFile;
+	public String revisionFile;
+
+	public MatchedBlocks(ArrayList<String> m, ArrayList<String> y, String o, String r) {
+		this.mineblock = m;
+		this.yoursblock = y;
+		this.originFile = o;
+		this.revisionFile = r;
+	}
+}
