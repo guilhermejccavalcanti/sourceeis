@@ -57,7 +57,7 @@ public class CheckoutCommit {
 	
 	public void checkoutRepositoryCMD(String workingDirectory, MergeConflict mc, String commitNumber) throws Exception {
 		String gitcmd ="git reset --hard " + commitNumber;
-		String cmdpath= workingDirectory + mc.projectName + "\\git";
+		String cmdpath= workingDirectory + File.separator + mc.projectName + File.separator +"git";
 		Runtime run = Runtime.getRuntime();
 		Process pr 	= run.exec(gitcmd,null,new File(cmdpath));
 		

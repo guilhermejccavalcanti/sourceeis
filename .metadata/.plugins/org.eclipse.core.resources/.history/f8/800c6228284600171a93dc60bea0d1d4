@@ -1,7 +1,0 @@
-public AssuntoGeral getAssuntoGeral(){
-		if(getAssuntoEspecifico() != null){
-			return getAssuntoEspecifico().getAssuntoGeral();
-		}else{
-			return null;
-		}
-	}

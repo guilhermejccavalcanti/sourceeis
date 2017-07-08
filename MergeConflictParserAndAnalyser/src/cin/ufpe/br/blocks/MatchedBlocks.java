@@ -9,9 +9,11 @@ public class MatchedBlocks {
 	public String mergeblock;
 	public String originFile;
 	public String revisionFile;
-	public String mergeCommit;
 	public String projectname;
 	public String filePath;
+
+	public String baseCommit;
+	public String mergeCommit;
 	public String rightCommit;
 	public String leftCommit;
 

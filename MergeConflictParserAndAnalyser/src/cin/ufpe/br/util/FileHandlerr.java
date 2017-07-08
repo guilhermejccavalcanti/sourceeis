@@ -1,6 +1,7 @@
 package cin.ufpe.br.util;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,6 +16,12 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
+import org.eclipse.jgit.diff.RawText;
+import org.eclipse.jgit.diff.RawTextComparator;
+import org.eclipse.jgit.lib.Constants;
+import org.eclipse.jgit.merge.MergeAlgorithm;
+import org.eclipse.jgit.merge.MergeFormatter;
+import org.eclipse.jgit.merge.MergeResult;
 
 public final class FileHandlerr {
 
@@ -94,6 +101,24 @@ public final class FileHandlerr {
 			}
 		}
 		return allFiles;
+	}
+
+	public static String merge(String left, String base, String right){
+		String textualMergeResult = null;
+		try{
+			RawTextComparator textComparator = RawTextComparator.DEFAULT;
+			@SuppressWarnings("rawtypes") MergeResult mergeCommand = new MergeAlgorithm().merge(textComparator,
+					new RawText(Constants.encode(base)), 
+					new RawText(Constants.encode(left)), 
+					new RawText(Constants.encode(right))
+					);		
+			ByteArrayOutputStream output = new ByteArrayOutputStream();
+			(new MergeFormatter()).formatMerge(output, mergeCommand, "BASE", "MINE", "YOURS", Constants.CHARACTER_ENCODING);
+			textualMergeResult = new String(output.toByteArray(), Constants.CHARACTER_ENCODING);
+		}catch(Exception e){
+			textualMergeResult= "";
+		}
+		return textualMergeResult;
 	}
 
 	public static void main(String[] args) {

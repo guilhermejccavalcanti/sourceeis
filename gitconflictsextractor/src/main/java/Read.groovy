@@ -66,8 +66,15 @@ class Read {
 				def project 	= new Project()
 				project.name 	= info[0]
 				project.url 	= info[1]
-				if(withGitMiner)
+
+				if(!withGitMiner && info.length == 4) {
+					project.miningSinceDate = info[2]
+					project.miningUntilDate = info[3]
+				} else if (!withGitMiner && info.length == 3) {
+					project.miningUntilDate = info[2]
+				} else if(withGitMiner){
 					project.graph 	= info[2]
+				}
 
 				this.listProject.add(project)
 

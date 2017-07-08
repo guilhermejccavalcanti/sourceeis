@@ -141,8 +141,8 @@ class App {
 				printMergeResult(mergeResult)
 
 				// deleted merged revisions
-				//				String revisionFolderDir = (new File(m.revisionFile)).getParent()
-				//				(new AntBuilder()).delete(dir:revisionFolderDir,failonerror:false)
+				String revisionFolderDir = (new File(m.revisionFile)).getParent()
+				(new AntBuilder()).delete(dir:revisionFolderDir,failonerror:false)
 
 				System.gc();
 			}
@@ -405,7 +405,7 @@ class App {
 				crosscutingConflicts			= fields[28].toInteger()+ mergeResult.crosscutingConflicts
 				crosscutingScenarios			= (mergeResult.crosscutingConflicts>0)?(fields[29].toInteger()+1):fields[29]
 				equalConfs						= fields[30].toInteger()+mergeResult.equalConfs
-				
+
 				projectFound = true;
 				def updatedRow = [project, mergeScenarios, fpOrderingMergeScenarios, fpRenamingMergeScenarios, fnDuplicationMergeScenarios, fnImportMergeScenarios, textualConfUnmerge, textualConfSsmerge, fpOrderingConf, fpRenamingConf, fnDuplicationMissed, fnImportMissed, fpRenamingConfDup, fpConsLines, fpSpacing, fpConsSpac, fpRenamingConfDupMergeScenarios, fpConsLinesMergeScenarios, fpSpacingMergeScenarios, fpConsSpacMergeScenarios, fnNewArtRefOldOneMergeScnarios, fnNewArtRefOldOneConf, fnAnonymous, fnAnonymousMergeScnarios, minfpamc, minfpamScenarios, fnAcidental, fnAcidentalScenarios, crosscutingConflicts, crosscutingScenarios, equalConfs]
 
@@ -447,7 +447,7 @@ class App {
 			crosscutingConflicts			= mergeResult.crosscutingConflicts
 			crosscutingScenarios			= (mergeResult.crosscutingConflicts>0)?1:0
 			equalConfs						= mergeResult.equalConfs
-			
+
 			def newRow = [project, mergeScenarios, fpOrderingMergeScenarios, fpRenamingMergeScenarios, fnDuplicationMergeScenarios, fnImportMergeScenarios, textualConfUnmerge, textualConfSsmerge, fpOrderingConf, fpRenamingConf, fnDuplicationMissed, fnImportMissed, fpRenamingConfDup, fpConsLines, fpSpacing, fpConsSpac, fpRenamingConfDupMergeScenarios, fpConsLinesMergeScenarios, fpSpacingMergeScenarios, fpConsSpacMergeScenarios, fnNewArtRefOldOneMergeScnarios, fnNewArtRefOldOneConf, fnAnonymous, fnAnonymousMergeScnarios, minfpamc, minfpamScenarios, fnAcidental, fnAcidentalScenarios, crosscutingConflicts, crosscutingScenarios, equalConfs]
 
 			rows.add(newRow.join(';'))
@@ -578,6 +578,7 @@ class App {
 
 	public static void main (String[] args){
 		new File("results/").mkdirs()
+		new File("results/html/").mkdirs()
 		new File("execution.log").createNewFile()
 
 		//restoreGitRepositories()
@@ -586,52 +587,113 @@ class App {
 
 		//logger();
 		//ArrayList<Project> projects = readProjects();
-		ArrayList<Project> projects = readProjectsNoGitMiner();
-		runFPFNAnalysis(projects)
+		//ArrayList<Project> projects = readProjectsNoGitMiner();
+		//runFPFNAnalysis(projects)
 
 		//testFPFNAnalysis2()
 		//collectMergeCommits()
-		//runRevisionsOfInterest("in.csv")
+
+		runRevisionsOfInterest("in.csv")
 	}
 
-	def static runRevisionsOfInterest(String revisionsfilepath){
-		logger();
+	/*	def static runRevisionsOfInterest(String revisionsfilepath){
+	 logger();
+	 List<String> entries = new ArrayList<String>()
+	 //parsing info from file
+	 File file = new File(revisionsfilepath)
+	 def lines = file.readLines()
+	 lines.each{ String rawInfo ->
+	 //avoiding path problems
+	 if(rawInfo.contains(Matcher.quoteReplacement("\\"))){
+	 rawInfo = rawInfo.replaceAll("/", Matcher.quoteReplacement("\\"));
+	 }
+	 //get project and commits info
+	 rawInfo = rawInfo.substring(rawInfo.indexOf("projects") + 9 , rawInfo.length())
+	 String projectName = rawInfo.substring(0,rawInfo.indexOf('/'))
+	 rawInfo = rawInfo.substring(rawInfo.indexOf('/') + 1,rawInfo.length())
+	 rawInfo = rawInfo.substring(rawInfo.indexOf('/') + 1,rawInfo.length())
+	 String commits = rawInfo.substring(0,rawInfo.indexOf('/'))
+	 rawInfo = rawInfo.substring(rawInfo.indexOf('/') + 1,rawInfo.length())
+	 rawInfo = rawInfo.substring(rawInfo.indexOf('/') + 1,rawInfo.length())
+	 commits = commits.substring(commits.indexOf('_') + 1,commits.length())
+	 String leftcommit = commits.substring(0,commits.indexOf('_'))
+	 String rightcommit= commits.substring(commits.indexOf('_') + 1,commits.length())
+	 //get merge commit
+	 File commitsfile = new File("/home/local/CIN/gjcc/fpfnanalysis/commits/commits_" + projectName + ".csv")
+	 def commitslines = commitsfile.readLines()
+	 String possibleMineYours
+	 String possibleMine = ""
+	 String possibleYours= ""
+	 String mergeCommit  = ""
+	 commitslines.each{String commitline ->
+	 possibleMineYours = commitline.substring(commitline.indexOf(',') + 1,commitline.length());
+	 possibleMine = possibleMineYours.substring(0,possibleMineYours.indexOf(','));
+	 possibleYours = possibleMineYours.substring(possibleMineYours.indexOf(',') + 1);
+	 if(possibleMine.startsWith(leftcommit) && possibleYours.startsWith(rightcommit)){
+	 mergeCommit = commitline.substring(0,commitline.indexOf(','));
+	 leftcommit = possibleMine
+	 rightcommit = possibleYours
+	 }
+	 }
+	 def entry = projectName+","+mergeCommit+","+leftcommit+","+rightcommit
+	 entries.add(entry);
+	 }
+	 //running
+	 def executedEntries = new File('execution.log').readLines()
+	 entries.each{ String entry ->
+	 String projectName = entry.split(",")[0]
+	 String mergecommit = entry.split(",")[1]
+	 String leftcommit  = entry.split(",")[2]
+	 String rightcommit = entry.split(",")[3]
+	 String basecommit  = (new Extractor()).findBaseCommit(leftcommit, rightcommit, projectName)
+	 if(!executedEntries.contains(entry)){
+	 String revisionFile = (new Extractor()).downloadMergeScenario(mergecommit, leftcommit, rightcommit, basecommit, projectName)
+	 if(revisionFile != null){
+	 println ('Analysing ' + entry)
+	 fillExecutionLog(entry)
+	 FSTGenMerger merger 	  = new FSTGenMerger()
+	 MergeResult mergeResult	  = new MergeResult()
+	 mergeResult.projectName	  = projectName
+	 mergeResult.revision	  = revisionFile
+	 FPFNCandidates candidates = merger.runMerger(mergeResult)
+	 MethodReferencesFinderAST finder = new MethodReferencesFinderAST()
+	 finder.run(mergeResult,candidates.renamingCandidates, candidates.importCandidates, candidates.duplicatedCandidates)
+	 printMergeResult(mergeResult)
+	 // deleted merged revisions
+	 String revisionFolderDir = (new File(revisionFile)).getParent()
+	 (new AntBuilder()).delete(dir:revisionFolderDir,failonerror:false)
+	 System.gc();
+	 }
+	 }
+	 }
+	 }*/
+
+	def static runRevisionsOfInterest(String revisionsfilepath){ //format "projectname,mergecommit
 		List<String> entries = new ArrayList<String>()
 
 		//parsing info from file
 		File file = new File(revisionsfilepath)
 		def lines = file.readLines()
 		lines.each{ String rawInfo ->
-			//avoiding path problems
-			if(rawInfo.contains(Matcher.quoteReplacement("\\"))){
-				rawInfo = rawInfo.replaceAll("/", Matcher.quoteReplacement("\\"));
-			}
-
-			//get project and commits info
-			rawInfo = rawInfo.substring(rawInfo.indexOf("projects") + 9 , rawInfo.length())
-			String projectName = rawInfo.substring(0,rawInfo.indexOf('/'))
-			rawInfo = rawInfo.substring(rawInfo.indexOf('/') + 1,rawInfo.length())
-			rawInfo = rawInfo.substring(rawInfo.indexOf('/') + 1,rawInfo.length())
-			String commits = rawInfo.substring(0,rawInfo.indexOf('/'))
-			rawInfo = rawInfo.substring(rawInfo.indexOf('/') + 1,rawInfo.length())
-			rawInfo = rawInfo.substring(rawInfo.indexOf('/') + 1,rawInfo.length())
-			commits = commits.substring(commits.indexOf('_') + 1,commits.length())
-			String leftcommit = commits.substring(0,commits.indexOf('_'))
-			String rightcommit= commits.substring(commits.indexOf('_') + 1,commits.length())
-
 			//get merge commit
-			File commitsfile = new File("/home/local/CIN/gjcc/fpfnanalysis/commits/commits_" + projectName + ".csv")
-			def commitslines = commitsfile.readLines()
 			String possibleMineYours
 			String possibleMine = ""
 			String possibleYours= ""
-			String mergeCommit  = ""
+			String projectName = rawInfo.split(",")[0]
+			String mergeCommit = rawInfo.split(",")[1]
+
+			def leftcommit = ''
+			def rightcommit = ''
+
+			//File commitsfile = new File("C:\\GGTS\\workspacefpfn\\gitconflictsextractor\\commits\\commits_" + projectName + ".csv")
+			File commitsfile = new File("commits/commits_" + projectName + ".csv")
+			def commitslines = commitsfile.readLines()
 			commitslines.each{String commitline ->
 				possibleMineYours = commitline.substring(commitline.indexOf(',') + 1,commitline.length());
 				possibleMine = possibleMineYours.substring(0,possibleMineYours.indexOf(','));
 				possibleYours = possibleMineYours.substring(possibleMineYours.indexOf(',') + 1);
-				if(possibleMine.startsWith(leftcommit) && possibleYours.startsWith(rightcommit)){
-					mergeCommit = commitline.substring(0,commitline.indexOf(','));
+				def mergeCommitt = commitline.substring(0,commitline.indexOf(','));
+				if(mergeCommitt.equals(mergeCommit)){
 					leftcommit = possibleMine
 					rightcommit = possibleYours
 				}
@@ -641,7 +703,7 @@ class App {
 		}
 
 		//running
-		def executedEntries = new File('execution.log').readLines()
+		//def executedEntries = new File('execution.log').readLines()
 		entries.each{ String entry ->
 			String projectName = entry.split(",")[0]
 			String mergecommit = entry.split(",")[1]
@@ -649,32 +711,32 @@ class App {
 			String rightcommit = entry.split(",")[3]
 			String basecommit  = (new Extractor()).findBaseCommit(leftcommit, rightcommit, projectName)
 
-			if(!executedEntries.contains(entry)){
-				String revisionFile = (new Extractor()).downloadMergeScenario(mergecommit, leftcommit, rightcommit, basecommit, projectName)
-				if(revisionFile != null){
-					println ('Analysing ' + entry)
-					fillExecutionLog(entry)
+			//if(!executedEntries.contains(entry)){
+			String revisionFile = (new Extractor()).downloadMergeScenario(mergecommit, leftcommit, rightcommit, basecommit, projectName)
+			if(revisionFile != null){
+				println ('Analysing ' + entry)
+				fillExecutionLog(entry)
 
-					FSTGenMerger merger 	  = new FSTGenMerger()
+				FSTGenMerger merger 	  = new FSTGenMerger()
 
-					MergeResult mergeResult	  = new MergeResult()
-					mergeResult.projectName	  = projectName
-					mergeResult.revision	  = revisionFile
+				MergeResult mergeResult	  = new MergeResult()
+				mergeResult.projectName	  = projectName
+				mergeResult.revision	  = revisionFile
 
-					FPFNCandidates candidates = merger.runMerger(mergeResult)
+				FPFNCandidates candidates = merger.runMerger(mergeResult)
 
-					MethodReferencesFinderAST finder = new MethodReferencesFinderAST()
-					finder.run(mergeResult,candidates.renamingCandidates, candidates.importCandidates, candidates.duplicatedCandidates)
+				/*MethodReferencesFinderAST finder = new MethodReferencesFinderAST()
+				finder.run(mergeResult,candidates.renamingCandidates, candidates.importCandidates, candidates.duplicatedCandidates)*/
 
-					printMergeResult(mergeResult)
+				printMergeResult(mergeResult)
 
-					// deleted merged revisions
-					String revisionFolderDir = (new File(revisionFile)).getParent()
-					(new AntBuilder()).delete(dir:revisionFolderDir,failonerror:false)
+				// deleted merged revisions
+				//				String revisionFolderDir = (new File(revisionFile)).getParent()
+				//				(new AntBuilder()).delete(dir:revisionFolderDir,failonerror:false)
 
-					System.gc();
-				}
+				System.gc();
 			}
+			//}
 		}
 	}
 

@@ -4,40 +4,49 @@ import java.text.SimpleDateFormat
 
 
 public class MergeCommitsRetriever {
-	
+
 	String clonePath
-	String date
-	
-	public MergeCommitsRetriever(String clonePath, String date){
+	String sinceDate //dd/mm/aaaa
+	String untilDate //dd/mm/aaaa
+
+
+	public MergeCommitsRetriever(String clonePath, String sincedate, String untildate){
 		this.clonePath = clonePath
-		this.date = date
+		this.sinceDate = sincedate
+		this.untilDate = untildate
 	}
-	
+
 	public ProcessBuilder getProcessBuilder(){
 		ProcessBuilder result = null
-		if(!this.date.equals('')){
-			this.date = '--since=\"' + this.date + '\"'
-			result = new ProcessBuilder("git", "log", "--merges", this.date)
-		}else{
-		result = new ProcessBuilder("git", "log", "--merges")
+		if(!this.sinceDate.equals('') && !this.untilDate.equals('')){
+			this.sinceDate = '--since=\"' + this.sinceDate + '\"'
+			this.untilDate = '--until=\"' + this.untilDate + '\"'
+			result = new ProcessBuilder("git", "log", "--merges", this.sinceDate, this.untilDate)
+		} else  if(!this.untilDate.equals('')){
+			this.untilDate = '--until=\"' + this.untilDate + '\"'
+			result = new ProcessBuilder("git", "log", "--merges", this.untilDate)
+		} else if(!this.sinceDate.equals('')){
+			this.sinceDate = '--since=\"' + this.sinceDate + '\"'
+			result = new ProcessBuilder("git", "log", "--merges", this.sinceDate)
+		} else {
+			result = new ProcessBuilder("git", "log", "--merges")
 		}
-		
 		return result
 	}
-	
+
 	public ArrayList<MergeCommit> retrieveMergeCommits(){
 		ArrayList<MergeCommit> merges = new ArrayList<MergeCommit>()
-		
+
 		try{
 			ProcessBuilder pb = this.getProcessBuilder()
 			pb.directory(new File(this.clonePath))
 			//pb.redirectOutput(ProcessBuilder.Redirect.INHERIT)
 			Process p = pb.start()
 			//p.waitFor()
-			
+
 			BufferedReader buf = new BufferedReader(new InputStreamReader(p.getInputStream()))
 			String line = ""
-			
+
 			while ((line=buf.readLine())!=null) {
 				if(line.startsWith('commit')){
 					MergeCommit merge = new MergeCommit()
@@ -49,7 +58,7 @@ public class MergeCommitsRetriever {
 					line=buf.readLine()
 					line=buf.readLine()
 					Date date = this.getCommitDate(line)
-					merge.date = date		
+					merge.date = date
 					merges.add(merge)
 				}
 			}
@@ -60,7 +69,7 @@ public class MergeCommitsRetriever {
 		}
 		return merges
 	}
-	
+
 	public Date getCommitDate(String d){
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MMM/yyyy", Locale.UK)
 		Date result = null
@@ -72,7 +81,7 @@ public class MergeCommitsRetriever {
 		result = formatter.parse(dateInString)
 		return result
 	}
-	
+
 	public static void main(String[] args){
 		/*date is optional, if you want to get all commits pass the date parameter as an empty string
 		 * otherwise pass the date parameter as an string with the format "yyyy-MM-dd" */

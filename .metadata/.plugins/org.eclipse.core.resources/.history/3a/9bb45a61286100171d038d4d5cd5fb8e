@@ -1,0 +1,46 @@
+file;ssmergeConf;linedbasedConf
+C:\Users\Guilherme Cavalcanti\Desktop\unb\projects\tgm\revisions\rev_7c335c6_3099f4c\rev_7c335c6-3099f4c\CaseStudy.java;<<<<<<< MINE
+		int y;
+=======
+		int x;
+>>>>>>> YOURS;<<<<<<< MINE
+		int y;
+=======
+		int x;
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\unb\projects\tgm\revisions\rev_ccb86e6_8b1eb81\rev_ccb86e6-8b1eb81\CaseStudy.java;<<<<<<< MINE
+		int y;
+=======
+		int x;
+>>>>>>> YOURS;<<<<<<< MINE
+		int y;
+=======
+		int x;
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\unb\projects\tgm\revisions\rev_64a7296_b051453\rev_64a7296-b051453\CaseStudy.java;<<<<<<< MINE
+		int b;
+=======
+		int c;
+>>>>>>> YOURS;<<<<<<< MINE
+		int b;
+=======
+		int c;
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\unb\projects\tgm\revisions\rev_96f0ab5_59ddfff\rev_96f0ab5-59ddfff\CaseStudy.java;<<<<<<< MINE
+		int a2;
+=======
+		int a1;
+>>>>>>> YOURS;<<<<<<< MINE
+		int a2;
+=======
+		int a1;
+>>>>>>> YOURS
+C:\Users\Guilherme Cavalcanti\Desktop\unb\projects\tgm\revisions\rev_96f0ab5_59ddfff\rev_96f0ab5-59ddfff\CaseStudy.java;<<<<<<< MINE
+		int n2;
+=======
+		int n1;
+>>>>>>> YOURS;<<<<<<< MINE
+		int n2;
+=======
+		int n1;
+>>>>>>> YOURS

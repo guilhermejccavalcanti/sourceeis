@@ -1,0 +1,2 @@
+revision;file;methodsignature;leftbody;basebody;rightbody
+E:\Mestrado\FPFNAnalysis\projects\andlytics\revisions\rev_66f86ad_333f857\rev_66f86ad-333f857;\src\com\github\andlyticsproject\ContentAdapter;insertOrUpdateAppStats(AppStats,String);public void insertOrUpdateAppStats(AppStats appStats, String packageName) {;public void insertOrUpdateAppStats(AppStats appStats, String packageName) {;public void insertOrUpdateAppStats(AppStats downloadInfo, String packageName) {

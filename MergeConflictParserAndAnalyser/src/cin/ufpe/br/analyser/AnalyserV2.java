@@ -182,7 +182,6 @@ public final class AnalyserV2 {
 			for(MergeConflict mc : confs){
 				ProjectsInfoCollector.collect(mc);
 				MergeCommitsNumberFinder.find(mc);
-
 				try{
 					try{
 						(new CheckoutCommit()).checkoutRepositoryCMD(workingDirectory, mc,mc.mergeCommit);
@@ -191,9 +190,9 @@ public final class AnalyserV2 {
 						continue;
 					}
 
-					File mergedfile = new File(workingDirectory + mc.projectName + "\\git\\" + mc.filePath);
+					File mergedfile = new File(workingDirectory + mc.projectName + File.separator +"git"+ File.separator + mc.filePath);
 					if(conflicts != null && !mergedfile.exists()){ //possibly the file was moved to another directory
-						List<String> paths = FileHandlerr.listAllFilesPath(workingDirectory + mc.projectName + "\\git\\");
+						List<String> paths = FileHandlerr.listAllFilesPath(workingDirectory + mc.projectName + File.separator + "git" +File.separator);
 						for(String path: paths){
 							File f = new File(path);
 							if(f.getName().equals(mergedfile.getName())){

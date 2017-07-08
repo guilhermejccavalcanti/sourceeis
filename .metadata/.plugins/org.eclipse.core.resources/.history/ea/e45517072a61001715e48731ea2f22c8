@@ -1,0 +1,15 @@
+revision;file;methodsignature;leftbody;basebody;rightbody
+E:\Mestrado\FPFNAnalysis\projects\andlytics\revisions\rev_66f86ad_333f857\rev_66f86ad-333f857;\src\com\github\andlyticsproject\ContentAdapter;insertOrUpdateAppStats(AppStats,String);public void insertOrUpdateAppStats(AppStats appStats, String packageName) {;public void insertOrUpdateAppStats(AppStats appStats, String packageName) {;public void insertOrUpdateAppStats(AppStats downloadInfo, String packageName) {
+E:\Mestrado\FPFNAnalysis\projects\andlytics\revisions\rev_66f86ad_333f857\rev_66f86ad-333f857;\src\com\github\andlyticsproject\ContentAdapter;insertOrUpdateAppStats(AppStats,String);		if (appStats.getNumberOfErrors() != null) {
+			values.put(AppStatsTable.KEY_STATS_NUM_ERRORS, appStats.getNumberOfErrors());
+		}
+		if (appStats.getTotalRevenue() != null) {
+			values.put(AppStatsTable.KEY_STATS_TOTAL_REVENUE, appStats.getTotalRevenue()
+					.getAmount());
+			values.put(AppStatsTable.KEY_STATS_CURRENCY, appStats.getTotalRevenue()
+					.getCurrencyCode());;		if (appStats.getNumberOfErrors() != null) {
+			values.put(AppStatsTable.KEY_STATS_NUM_ERRORS, appStats.getNumberOfErrors());
+		}
+		if (appStats.getTotalRevenue() != null) {
+			values.put(AppStatsTable.KEY_STATS_TOTAL_REVENUE, appStats.getTotalRevenue());;		if (downloadInfo.getNumberOfErrors() != null) {
+			values.put(AppStatsTable.KEY_STATS_NUM_ERRORS, downloadInfo.getNumberOfErrors());

@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="UNCOMMENT" key="selection"/>
+		<item value="&lt;&lt;&lt;&lt;&lt;&lt;" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="&lt;&lt;&lt;&lt;&lt;&lt;"/>
+			<item value="ea7d0"/>
+			<item value="0f59629ce280ba2a74d65a7719dde7cf79923f05,5160c916c90886f69023ddba0078a624e5cf202d"/>
+			<item value="/home/local/CIN/gjcc/fpfnanalysis/projects/cassandra/revisions/rev_ea7d0_411ab/rev_ea7d0-411ab.revisions"/>
+			<item value="&#x09;&#x09;String mergeCmdInclBase &#x09;= &quot;&quot;; "/>
 			<item value="UNCOMMENT"/>
 			<item value="log_ssmerge_anonymousBlock"/>
 			<item value="duplication"/>
-			<item value="conse"/>
-			<item value="ssmerge_consecutiveLines_numbers.csv"/>
-			<item value="log_ssmerge_pairOfImportedIssuesCandidate.csv"/>
-			<item value="log_ssmerge_enum_renaming.csv"/>
-			<item value="log_ssmerge_anonymousBlock.csv"/>
 		</list>
 		<list key="replacehistory">
 			<item value="ConflictPair"/>
@@ -28,7 +28,7 @@
 		<item value="257" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="381" key="DIALOG_HEIGHT"/>
-		<item value="2098" key="DIALOG_X_ORIGIN"/>
-		<item value="677" key="DIALOG_Y_ORIGIN"/>
+		<item value="2097" key="DIALOG_X_ORIGIN"/>
+		<item value="669" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

@@ -9,14 +9,23 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+import java.util.stream.Collectors;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import cin.ufpe.br.blocks.InitializationBlocksCollector;
 import cin.ufpe.br.blocks.MatchedBlocks;
@@ -88,6 +97,7 @@ public final class Analyser {
 			//1. get initialization blocks from log
 			List<MatchedBlocks> blocks = InitializationBlocksCollector.collectMineTheirsBlocksFromText(logpath);
 			for(MatchedBlocks block : blocks){
+
 				ProjectsInfoCollector.collect(block);
 				MergeCommitsNumberFinder.find(block);
 				try{
@@ -96,12 +106,14 @@ public final class Analyser {
 					e.printStackTrace();
 					continue;
 				}
-				
+
 				//2. get initialization blocks from merged file
 				File mergedfile = new File(workingDirectory + block.projectname + "\\git\\" + block.originFile);
 				CompilationUnit parsed = LightweightParser.parse(FileHandlerr.readFile(mergedfile));
 				List<InitializerDeclaration> iblks = LightweightParser.findInitializationBlocks(parsed);
-				
+				int extraconfs = 0;
+				String logentry = block.revisionFile+";"+block.originFile;
+
 				//3. compare blocks from log and merged file
 				for(InitializerDeclaration iblk : iblks){
 					String iblkstr = iblk.toString();
@@ -109,10 +121,146 @@ public final class Analyser {
 					if(similarity < 0.85){
 						similarity = FileHandlerr.computeStringSimilarity(block.yoursblock, iblkstr);
 						if(similarity < 0.85) {
-							//merge merged,left,right and take conflicts
+							//4. add penalty
+							String mergestr = FileHandlerr.merge(block.mineblock, iblkstr, block.yoursblock);						
+							extraconfs += StringUtils.countMatches(mergestr, "<<<<<<<");
 						}
-					} 
+					}  
 				}
+				logentry+=";"+extraconfs+"\n";
+				System.out.println(logentry);
+
+				//logging
+				File log = new File("result.csv");
+				log.createNewFile();
+				FileUtils.write(log, logentry, true);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void analyseEditedInitializationBlocks(String logpath){
+		try {
+			loadProperties();
+			Map<String,Integer> resultsscenarios = new HashMap<String,Integer>();
+			Map<String,Integer> projects_fn = new HashMap<String,Integer>();
+
+			//1. get initialization blocks from log
+			List<MatchedBlocks> allblocks = InitializationBlocksCollector.collectMineTheirsBlocksFromText(logpath);
+			List<MatchedBlocks> blocks = allblocks.stream()
+					.filter(distinctByKey(p -> (p.revisionFile+p.originFile)))
+					.collect(Collectors.toList());
+
+			for(MatchedBlocks block : blocks){
+				ProjectsInfoCollector.collect(block);
+				MergeCommitsNumberFinder.find(block);
+				MergeCommitsNumberFinder.findCommonAncestor(workingDirectory,block);
+
+				//2. list initialization blocks from merged files
+				//try{
+				(new CheckoutCommit()).checkoutRepositoryCMD(workingDirectory, block.projectname, block.baseCommit);
+				File baseFile = new File(workingDirectory + block.projectname + "\\git\\" + block.originFile);
+				CompilationUnit baseparsed = LightweightParser.parse(FileHandlerr.readFile(baseFile));
+				List<InitializerDeclaration> baseBlocks = LightweightParser.findInitializationBlocks(baseparsed);
+
+				(new CheckoutCommit()).checkoutRepositoryCMD(workingDirectory, block.projectname, block.leftCommit);
+				File leftFile = new File(workingDirectory + block.projectname + "\\git\\" + block.originFile);
+				CompilationUnit leftparsed = LightweightParser.parse(FileHandlerr.readFile(leftFile));
+				List<InitializerDeclaration> leftBlocks = LightweightParser.findInitializationBlocks(leftparsed);
+
+				(new CheckoutCommit()).checkoutRepositoryCMD(workingDirectory, block.projectname, block.rightCommit);
+				File rightFile = new File(workingDirectory + block.projectname + "\\git\\" + block.originFile);
+				CompilationUnit rightparsed = LightweightParser.parse(FileHandlerr.readFile(rightFile));
+				List<InitializerDeclaration> rightBlocks = LightweightParser.findInitializationBlocks(rightparsed);
+
+				//3. verify if left or right blocks were edited
+				int FNblocks = 0;
+				if(!baseBlocks.isEmpty()){//diff3
+					int leftedited = 0;
+					for(InitializerDeclaration leftblock : leftBlocks){
+						boolean foundEquals = false;
+						for(InitializerDeclaration baseBlock : baseBlocks){
+							String leftstr = FileHandlerr.getStringContentIntoSingleLineNoSpacing(leftblock.toString());
+							String basestr = FileHandlerr.getStringContentIntoSingleLineNoSpacing(baseBlock.toString());
+							if(leftstr.equals(basestr)){
+								foundEquals = true;
+								break;
+							}
+						}
+						if(!foundEquals){
+							leftedited++;
+						}
+					}
+
+					int rightedited = 0;
+					for(InitializerDeclaration rightBlock : rightBlocks){
+						boolean foundEquals = false;
+						for(InitializerDeclaration baseBlock : baseBlocks){
+							String rightstr = FileHandlerr.getStringContentIntoSingleLineNoSpacing(rightBlock.toString());
+							String basestr = FileHandlerr.getStringContentIntoSingleLineNoSpacing(baseBlock.toString());
+							if(rightstr.equals(basestr)){
+								foundEquals = true;
+								break;							
+							}
+						}
+						if(!foundEquals){
+							rightedited++;
+						}
+					}
+					FNblocks = (rightedited > leftedited)?leftedited:rightedited;
+
+				} else { //diff2
+					for(InitializerDeclaration leftblock : leftBlocks){
+						boolean foundEquals = false;
+						for(InitializerDeclaration rightBlock : rightBlocks){
+							String leftstr = FileHandlerr.getStringContentIntoSingleLineNoSpacing(leftblock.toString());
+							String rightstr = FileHandlerr.getStringContentIntoSingleLineNoSpacing(rightBlock.toString());
+							if(leftstr.equals(rightstr)){
+								foundEquals = true;
+								break;
+							}
+						}
+						if(!foundEquals){
+							FNblocks++;
+						}
+					}
+					int smallerListSize = (rightBlocks.size() < leftBlocks.size())?rightBlocks.size():leftBlocks.size();
+					FNblocks = (FNblocks > smallerListSize)?smallerListSize:FNblocks;
+				}
+
+
+				//logging
+				String logentry = block.revisionFile+";"+block.originFile;
+				logentry+=";"+FNblocks+"\n";
+				System.out.println(logentry);
+				File log = new File("result_files.csv");
+				log.createNewFile();
+				FileUtils.write(log, logentry, true);
+
+				Integer previousValue = resultsscenarios.get(block.revisionFile);
+				int value = FNblocks;
+				if(previousValue != null){value = previousValue + FNblocks;}
+				resultsscenarios.put(block.revisionFile, value);
+
+				Integer previousValuepjto = projects_fn.get(block.projectname);
+				value = FNblocks;
+				if(previousValuepjto != null){value = previousValuepjto + FNblocks;}
+				projects_fn.put(block.projectname, value);
+			}
+
+
+			for(String revision : resultsscenarios.keySet()){
+				String logentry = revision+";"+resultsscenarios.get(revision)+"\n";
+				File log = new File("result_scenarios.csv");
+				log.createNewFile();
+				FileUtils.write(log, logentry, true);
+			}
+			for(String name : projects_fn.keySet()){
+				String logentry = name+";"+projects_fn.get(name)+"\n";
+				File log = new File("result_projects.csv");
+				log.createNewFile();
+				FileUtils.write(log, logentry, true);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -691,9 +839,14 @@ public final class Analyser {
 		System.setErr(new PrintStream(los, true));
 	}
 
+	public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+		Map<Object,Boolean> seen = new ConcurrentHashMap<>();
+		return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+	}
+
 	public static void main(String[] args) {
-		analyseInitializationBlocks("test.txt");
-		
+		analyseEditedInitializationBlocks("test.txt");
+
 		/*		try{
 			logger();
 

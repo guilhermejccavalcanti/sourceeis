@@ -69,7 +69,7 @@ class Extractor {
 
 		//reading projects' merge commits directly from git repository
 		if(!withGitMiner){
-			MergeCommitsRetriever mergesRetriever = new MergeCommitsRetriever(this.repositoryDir, "")
+			MergeCommitsRetriever mergesRetriever = new MergeCommitsRetriever(this.repositoryDir,project.miningSinceDate,project.miningUntilDate)
 			ArrayList<MergeCommit> mergeCommits   = mergesRetriever.retrieveMergeCommits()
 			project.setMergeCommits(mergeCommits)
 			Printer printer = new Printer()
@@ -829,8 +829,12 @@ class Extractor {
 
 	//standalone functions
 	def public String findBaseCommit(parent1, parent2, projectname){
-		this.projectsDirectory	= "/home/local/CIN/gjcc/fpfnanalysis/projects/"
-		this.tempdir			= "/home/local/CIN/gjcc/fpfnanalysis/temp/" + projectname +"/git"
+/*		this.projectsDirectory	= "/home/local/CIN/gjcc/fpfnanalysis/projects/"
+		this.tempdir			= "/home/local/CIN/gjcc/fpfnanalysis/temp/" + projectname +"/git"*/""		
+		this.projectsDirectory	= "E:\\Mestrado\\FPFNAnalysis\\projects\\"
+		this.tempdir			= "E:\\Mestrado\\FPFNAnalysis\\temp/" + projectname +"/git"
+		//this.projectsDirectory	= "/mnt/e/Mestrado/FPFNAnalysis/projects/"
+		//this.tempdir			= "/mnt/e/Mestrado/FPFNAnalysis/temp/" + projectname +"/git"
 		this.repositoryDir		= this.projectsDirectory + projectname + "/git"
 
 		String basecommit = null
@@ -866,8 +870,12 @@ class Extractor {
 		return basecommit
 	}
 	def public String downloadMergeScenario(mergecommit, leftcommit, rightcommit, basecommit, projectname) {
-		this.projectsDirectory	= "/home/local/CIN/gjcc/fpfnanalysis/projects/"
-		this.tempdir			= "/home/local/CIN/gjcc/fpfnanalysis/temp/" + projectname +"/git"
+/*		this.projectsDirectory	= "/home/local/CIN/gjcc/fpfnanalysis/projects/"
+		this.tempdir			= "/home/local/CIN/gjcc/fpfnanalysis/temp/" + projectname +"/git"*/""		
+		this.projectsDirectory	= "E:\\Mestrado\\FPFNAnalysis\\projects\\"
+		this.tempdir			= "E:\\Mestrado\\FPFNAnalysis\\temp/" + projectname +"/git"
+		//this.projectsDirectory	= "/mnt/e/Mestrado/FPFNAnalysis/projects/"
+		//this.tempdir			= "/mnt/e/Mestrado/FPFNAnalysis/temp/" + projectname +"/git"
 		this.repositoryDir		= this.projectsDirectory + projectname + "/git"
 
 		String revisionFile 	= null;

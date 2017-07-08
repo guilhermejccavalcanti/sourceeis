@@ -51,8 +51,8 @@ import cin.ufpe.br.util.ConflictsCollector;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import composer.FSTGenProcessor;
 
+import composer.FSTGenProcessor;
 import de.ovgu.cide.fstgen.ast.AbstractFSTParser;
 import de.ovgu.cide.fstgen.ast.FSTNode;
 import de.ovgu.cide.fstgen.ast.FSTNonTerminal;
@@ -262,9 +262,9 @@ public class FSTGenMerger extends FSTGenProcessor {
 
 			ignoreNonJavaFiles(currentMergedRevisionFilePath);
 			ignoreEqualFiles(currentMergedRevisionFilePath);
-			
+
 			FPFNCandidates candidates = run(args);
-			
+
 			//counting, and getting textual conflicts
 			List<MergeConflict> unmergediffconfs = Util.countConflicts(currentMergeResult);
 			unmergediffconfs.isEmpty();
@@ -275,11 +275,11 @@ public class FSTGenMerger extends FSTGenProcessor {
 				ConflictsCollector.tryAndCallParser(mc);
 				conflicts.add(mc);
 			}
-			
+
 			countAcidentalFNs(conflicts,mergeResult);
-			
-			Util.unMergeNonJavaFiles(currentMergedRevisionFilePath);
-			restoreEqualFiles(currentMergedRevisionFilePath);
+
+			/*			Util.unMergeNonJavaFiles(currentMergedRevisionFilePath);		
+			restoreEqualFiles(currentMergedRevisionFilePath);*/
 
 			long tf = System.currentTimeMillis();
 			long mergeTime =  ((tf-t0)/60000);
@@ -1729,7 +1729,7 @@ public class FSTGenMerger extends FSTGenProcessor {
 	}
 
 	//FPFN ANONYMOUS
-	private void countAndPrintFalseNegativeAnonymousBlocksInclBase(String expressionval) {
+	/*	private void countAndPrintFalseNegativeAnonymousBlocksInclBase(String expressionval) { //similarity based
 		List<String> logEntries 	= new ArrayList<String>();
 		int anonymousBlocks 		= 0;
 		for(String mergedFile : FSTGenMerger.newNodesFromLeft.keySet()){
@@ -1780,6 +1780,69 @@ public class FSTGenMerger extends FSTGenProcessor {
 			}
 		}
 		printFalseNegativeAnonymousBlocks(expressionval, logEntries, anonymousBlocks);
+	}*/
+
+	private void countAndPrintFalseNegativeAnonymousBlocksInclBase(String expressionval) {
+		List<String> logEntries 	= new ArrayList<String>();
+		int anonymousBlocks 		= 0;
+		for(String mergedFile : FSTGenMerger.newNodesFromLeft.keySet()){
+			if(isClassAllowed(mergedFile)){
+				Collection<FSTNode> leftNodes = newNodesFromLeft.get(mergedFile);
+				Collection<FSTNode> rightNodes= newNodesFromRight.get(mergedFile);
+				Collection<FSTNode> baseNodes = nodesFromBase.get(mergedFile);
+
+				List<FSTNode> leftAnonymousBlocks = leftNodes.stream().filter(p -> p.getType().equals("InitializerDecl")).collect(Collectors.toList());
+				List<FSTNode> rightAnonymousBlocks= rightNodes.stream().filter(p -> p.getType().equals("InitializerDecl")).collect(Collectors.toList());
+				List<FSTNode> baseAnonymousBlocks = baseNodes.stream().filter(p -> p.getType().equals("InitializerDecl")).collect(Collectors.toList());
+
+				if(!baseAnonymousBlocks.isEmpty()){//diff3
+					//filtering LEFT blocks equals to BASE blocks
+					List<FSTNode> leftAnonymousBlocksFiltered = new ArrayList<FSTNode>(); 
+					boolean foundInBase = false;
+					for(FSTNode left : leftAnonymousBlocks){
+						for(FSTNode base : baseAnonymousBlocks){
+							if(areEqualBlocks(left,base)){
+								foundInBase = true;
+								break;
+							}
+						}
+						if(!foundInBase)leftAnonymousBlocksFiltered.add(left);
+					}
+					//filtering RIGHT blocks equals to BASE blocks
+					foundInBase = false;
+					List<FSTNode> rightAnonymousBlocksFiltered = new ArrayList<FSTNode>(); 
+					for(FSTNode right : rightAnonymousBlocks){
+						for(FSTNode base : baseAnonymousBlocks){
+							if(areEqualBlocks(right,base)){
+								foundInBase = true;
+								break;
+							}
+						}
+						if(!foundInBase)rightAnonymousBlocksFiltered.add(right);
+					}
+					anonymousBlocks = (leftAnonymousBlocksFiltered.size() > rightAnonymousBlocksFiltered.size())?rightAnonymousBlocksFiltered.size():leftAnonymousBlocksFiltered.size();
+					String logentry = expressionval+";"+mergedFile+";"+anonymousBlocks;
+					logEntries.add(logentry);
+				
+				} else {//diff2
+					for(FSTNode left : leftAnonymousBlocks){
+						boolean foundequals = false;
+						for(FSTNode right : rightAnonymousBlocks){
+							if(areEqualBlocks(left,right)){
+								foundequals = true;
+								break;
+							}
+						}
+						if(!foundequals)anonymousBlocks++;
+					}
+					int smallerListSize = (rightAnonymousBlocks.size() < leftAnonymousBlocks.size())?rightAnonymousBlocks.size():leftAnonymousBlocks.size();
+					anonymousBlocks = (anonymousBlocks > smallerListSize)?smallerListSize:anonymousBlocks;
+					String logentry = expressionval+";"+mergedFile+";"+anonymousBlocks;
+					logEntries.add(logentry);
+				}
+			}
+		}
+		printFalseNegativeAnonymousBlocks(expressionval, logEntries, anonymousBlocks);
 	}
 
 	//FPFN ANONYMOUS
@@ -1797,7 +1860,7 @@ public class FSTGenMerger extends FSTGenProcessor {
 	}
 
 	//FPFN ANONYMOUS
-	private boolean areEqualBlocks(FSTNode left, FSTNode right) {
+	/*	private boolean areEqualBlocks(FSTNode left, FSTNode right) {
 		String leftContent = ((FSTTerminal)left).getBody();
 		String rightContent= ((FSTTerminal)right).getBody();
 		double similarity = Util.computeStringSimilarity(leftContent, rightContent);
@@ -1806,6 +1869,12 @@ public class FSTGenMerger extends FSTGenProcessor {
 		}  else { //are different
 			return false;
 		}
+	}*/
+
+	private boolean areEqualBlocks(FSTNode left, FSTNode right) {
+		String leftContent = Util.getSingleLineContentNoSpacing(((FSTTerminal)left).getBody());
+		String rightContent= Util.getSingleLineContentNoSpacing(((FSTTerminal)right).getBody());
+		return leftContent.equals(rightContent);
 	}
 
 	//FPFN ANONYMOUS
