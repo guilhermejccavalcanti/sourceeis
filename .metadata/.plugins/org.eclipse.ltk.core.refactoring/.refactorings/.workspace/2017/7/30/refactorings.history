@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 9 resources" deleteContents="false" description="Delete 9 resources" element1="/astfinder" element2="/CIDE_generateAST" element3="/CIDE2_ast" element4="/fstcomp" element5="/fstgen" element6="/fstmerge" element7="/gitconflictsextractor" element8="/MergeConflictParserAndAnalyser" element9="/Servers" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="9" stamp="1500927834174"/>
+</session>

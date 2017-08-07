@@ -8,9 +8,10 @@
 		<item value="org.codehaus.groovy.eclipse.feature:2.9.1.xx-201411061335-e44-RELEASE"/>
 		<item value="org.codehaus.groovy.jdt.patch:2.9.1.xx-201411061335-e44-RELEASE"/>
 		<item value="org.codehaus.groovy20.feature:2.9.1.xx-201411061335-e44-RELEASE"/>
+		<item value="org.codehaus.groovy21.feature:2.9.1.xx-201411061335-e44-RELEASE"/>
 		<item value="org.codehaus.groovy23.feature:2.9.1.xx-201411061335-e44-RELEASE"/>
 		<item value="org.eclipse.ajdt:2.2.4.e44x-20150202-1700"/>
-		<item value="org.eclipse.buildship:2.0.2.v20170420-0903"/>
+		<item value="org.eclipse.buildship:2.1.1.v20170713-0936"/>
 		<item value="org.eclipse.cvs:1.4.100.v20150204-1700"/>
 		<item value="org.eclipse.datatools.common.doc.user:1.12.0.v201405281819-26-311A16321A3557"/>
 		<item value="org.eclipse.datatools.connectivity.doc.user:1.12.0.v201405281819-37D-7733L3D753L7BBF"/>
@@ -137,11 +138,11 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\GGTS\workspaces\workspacefpfn\MergeConflictParserAndAnalyser"/>
+			<item value="C:\GGTS\workspaces\workspacefpfn\astfinder"/>
+			<item value="C:\GGTS\workspaces\workspacefpfn\ssmerge"/>
 			<item value="C:\GGTS\workspacefpfn\MergeConflictParserAndAnalyser"/>
 			<item value="C:\Users\Guilherme\Downloads\SSAnalyser (1)\SSAnalyser"/>
-			<item value="C:\GGTS\workspacefpfn\ssmerge"/>
-			<item value="C:\GGTS\workspacefpfn\fstmerge"/>
-			<item value="C:\GGTS\workspacefpfn\astfinder"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value=""/>
@@ -163,7 +164,7 @@
 	</section>
 	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
 		<item value="true" key="ShowStatusLine"/>
-		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/MergeConflictParserAndAnalyser/src/cin/ufpe/br/util/FileHandlerr.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/gitconflictsextractor/src/main/java/Extractor.groovy&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/MergeConflictParserAndAnalyser/src/cin/ufpe/br/analyser/Analyser.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/MergeConflictParserAndAnalyser/src/cin/ufpe/br/analyser/AnalyserV2.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/fstmerge/merger/FSTGenMerger.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/gitconflictsextractor/src/main/java/App.groovy&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/fstmerge/merger/LineBasedMerger.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/gitconflictsextractor/src/main/java/Extractor.groovy&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/MergeConflictParserAndAnalyser/src/cin/ufpe/br/analyser/Analyser.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/MergeConflictParserAndAnalyser/src/cin/ufpe/br/analyser/AnalyserV2.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/fstmerge/merger/FSTGenMerger.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/gitconflictsextractor/src/main/java/App.groovy&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/fstmerge/merger/LineBasedMerger.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;infoNode path=&quot;/MergeConflictParserAndAnalyser/src/cin/ufpe/br/util/FileHandlerr.java&quot; type=&quot;1&quot;/&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
 		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;" key="WorkingSet"/>
 		<item value="false" key="ShowDerived"/>
 		<section name="DialogBoundsSettings">

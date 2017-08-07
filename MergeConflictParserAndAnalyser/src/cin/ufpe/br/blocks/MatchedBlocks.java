@@ -23,4 +23,9 @@ public class MatchedBlocks {
 		this.originFile = o;
 		this.revisionFile = r;
 	}
+	
+	public MatchedBlocks(String o, String r) {
+		this.originFile = o;
+		this.revisionFile = r;
+	}
 }

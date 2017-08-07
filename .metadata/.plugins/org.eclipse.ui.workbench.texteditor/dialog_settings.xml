@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="&lt;&lt;&lt;&lt;&lt;&lt;" key="selection"/>
+		<item value="fd5db" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="&lt;&lt;&lt;&lt;&lt;&lt;"/>
-			<item value="ea7d0"/>
-			<item value="0f59629ce280ba2a74d65a7719dde7cf79923f05,5160c916c90886f69023ddba0078a624e5cf202d"/>
-			<item value="/home/local/CIN/gjcc/fpfnanalysis/projects/cassandra/revisions/rev_ea7d0_411ab/rev_ea7d0-411ab.revisions"/>
-			<item value="&#x09;&#x09;String mergeCmdInclBase &#x09;= &quot;&quot;; "/>
-			<item value="UNCOMMENT"/>
-			<item value="log_ssmerge_anonymousBlock"/>
-			<item value="duplication"/>
+			<item value="fd5db"/>
+			<item value="e4910"/>
+			<item value="23402"/>
+			<item value="static {"/>
+			<item value="static"/>
+			<item value="/home/local/CIN/gjcc/fpfnanalysis/projects/cassandra/revisions/rev_95fb6_a58b8/rev_95fb6-a58b8.revisions;/interface/thrift/gen-java/org/apache/cassandra/thrift/Cassandra.java"/>
+			<item value="&#x09;&#x09;&#x09;for(String revision : resultsscenarios.keySet()){"/>
+			<item value="&#x09;&#x09;&#x09;&#x09;Integer previousValue = resultsscenarios.get(block.revisionFile);"/>
 		</list>
 		<list key="replacehistory">
 			<item value="ConflictPair"/>

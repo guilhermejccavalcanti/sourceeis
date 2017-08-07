@@ -1,7 +1,0 @@
-revision;file;methodSignature
-E:\Mestrado\FPFNAnalysis\projects\andlytics\revisions\rev_66f86ad_333f857\rev_66f86ad-333f857;\src\com\github\andlyticsproject\db\AndlyticsDb;fetchRevenueSummary(AppInfo);public synchronized void fetchRevenueSummary(AppInfo appInfo) {
-E:\Mestrado\FPFNAnalysis\projects\andlytics\revisions\rev_66f86ad_333f857\rev_66f86ad-333f857;\src\com\github\andlyticsproject\model\AppStats;getTotalRevenue();public Revenue getTotalRevenue() {
-E:\Mestrado\FPFNAnalysis\projects\andlytics\revisions\rev_66f86ad_333f857\rev_66f86ad-333f857;\src\com\github\andlyticsproject\model\RevenueSummary;hasRevenue();public boolean hasRevenue() {
-E:\Mestrado\FPFNAnalysis\projects\andlytics\revisions\rev_66f86ad_333f857\rev_66f86ad-333f857;\src\com\github\andlyticsproject\console\v2\JsonParser;parseRevenueResponse(String);static RevenueSummary parseRevenueResponse(String json) throws JSONException {
-E:\Mestrado\FPFNAnalysis\projects\andlytics\revisions\rev_66f86ad_333f857\rev_66f86ad-333f857;\src\com\github\andlyticsproject\ContentAdapter;getRevenueSummaryForApp(AppInfo);public RevenueSummary getRevenueSummaryForApp(AppInfo app) {
-E:\Mestrado\FPFNAnalysis\projects\andlytics\revisions\rev_66f86ad_333f857\rev_66f86ad-333f857;\src\com\github\andlyticsproject\console\v2\DevConsoleV2;fetchRevenueSummary(AppInfo);private RevenueSummary fetchRevenueSummary(AppInfo appInfo) throws DevConsoleException {

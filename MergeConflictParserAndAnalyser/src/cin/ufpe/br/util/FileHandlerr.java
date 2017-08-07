@@ -1,15 +1,18 @@
 package cin.ufpe.br.util;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -103,6 +106,48 @@ public final class FileHandlerr {
 		return allFiles;
 	}
 
+	public static List<MergeConflict> extractMergeConflicts(String mergedCode){
+		String CONFLICT_HEADER_BEGIN= "<<<<<<< MINE";
+		String CONFLICT_MID			= "=======";
+		String CONFLICT_HEADER_END 	= ">>>>>>> YOURS";
+		String leftConflictingContent = "";
+		String rightConflictingContent= "";
+		boolean isConflictOpen		  = false;
+		boolean isLeftContent		  = false;
+
+		List<MergeConflict> mergeConflicts = new ArrayList<MergeConflict>();
+		List<String> lines = new ArrayList<>();
+		BufferedReader reader = new BufferedReader(new StringReader(mergedCode));
+		lines = reader.lines().collect(Collectors.toList());
+		Iterator<String> itlines = lines.iterator();
+		while(itlines.hasNext()){
+			String line = itlines.next();
+			if(line.contains(CONFLICT_HEADER_BEGIN)){
+				isConflictOpen = true;
+				isLeftContent  = true;
+			}
+			else if(line.contains(CONFLICT_MID)){
+				isLeftContent = false;
+			}
+			else if(line.contains(CONFLICT_HEADER_END)) {
+				MergeConflict mergeConflict = new MergeConflict(leftConflictingContent,rightConflictingContent);
+				mergeConflicts.add(mergeConflict);
+
+				//reseting the flags
+				isConflictOpen	= false;
+				isLeftContent   = false;
+				leftConflictingContent = "";
+				rightConflictingContent= "";
+			} else {
+				if(isConflictOpen){
+					if(isLeftContent){leftConflictingContent+=line + "\n";
+					}else{rightConflictingContent+=line + "\n";}
+				}
+			}
+		}
+		return mergeConflicts;
+	}
+
 	public static String merge(String left, String base, String right){
 		String textualMergeResult = null;
 		try{
@@ -119,6 +164,27 @@ public final class FileHandlerr {
 			textualMergeResult= "";
 		}
 		return textualMergeResult;
+	}
+
+	public static boolean writeContent(String filePath, String content){
+		if(!content.isEmpty()){
+			try{
+				File file = new File(filePath);
+				if(!file.exists()){
+					file.getParentFile().mkdirs();
+					file.createNewFile();
+				}
+				BufferedWriter writer = Files.newBufferedWriter(Paths.get(filePath));
+				writer.write(content);
+				writer.flush();	writer.close();
+			} catch(NullPointerException ne){
+				//empty, necessary for integration with git version control system
+			} catch(Exception e){
+				System.err.println(e.toString());
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public static void main(String[] args) {

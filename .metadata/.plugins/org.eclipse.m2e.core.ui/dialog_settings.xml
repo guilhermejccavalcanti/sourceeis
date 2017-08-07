@@ -14,6 +14,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\GGTS\workspaces\workspacefpfn\gitconflictsextractor"/>
 			<item value="C:\GGTS\workspacefpfn\gitconflictsextractor"/>
 		</list>
 		<list key="projectNameTemplate">
