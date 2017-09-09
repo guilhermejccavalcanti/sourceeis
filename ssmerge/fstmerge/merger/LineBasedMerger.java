@@ -104,9 +104,9 @@ public class LineBasedMerger implements MergerInterface {
 
 		try {
 			long time = System.currentTimeMillis();
-			//File tmpDir = new File(System.getProperty("user.dir") + File.separator + "fstmerge_tmp"+time);
+			File tmpDir = new File(System.getProperty("user.dir") + File.separator + "fstmerge_tmp"+time);
 			//File tmpDir = new File(System.getProperty("user.home") + File.separator +"ssmerge" + File.separator + "fstmerge_tmp"+time);
-			File tmpDir = new File("E:" + File.separator +"ssmerge" + File.separator + "fstmerge_tmp"+time);
+			//File tmpDir = new File("E:" + File.separator +"ssmerge" + File.separator + "fstmerge_tmp"+time);
 			tmpDir.mkdir();
 
 			//			File fileVar1 = File.createTempFile("fstmerge_var1_", "", tmpDir);
@@ -142,8 +142,8 @@ public class LineBasedMerger implements MergerInterface {
 			String mergeCmdInclBase 	= ""; 
 			String mergeCmdOriginal 	= ""; 
 			if(System.getProperty("os.name").contains("Windows")){
-				mergeCmdInclBase = "C:/Program Files/KDiff3/bin/diff3.exe -m " + "\"" + fileVar1.getPath() + "\"" + " " + "\"" + fileBase.getPath() + "\"" + " " + "\"" + fileVar2.getPath() + "\"";// + " > " + fileVar1.getName() + "_output";
-				mergeCmdOriginal = "C:/Program Files/KDiff3/bin/diff3.exe -m -E " + "\"" + fileVar1.getPath() + "\"" + " " + "\"" + fileBase.getPath() + "\"" + " " + "\"" + fileVar2.getPath() + "\"";// + " > " + fileVar1.getName() + "_output";
+				mergeCmdInclBase = "C:/KDiff3/bin/diff3.exe -m " + "\"" + fileVar1.getPath() + "\"" + " " + "\"" + fileBase.getPath() + "\"" + " " + "\"" + fileVar2.getPath() + "\"";// + " > " + fileVar1.getName() + "_output";
+				mergeCmdOriginal = "C:/KDiff3/bin/diff3.exe -m -E " + "\"" + fileVar1.getPath() + "\"" + " " + "\"" + fileBase.getPath() + "\"" + " " + "\"" + fileVar2.getPath() + "\"";// + " > " + fileVar1.getName() + "_output";
 			}else{
 				mergeCmdInclBase = "diff3 -m " + fileVar1.getPath() + " " + fileBase.getPath() + " " + fileVar2.getPath();// + " > " + fileVar1.getName() + "_output";
 				mergeCmdOriginal = "diff3 -m -E " + fileVar1.getPath() + " " + fileBase.getPath() + " " + fileVar2.getPath();// + " > " + fileVar1.getName() + "_output";

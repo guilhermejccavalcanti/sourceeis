@@ -278,8 +278,8 @@ public class FSTGenMerger extends FSTGenProcessor {
 
 			countAcidentalFNs(conflicts,mergeResult);
 
-			/*			Util.unMergeNonJavaFiles(currentMergedRevisionFilePath);		
-			restoreEqualFiles(currentMergedRevisionFilePath);*/
+			Util.unMergeNonJavaFiles(currentMergedRevisionFilePath);		
+			restoreEqualFiles(currentMergedRevisionFilePath);
 
 			long tf = System.currentTimeMillis();
 			long mergeTime =  ((tf-t0)/60000);
@@ -1823,7 +1823,7 @@ public class FSTGenMerger extends FSTGenProcessor {
 					anonymousBlocks = (leftAnonymousBlocksFiltered.size() > rightAnonymousBlocksFiltered.size())?rightAnonymousBlocksFiltered.size():leftAnonymousBlocksFiltered.size();
 					String logentry = expressionval+";"+mergedFile+";"+anonymousBlocks;
 					logEntries.add(logentry);
-				
+
 				} else {//diff2
 					for(FSTNode left : leftAnonymousBlocks){
 						boolean foundequals = false;

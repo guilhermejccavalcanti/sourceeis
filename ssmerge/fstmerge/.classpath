@@ -7,8 +7,8 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/CIDE2_ast"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/fstgen"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/MergeConflictParserAndAnalyser"/>
-	<classpathentry kind="lib" path="C:/GGTS/workspaces/workspacefpfn/astfinder/dependencies/commons-io-2.4.jar"/>
-	<classpathentry kind="lib" path="C:/GGTS/workspaces/workspacefpfn/astfinder/dependencies/commons-lang3-3.4.jar"/>
-	<classpathentry kind="lib" path="C:/GGTS/workspaces/workspacefpfn/astfinder/dependencies/google-collections.jar"/>
+	<classpathentry kind="lib" path="C:/GGTS/workspaces/workspace_fpfn/sourceeis/astfinder/dependencies/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="C:/GGTS/workspaces/workspace_fpfn/sourceeis/astfinder/dependencies/commons-lang3-3.4.jar"/>
+	<classpathentry kind="lib" path="C:/GGTS/workspaces/workspace_fpfn/sourceeis/astfinder/dependencies/google-collections.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

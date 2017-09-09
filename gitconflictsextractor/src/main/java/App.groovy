@@ -341,8 +341,8 @@ class App {
 		def fpConsSpacMergeScenarios
 		def fnNewArtRefOldOneMergeScnarios
 		def fnNewArtRefOldOneConf
-		def fnAnonymous
-		def fnAnonymousMergeScnarios
+		def fnInitializationBlocks
+		def fnInitializationBlocksMergeScnarios
 		def minfpamc
 		def minfpamScenarios
 		def fnAcidental
@@ -365,7 +365,7 @@ class App {
 
 
 		//### RESULTS PER PROJECT
-		String headerp = "project;mergeScenarios;fpOrderingMergeScenarios;fpRenamingMergeScenarios;fnDuplicationMergeScenarios;fnImportMergeScenarios;textualConfUnmerge;textualConfSsmerge;fpOrderingConf;fpRenamingConf;fnDuplicationMissed;fnImportMissed;fpRenamingConfDup;fpConsLines;fpSpacing;fpConsSpac;fpRenamingConfDupMergeScenarios;fpConsLinesMergeScenarios;fpSpacingMergeScenarios;fpConsSpacMergeScenarios;fnNewArtRefOldOneMergeScnarios;fnNewArtRefOldOneConf;fnAnonymous;fnAnonymousMergeScnarios;minfpam;minfpamScenarios;fnAcidental;fnAcidentalScenarios;crosscutingConflicts;crosscutingScenarios;equalConfs\n"
+		String headerp = "project;mergeScenarios;fpOrderingMergeScenarios;fpRenamingMergeScenarios;fnDuplicationMergeScenarios;fnImportMergeScenarios;textualConfUnmerge;textualConfSsmerge;fpOrderingConf;fpRenamingConf;fnDuplicationMissed;fnImportMissed;fpRenamingConfDup;fpConsLines;fpSpacing;fpConsSpac;fpRenamingConfDupMergeScenarios;fpConsLinesMergeScenarios;fpSpacingMergeScenarios;fpConsSpacMergeScenarios;fnNewArtRefOldOneMergeScnarios;fnNewArtRefOldOneConf;fnInitializationBlocks;fnInitializationBlocksMergeScnarios;minfpam;minfpamScenarios;fnAcidental;fnAcidentalScenarios;crosscutingConflicts;crosscutingScenarios;equalConfs\n"
 		def out = new File('results/resultFPFNAnalysisByProject.csv')
 		if(!out.exists()){
 			out.createNewFile()
@@ -396,8 +396,8 @@ class App {
 				fpConsSpacMergeScenarios		= (mergeResult.consecutiveLinesAndSpacingConflicts>0)?(fields[19].toInteger()+1):fields[19]
 				fnNewArtRefOldOneMergeScnarios  = (mergeResult.newArtefactsReferencingEditedOnes>0)?(fields[20].toInteger()+1):fields[20]
 				fnNewArtRefOldOneConf			= fields[21].toInteger()+mergeResult.newArtefactsReferencingEditedOnes
-				fnAnonymous						= fields[22].toInteger()+mergeResult.anonymousBlocks
-				fnAnonymousMergeScnarios  		= (mergeResult.anonymousBlocks>0)?(fields[23].toInteger()+1):fields[23]
+				fnInitializationBlocks						= fields[22].toInteger()+mergeResult.anonymousBlocks
+				fnInitializationBlocksMergeScnarios  		= (mergeResult.anonymousBlocks>0)?(fields[23].toInteger()+1):fields[23]
 				minfpamc					    = fields[24].toInteger()+minfpam
 				minfpamScenarios  				= (minfpam>0)?(fields[25].toInteger()+1):fields[25]
 				fnAcidental  					= fields[26].toInteger()+ mergeResult.acidentalConflicts
@@ -407,7 +407,7 @@ class App {
 				equalConfs						= fields[30].toInteger()+mergeResult.equalConfs
 
 				projectFound = true;
-				def updatedRow = [project, mergeScenarios, fpOrderingMergeScenarios, fpRenamingMergeScenarios, fnDuplicationMergeScenarios, fnImportMergeScenarios, textualConfUnmerge, textualConfSsmerge, fpOrderingConf, fpRenamingConf, fnDuplicationMissed, fnImportMissed, fpRenamingConfDup, fpConsLines, fpSpacing, fpConsSpac, fpRenamingConfDupMergeScenarios, fpConsLinesMergeScenarios, fpSpacingMergeScenarios, fpConsSpacMergeScenarios, fnNewArtRefOldOneMergeScnarios, fnNewArtRefOldOneConf, fnAnonymous, fnAnonymousMergeScnarios, minfpamc, minfpamScenarios, fnAcidental, fnAcidentalScenarios, crosscutingConflicts, crosscutingScenarios, equalConfs]
+				def updatedRow = [project, mergeScenarios, fpOrderingMergeScenarios, fpRenamingMergeScenarios, fnDuplicationMergeScenarios, fnImportMergeScenarios, textualConfUnmerge, textualConfSsmerge, fpOrderingConf, fpRenamingConf, fnDuplicationMissed, fnImportMissed, fpRenamingConfDup, fpConsLines, fpSpacing, fpConsSpac, fpRenamingConfDupMergeScenarios, fpConsLinesMergeScenarios, fpSpacingMergeScenarios, fpConsSpacMergeScenarios, fnNewArtRefOldOneMergeScnarios, fnNewArtRefOldOneConf, fnInitializationBlocks, fnInitializationBlocksMergeScnarios, minfpamc, minfpamScenarios, fnAcidental, fnAcidentalScenarios, crosscutingConflicts, crosscutingScenarios, equalConfs]
 
 				rows.add(updatedRow.join(';'))
 			} else {
@@ -438,8 +438,8 @@ class App {
 			fpConsSpacMergeScenarios		= (mergeResult.consecutiveLinesAndSpacingConflicts>0)?1:0
 			fnNewArtRefOldOneMergeScnarios  = (mergeResult.newArtefactsReferencingEditedOnes>0)?1:0
 			fnNewArtRefOldOneConf			= mergeResult.newArtefactsReferencingEditedOnes
-			fnAnonymous						= mergeResult.anonymousBlocks
-			fnAnonymousMergeScnarios  		= (mergeResult.anonymousBlocks>0)?1:0
+			fnInitializationBlocks						= mergeResult.anonymousBlocks
+			fnInitializationBlocksMergeScnarios  		= (mergeResult.anonymousBlocks>0)?1:0
 			minfpamc						= minfpam
 			minfpamScenarios  				= (minfpam>0)?1:0
 			fnAcidental  					= mergeResult.acidentalConflicts
@@ -448,7 +448,7 @@ class App {
 			crosscutingScenarios			= (mergeResult.crosscutingConflicts>0)?1:0
 			equalConfs						= mergeResult.equalConfs
 
-			def newRow = [project, mergeScenarios, fpOrderingMergeScenarios, fpRenamingMergeScenarios, fnDuplicationMergeScenarios, fnImportMergeScenarios, textualConfUnmerge, textualConfSsmerge, fpOrderingConf, fpRenamingConf, fnDuplicationMissed, fnImportMissed, fpRenamingConfDup, fpConsLines, fpSpacing, fpConsSpac, fpRenamingConfDupMergeScenarios, fpConsLinesMergeScenarios, fpSpacingMergeScenarios, fpConsSpacMergeScenarios, fnNewArtRefOldOneMergeScnarios, fnNewArtRefOldOneConf, fnAnonymous, fnAnonymousMergeScnarios, minfpamc, minfpamScenarios, fnAcidental, fnAcidentalScenarios, crosscutingConflicts, crosscutingScenarios, equalConfs]
+			def newRow = [project, mergeScenarios, fpOrderingMergeScenarios, fpRenamingMergeScenarios, fnDuplicationMergeScenarios, fnImportMergeScenarios, textualConfUnmerge, textualConfSsmerge, fpOrderingConf, fpRenamingConf, fnDuplicationMissed, fnImportMissed, fpRenamingConfDup, fpConsLines, fpSpacing, fpConsSpac, fpRenamingConfDupMergeScenarios, fpConsLinesMergeScenarios, fpSpacingMergeScenarios, fpConsSpacMergeScenarios, fnNewArtRefOldOneMergeScnarios, fnNewArtRefOldOneConf, fnInitializationBlocks, fnInitializationBlocksMergeScnarios, minfpamc, minfpamScenarios, fnAcidental, fnAcidentalScenarios, crosscutingConflicts, crosscutingScenarios, equalConfs]
 
 			rows.add(newRow.join(';'))
 		}
@@ -490,8 +490,8 @@ class App {
 				"fpConsSpacMergeScenarios;" +
 				"fnNewArtRefOldOneMergeScnarios;" +
 				"fnNewArtRefOldOneConf;" +
-				"fnAnonymous;" +
-				"fnAnonymousMergeScnarios;"+
+				"fnInitializationBlocks;" +
+				"fnInitializationBlocksMergeScnarios;"+
 				"fnAcidental;" +
 				"fnAcidentalScenarios;"+
 				"crosscutingConflicts;" +
@@ -587,13 +587,13 @@ class App {
 
 		//logger();
 		//ArrayList<Project> projects = readProjects();
-		//ArrayList<Project> projects = readProjectsNoGitMiner();
-		//runFPFNAnalysis(projects)
+		ArrayList<Project> projects = readProjectsNoGitMiner();
+		runFPFNAnalysis(projects)
 
 		//testFPFNAnalysis2()
 		//collectMergeCommits()
 
-		runRevisionsOfInterest("in.csv")
+		//runRevisionsOfInterest("in.csv")
 	}
 
 	/*	def static runRevisionsOfInterest(String revisionsfilepath){
