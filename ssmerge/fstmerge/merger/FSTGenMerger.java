@@ -278,7 +278,9 @@ public class FSTGenMerger extends FSTGenProcessor {
 
 			countAcidentalFNs(conflicts,mergeResult);
 
-			Util.unMergeNonJavaFiles(currentMergedRevisionFilePath);		
+			//OPTIONAL, data about non-java files if necessary, too slow
+			//Util.unMergeNonJavaFiles(currentMergedRevisionFilePath);		
+			
 			restoreEqualFiles(currentMergedRevisionFilePath);
 
 			long tf = System.currentTimeMillis();
