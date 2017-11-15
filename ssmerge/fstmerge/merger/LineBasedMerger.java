@@ -102,6 +102,10 @@ public class LineBasedMerger implements MergerInterface {
 			return;
 		}
 
+		//streams
+		Process pr = null;
+		BufferedReader buf = null;
+
 		try {
 			long time = System.currentTimeMillis();
 			File tmpDir = new File(System.getProperty("user.dir") + File.separator + "fstmerge_tmp"+time);
@@ -149,16 +153,20 @@ public class LineBasedMerger implements MergerInterface {
 				mergeCmdOriginal = "diff3 -m -E " + fileVar1.getPath() + " " + fileBase.getPath() + " " + fileVar2.getPath();// + " > " + fileVar1.getName() + "_output";
 			}
 
-
+			//merge showing base
 			Runtime run = Runtime.getRuntime();
-			Process pr 	= run.exec(mergeCmdInclBase);
-			BufferedReader buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
+			pr 	= run.exec(mergeCmdInclBase);
+			buf = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 			String line 			= "";
 			String resultInclBase 	= "";
 			while ((line=buf.readLine())!=null) {
 				resultInclBase += line + "\n";
 			}
+			pr.getInputStream().close();
+			pr.getOutputStream().close();
+			buf.close();
 
+			//merge default
 			pr 	 = run.exec(mergeCmdOriginal);
 			buf  = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 			line = "";
@@ -167,6 +175,9 @@ public class LineBasedMerger implements MergerInterface {
 				resultOriginal += line + "\n";
 			}
 			pr.getInputStream().close();
+			pr.getOutputStream().close();
+			buf.close();
+
 
 			//DIFFMERGED
 			//			if(!res.contains(this.CONFLICT_DELIMITER)){
@@ -176,10 +187,10 @@ public class LineBasedMerger implements MergerInterface {
 			//			}
 
 			//node.setBody(resultOriginal);
-			
+
 			node.setBody(resultInclBase);
 
-			
+
 			//FPFN RENAMING ISSUE
 			if(hadConflict(node)){
 				identifyAndAccountRenamingAndDuplications(node, tokens,false);
@@ -207,7 +218,7 @@ public class LineBasedMerger implements MergerInterface {
 			}
 
 			node.setBody(resultOriginal);
-			
+
 			//			//FPFN CALLING STRUCTURED MERGE/JDIME
 			//			if(node.getType().equals(".java-Content") && isNotErrorFile()){
 			//				System.out.println("Running Jdime...");
@@ -230,11 +241,11 @@ public class LineBasedMerger implements MergerInterface {
 				ArrayList<MergeConflict> mergeConflicts = Util.getConflicts(file,node);
 				FSTGenMerger.mapMergeConflicts.put(file, mergeConflicts);
 				System.out.println("Extracting Conflicts of " + node.getName() + " done!");
-				
+
 				//to counting purposes
 				node.setBody(resultInclBase);
 			}
-			
+
 
 			buf = new BufferedReader(new InputStreamReader(pr.getErrorStream()));
 			while ((line=buf.readLine())!=null) {
@@ -250,8 +261,24 @@ public class LineBasedMerger implements MergerInterface {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			if (buf != null) {
+				try {
+					buf.close();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
+			if (pr != null) {
+				try {
+					pr.getInputStream().close();
+					pr.getOutputStream().close();
+					pr.getErrorStream().close();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+			}
 			System.exit(0);
-		}
+		}  
 	}
 
 	//FPFN NEW ARTEFACT REFERENCING EDITED ONE
@@ -336,7 +363,7 @@ public class LineBasedMerger implements MergerInterface {
 					}
 				} else {
 					if((  tokens[LineBasedMerger.LEFT_CONTENT].isEmpty() && !tokens[LineBasedMerger.BASE_CONTENT].isEmpty() && !tokens[LineBasedMerger.RIGHT_CONTENT].isEmpty()) ||
-						(!tokens[LineBasedMerger.LEFT_CONTENT].isEmpty() && !tokens[LineBasedMerger.BASE_CONTENT].isEmpty() &&  tokens[LineBasedMerger.RIGHT_CONTENT].isEmpty())){
+							(!tokens[LineBasedMerger.LEFT_CONTENT].isEmpty() && !tokens[LineBasedMerger.BASE_CONTENT].isEmpty() &&  tokens[LineBasedMerger.RIGHT_CONTENT].isEmpty())){
 
 						this.countOfPossibleRenames++;
 						this.hadRenaming = true;
