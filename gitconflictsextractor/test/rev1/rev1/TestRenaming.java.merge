@@ -1,0 +1,27 @@
+public class TestRenaming{
+<<<<<<< C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531208974\fstmerge_var1_2764922872823867155.java
+	void givenName(String name){
+		System.out.println(name);
+||||||| C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531208974\fstmerge_base_8976902412188564347.java
+	void givenName(){
+		System.out.println("Guilherme José");
+=======
+	void givenName(){
+		System.out.println("Guilherme");
+>>>>>>> C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531208974\fstmerge_var2_5335141948938487588.java
+	}
+	
+<<<<<<< C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531208974\fstmerge_var1_2764922872823867155.java
+	void doMath(int a, int b, int c){
+		return a+b+c;
+||||||| C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531208974\fstmerge_base_8976902412188564347.java
+	void doMath(int a, int b){
+		return a+b;
+=======
+	void doMath(int a, int b){
+		return a	+	b;
+>>>>>>> C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531208974\fstmerge_var2_5335141948938487588.java
+	}
+	
+}
+

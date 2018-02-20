@@ -196,10 +196,6 @@ public class LineBasedMerger implements MergerInterface {
 				identifyAndAccountRenamingAndDuplications(node, tokens,false);
 			}
 
-			//FPFN DUPLICATED ISSUE
-			//identifyAndAccountRenamingAndDuplications(node, tokens,true);
-
-
 			//FPFN SPACING AND CONSECUTIVE LINES
 			if(hadConflict(node) && !hadRenaming && isMethodOrConstructor(node) && isNotErrorFile()){
 				node.setBody(resultInclBase);
@@ -218,14 +214,6 @@ public class LineBasedMerger implements MergerInterface {
 			}
 
 			node.setBody(resultOriginal);
-
-			//			//FPFN CALLING STRUCTURED MERGE/JDIME
-			//			if(node.getType().equals(".java-Content") && isNotErrorFile()){
-			//				System.out.println("Running Jdime...");
-			//				Main.run(fileVar1.getPath(), fileBase.getPath(), fileVar2.getPath());
-			//				processJdimeMetrics(fileBase.getPath(),node);
-			//				//Util.countJdimeConflicts(FSTGenMerger.currentMergeResult);			
-			//			}
 
 			//FPFN NEW ARTEFACT REFERENCING EDITED ONE
 			if((!hadConflict(node)) && isMethodOrConstructor(node) && isNotErrorFile()){
@@ -344,77 +332,21 @@ public class LineBasedMerger implements MergerInterface {
 	//FPFN RENAMING ISSUE && DUPLICATED METHOD ISSUE
 	private void identifyAndAccountRenamingAndDuplications(FSTTerminal node, String[] tokens, boolean checkDuplications) {
 		if( 	node.getType().contains("MethodDecl")|| 
-				node.getType().contains("FunctionDefinition") ||
-				node.getType().contains("classsmall_stmt1") ||
-				//node.getType().contains("ConstructorDecl") ||
+				node.getType().contains("FunctionDefinition") 	||
+				node.getType().contains("classsmall_stmt1") 	||
+				//node.getType().contains("ConstructorDecl") 	||
 				node.getType().contains("class_member_declarationEnd6")){
-
-
 			if(isNotErrorFile()){
-				if(checkDuplications){
-					if(!tokens[LineBasedMerger.LEFT_CONTENT].isEmpty() && tokens[LineBasedMerger.BASE_CONTENT].isEmpty() && !tokens[LineBasedMerger.RIGHT_CONTENT].isEmpty()){
-						String methodSignature = this.getMethodSignature(node);
-						if(!methodSignature.equals("")){
-							this.countOfPossibleDuplications++;
-							String mergedFolder  = (this.getMergedFolder()).replaceAll("/", Matcher.quoteReplacement(File.separator));
-							String candidateFile = mergedFolder + LineBasedMerger.getFileAbsolutePath(node) + ".java.merge";
-							this.listDuplicatedMethods.add(mergedFolder+";"+candidateFile+";"+methodSignature);
-						}			
-					}
-				} else {
-					if((  tokens[LineBasedMerger.LEFT_CONTENT].isEmpty() && !tokens[LineBasedMerger.BASE_CONTENT].isEmpty() && !tokens[LineBasedMerger.RIGHT_CONTENT].isEmpty()) ||
-							(!tokens[LineBasedMerger.LEFT_CONTENT].isEmpty() && !tokens[LineBasedMerger.BASE_CONTENT].isEmpty() &&  tokens[LineBasedMerger.RIGHT_CONTENT].isEmpty())){
-
-						this.countOfPossibleRenames++;
-						this.hadRenaming = true;
-
-						String methodSignature 		  = this.getMethodSignature(node);
-						String unMergeMethodSignature = this.getUnMergeMethodSignature(node);
-						String mergedFolder    		  = (this.getMergedFolder()).replaceAll("/", Matcher.quoteReplacement(File.separator));
-						String file					  = LineBasedMerger.getFileAbsolutePath(node);
-						if(!methodSignature.equals("")){
-							String renamingEntry 	  = mergedFolder+";"+ file  +";"+methodSignature+";"+unMergeMethodSignature;
-							this.mapRenamingConflicts.put(file,renamingEntry);
-						}
-
-						if((tokens[LineBasedMerger.LEFT_CONTENT].isEmpty()) && (Util.isStringsContentEqual(tokens[LineBasedMerger.BASE_CONTENT], tokens[LineBasedMerger.RIGHT_CONTENT]))){
-							this.countOfRenamesDueToIdentation++;
-
-							String renamingIdtEntry 		  = mergedFolder+";"+ file  +";"+methodSignature+";";
-							logSpacingRenaming(renamingIdtEntry,tokens[LineBasedMerger.BASE_CONTENT], tokens[LineBasedMerger.RIGHT_CONTENT]);
-						} else if((tokens[LineBasedMerger.RIGHT_CONTENT].isEmpty()) && (Util.isStringsContentEqual(tokens[LineBasedMerger.BASE_CONTENT], tokens[LineBasedMerger.LEFT_CONTENT]))){
-							this.countOfRenamesDueToIdentation++;
-
-							String renamingIdtEntry 		  = mergedFolder+";"+ file  +";"+methodSignature+";";
-							logSpacingRenaming(renamingIdtEntry,tokens[LineBasedMerger.BASE_CONTENT], tokens[LineBasedMerger.LEFT_CONTENT]);
-						}
-
-						//					//SOLVING CONFLICT FOR BUILD PURPOSES
-						//					if(!tokens[LineBasedMerger.LEFT_CONTENT].isEmpty()){
-						//						String methodStub = "";
-						//						if(belongsToInterface(node)){
-						//							methodStub = tokens[LineBasedMerger.LEFT_CONTENT];
-						//						} else {
-						//							methodStub = Util.generateMethodStub(tokens[LineBasedMerger.LEFT_CONTENT]);
-						//						}
-						//						node.setBody(methodStub);
-						//					}else{ 
-						//						if (!tokens[LineBasedMerger.RIGHT_CONTENT].isEmpty()){
-						//							String methodStub ="";
-						//							if(belongsToInterface(node)){
-						//								methodStub = tokens[LineBasedMerger.RIGHT_CONTENT];
-						//							} else {
-						//								methodStub = Util.generateMethodStub(tokens[LineBasedMerger.RIGHT_CONTENT]);
-						//							}
-						//							node.setBody(methodStub);
-						//						}
-						//					}
-					} 
-					//				else {//SOLVING CONFLICT FOR BUILD PURPOSES
-					//					node.setBody(Util.generateMultipleMethodBody(tokens[LineBasedMerger.LEFT_CONTENT], tokens[LineBasedMerger.BASE_CONTENT], tokens[LineBasedMerger.RIGHT_CONTENT]));
-					//				}
-				}	
-			} 
+				if(!tokens[LineBasedMerger.LEFT_CONTENT].isEmpty() && tokens[LineBasedMerger.BASE_CONTENT].isEmpty() && !tokens[LineBasedMerger.RIGHT_CONTENT].isEmpty()){
+					String methodSignature = this.getMethodSignature(node);
+					if(!methodSignature.equals("")){
+						this.countOfPossibleDuplications++;
+						String mergedFolder  = (this.getMergedFolder()).replaceAll("/", Matcher.quoteReplacement(File.separator));
+						String candidateFile = mergedFolder + LineBasedMerger.getFileAbsolutePath(node) + ".java.merge";
+						this.listDuplicatedMethods.add(mergedFolder+";"+candidateFile+";"+methodSignature);
+					}			
+				} 
+			}
 		} else if(node.getType().contains("EnumConstant")){
 			if((  tokens[LineBasedMerger.LEFT_CONTENT].isEmpty() && !tokens[LineBasedMerger.BASE_CONTENT].isEmpty() && !tokens[LineBasedMerger.RIGHT_CONTENT].isEmpty()) ||
 					(!tokens[LineBasedMerger.LEFT_CONTENT].isEmpty() && !tokens[LineBasedMerger.BASE_CONTENT].isEmpty() &&  tokens[LineBasedMerger.RIGHT_CONTENT].isEmpty())	){
@@ -428,52 +360,6 @@ public class LineBasedMerger implements MergerInterface {
 			}
 		}
 	}
-
-	/*	//FPFN EDITIONS
-	private void processJdimeMetrics(String tempDir, FSTTerminal node) {
-		try {
-			List<String> lines  = StructuredStrategy.ASTBranchesResult.LOG_EDITIONS_TO_DIFFERENT_PARTS_OF_SAME_STMT;
-			this.countOfEditionsToDifferentPartsOfSameStmt += StructuredStrategy.ASTBranchesResult.EDITIONS_TO_DIFFERENT_PARTS_OF_SAME_STMT;
-			printJdimesEditionsToDifferentPartsOfSameStmtLog(tempDir, node,	lines);
-			Util.JDIME_CONFS += StructuredStrategy.ASTBranchesResult.CONFS;
-			Util.JDIME_LOCS  += StructuredStrategy.ASTBranchesResult.LOCS;
-			Util.JDIME_FILES += StructuredStrategy.ASTBranchesResult.FILES;
-
-			//reseting
-			StructuredStrategy.ASTBranchesResult.EDITIONS_TO_DIFFERENT_PARTS_OF_SAME_STMT = 0;
-			StructuredStrategy.ASTBranchesResult.LOG_EDITIONS_TO_DIFFERENT_PARTS_OF_SAME_STMT.clear();
-			StructuredStrategy.ASTBranchesResult.CONFS 	= 0;
-			StructuredStrategy.ASTBranchesResult.LOCS 	= 0;
-			StructuredStrategy.ASTBranchesResult.FILES	= 0;
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}*/
-
-	/*	//FPFN EDITIONS
-	private void printJdimesEditionsToDifferentPartsOfSameStmtLog(String tempDir, FSTTerminal node, List<String> lines)	throws IOException {
-		File file = new File("results/log_jdime_editionsToDifferentPartsOfSameStmt_.csv" );
-		if(!file.exists()){
-			file.createNewFile();
-		}
-		FileWriter fw = new FileWriter(file, true);
-		BufferedWriter bw = new BufferedWriter( fw );
-		try{
-			for(String line : lines){
-				String mergedFolder  = (this.getMergedFolder()).replaceAll("/", Matcher.quoteReplacement(File.separator));
-				String path = LineBasedMerger.getFileAbsolutePath(node) + ".java";
-				line = line.replace(tempDir, (mergedFolder+";"+path));
-				bw.write(line);
-				bw.newLine();
-			}
-			bw.close();
-			fw.close();
-		}catch(Exception e){
-			bw.close();
-			fw.close();
-		}
-	}*/
 
 	//FPFN IDENTATION RENAMING 
 	private void logSpacingRenaming(String mergetracking, String method1, String method2) {

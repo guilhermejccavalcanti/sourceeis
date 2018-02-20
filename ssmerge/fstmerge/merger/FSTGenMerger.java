@@ -280,7 +280,7 @@ public class FSTGenMerger extends FSTGenProcessor {
 
 			//OPTIONAL, data about non-java files if necessary, too slow
 			//Util.unMergeNonJavaFiles(currentMergedRevisionFilePath);		
-			
+
 			restoreEqualFiles(currentMergedRevisionFilePath);
 
 			long tf = System.currentTimeMillis();
@@ -430,10 +430,6 @@ public class FSTGenMerger extends FSTGenProcessor {
 			printRenamingNumbers(expressionval);
 			candidates.renamingCandidates 	= printListOfRenamings();
 
-			//			//FPFN DUPLICATED ISSUE
-			//			printDuplicatedMethodsNumbers(expressionval);
-			//			candidates.duplicatedCandidates	= printListOfDuplications();	
-
 			//FPFN DUPLICATIONS ISSUE NEW
 			candidates.duplicatedCandidates = countAndPrintFalseNegativeDuplications(expressionval);
 
@@ -516,6 +512,10 @@ public class FSTGenMerger extends FSTGenProcessor {
 			//			merger.logFilesStatistics(revision,mergeTime);
 			//			merger.resetFields();
 
+			/*			FSTGenMerger merger = new FSTGenMerger();
+			String revision 	= "C:\\Users\\Guilherme\\Desktop\\Recentes\\inner2\\rev.revisions";
+			String files[] 		= {"--expression",revision};
+			merger.run(files);*/
 
 		} catch (RuntimeException ru){
 			ru.printStackTrace();

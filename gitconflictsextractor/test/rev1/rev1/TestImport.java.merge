@@ -1,0 +1,22 @@
+<<<<<<< C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531208310\fstmerge_var1_7900394509532933470.java
+import java.awt.List;
+||||||| C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531208310\fstmerge_base_776598336948339157.java
+import java.util.List;
+=======
+import java.util.*;
+>>>>>>> C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531208310\fstmerge_var2_6613188070020761389.java
+
+public class TestImport {
+	void runList(List list){
+	 for(Object item : list){
+		System.out.println(item);
+	 }
+	}
+	
+	void printNames(List<String> names){
+	 for(String name : names){
+		System.out.println(name);
+	 }
+	}
+}
+

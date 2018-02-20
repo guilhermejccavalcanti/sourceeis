@@ -1,0 +1,52 @@
+public class TestConsecSpacingDupl{
+	
+	void m(){
+		System.out.println("Do another thing...");
+		System.out.println(new TestRenaming().givenName());
+}
+	
+	void testConsec(){
+<<<<<<< C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531206966\fstmerge_var1_7135725475145647679.java
+		int a1;
+		int b;
+||||||| C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531206966\fstmerge_base_7690594307312118725.java
+		int a;
+		int b;
+=======
+		int a;
+		int b1;
+>>>>>>> C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531206966\fstmerge_var2_8815386447457655173.java
+	}
+	
+<<<<<<< C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531206966\fstmerge_var1_7135725475145647679.java
+	void testConsecAndSpace(){
+		int a1;
+		int b;
+||||||| C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531206966\fstmerge_base_7690594307312118725.java
+	void testConsecAndSpace(){
+		int a;
+		int b;
+=======
+	void testSpace(){
+		int vr = 15;
+>>>>>>> C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531206966\fstmerge_var2_8815386447457655173.java
+	}
+	
+<<<<<<< C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531206966\fstmerge_var1_7135725475145647679.java
+	void testSpace(){
+			int vr;
+||||||| C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531206966\fstmerge_base_7690594307312118725.java
+	void testSpace(){
+		int vr;
+=======
+	void testConsecAndSpace(){
+			int a;
+			int b1;
+>>>>>>> C:\GGTS\workspaces\workspace_fpfn\sourceeis\gitconflictsextractor\fstmerge_tmp1515531206966\fstmerge_var2_8815386447457655173.java
+	}
+	
+	void m(){
+		System.out.println("Do something...");
+	}
+}
+

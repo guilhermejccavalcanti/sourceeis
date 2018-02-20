@@ -282,6 +282,186 @@ public class Util {
 		return methodSignature;
 	}
 
+	public static String unMergeMethodSignature(String [] methodBodySplited) {
+		String leftPart  = methodBodySplited[0];
+		String rightPart = methodBodySplited[2];
+		String body = ((leftPart.startsWith("<<<<<<<"))?rightPart:leftPart).replaceAll("\\r\\n|\\r|\\n","");
+		if(!body.isEmpty()){
+			body = getMethodSignature(body);
+		}
+		return body;
+	}
+
+	public static void unMergeNonJavaFiles(String dir){
+		try {
+			File revFile = new File(dir);
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(revFile.getAbsolutePath()))); 
+			String leftRevName 	= bufferedReader.readLine();
+			String baseRevName 	= bufferedReader.readLine();
+			String rightRevName = bufferedReader.readLine();
+			String baseFolder 	= revFile.getParentFile() + File.separator + "_nonJavaFiles" + File.separator + baseRevName;
+			String leftFolder 	= revFile.getParentFile() + File.separator + "_nonJavaFiles" + File.separator + leftRevName;
+			String rightFolder 	= revFile.getParentFile() + File.separator + "_nonJavaFiles" + File.separator + rightRevName;
+			bufferedReader.close();
+
+			unMergeNonJavaFilesAux(leftRevName, leftFolder, baseRevName, baseFolder, rightRevName, rightFolder, true);
+			unMergeNonJavaFilesAux(leftRevName, leftFolder, baseRevName, baseFolder, rightRevName, rightFolder, false);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static String getSingleLineContent(String content) {
+		return (content.replaceAll("\\r\\n|\\r|\\n",""));
+	}
+
+	public static String getSingleLineContentNoSpacing(String content) {
+		return (content.replaceAll("\\r\\n|\\r|\\n","")).replaceAll("\\s+","");
+	}
+
+	public static boolean multimapContains(	Multimap<String, FSTNode> entries, String filename, FSTNode node) {
+		for(FSTNode n : entries.get(filename)){
+			if(n.getType().equals(node.getType()) && n.getName().equals(node.getName())){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static String removeReservedKeywords(String str) {
+		//		String[] keywords = {
+		//				"assert",
+		//				"abstract", "boolean", "break", "byte",
+		//				"case", "catch", "char", "class",
+		//				"const", "continue", "default", "do",
+		//				"double", "else", "extends", "final",
+		//				"finally", "float", "for", "goto",
+		//				"if", "implements", "import",
+		//				"instanceof", "int", "interface",
+		//				"long", "native", "new", "package",
+		//				"private", "protected", "public",
+		//				"return", "short", "static", "super",
+		//				"switch", "synchronized", "this",
+		//				"throw", "throws", "transient",
+		//				"try", "void", "volatile", "while"
+		//		};
+
+		String[] keywords = {
+				"assert",
+				"abstract", 
+				"class",
+				"const",
+				"extends", 
+				"final",
+				"implements",
+				"interface",
+				"native",
+				"private", "protected", "public",
+				"static", "synchronized", "this",
+				"throw", "throws", "transient",
+				"volatile"
+		};
+
+		for (int i = 0; i < keywords.length; ++i) {
+			str  = str.replaceAll(keywords[i], "");
+		}
+		return str;
+	}
+
+	public static double computeStringSimilarity(String first,String second) {
+		@SuppressWarnings("unused")
+		String longer = first, shorter = second;
+		if (first.length() < second.length()) { // longer should always have greater length
+			longer = second; 
+			shorter= first;
+		}
+		int longerLength = longer.length();
+		if (longerLength == 0) {
+			return 1.0; /* both strings are zero length */ 
+		}
+
+		int levenshteinDistance = StringUtils.getLevenshteinDistance(first, second);
+		return ((longerLength - levenshteinDistance)/(double) longerLength);
+
+	}
+
+	public static String readFileContent(File file){
+		//StringBuilder content = new StringBuilder();
+		String content = "";
+		try{
+			BufferedReader reader = Files.newBufferedReader(Paths.get(file.getAbsolutePath()), StandardCharsets.ISO_8859_1);
+			content = reader.lines().collect(Collectors.joining("\n"));
+		}catch(Exception e){
+			//System.err.println(e.getMessage());
+		}
+		return content;
+	}
+
+	public static List<MergeConflict> extractMergeConflicts(String mergedCode){
+		//FPFN uncomment String CONFLICT_HEADER_BEGIN= "<<<<<<< MINE";
+		String CONFLICT_HEADER_BEGIN= "<<<<<<<";
+		String CONFLICT_MID			= "=======";
+		//String CONFLICT_HEADER_END 	= ">>>>>>> YOURS";
+		String CONFLICT_HEADER_END 	= ">>>>>>>";
+		String leftConflictingContent = "";
+		String rightConflictingContent= "";
+		boolean isConflictOpen		  = false;
+		boolean isLeftContent		  = false;
+
+		List<MergeConflict> mergeConflicts = new ArrayList<MergeConflict>();
+		List<String> lines = new ArrayList<>();
+		BufferedReader reader = new BufferedReader(new StringReader(mergedCode));
+		lines = reader.lines().collect(Collectors.toList());
+		Iterator<String> itlines = lines.iterator();
+		while(itlines.hasNext()){
+			String line = itlines.next();
+			if(line.contains(CONFLICT_HEADER_BEGIN)){
+				isConflictOpen = true;
+				isLeftContent  = true;
+			}
+			else if(line.contains(CONFLICT_MID)){
+				leftConflictingContent+=line + "\n";
+				isLeftContent = false;
+			}
+			else if(line.contains(CONFLICT_HEADER_END)) {
+				rightConflictingContent+=line + "\n";
+				MergeConflict mergeConflict = new MergeConflict(leftConflictingContent,rightConflictingContent);
+				mergeConflicts.add(mergeConflict);
+				//reseting the flags
+				isConflictOpen	= false;
+				isLeftContent   = false;
+				leftConflictingContent = "";
+				rightConflictingContent= "";
+			} else {
+				if(isConflictOpen){
+					if(isLeftContent){leftConflictingContent+=line + "\n";
+					}else{rightConflictingContent+=line + "\n";}
+				}
+			}
+		}
+		return mergeConflicts;
+	}
+
+	public static List<String> listJavaSsmergedFilesPath(String directory){
+		List<String> allFiles = new ArrayList<String>();
+		File[] fList = (new File(directory)).listFiles();
+		if(fList != null){
+			for (File file : fList){
+				if (file.isFile() && FilenameUtils.getExtension(file.getAbsolutePath()).equalsIgnoreCase("java")){
+					String unmergedFilePath = file.getAbsolutePath() +".merge";
+					if(new File(unmergedFilePath).exists()){ //only pairs of .java and .java.merge files interest
+						allFiles.add(file.getAbsolutePath());
+					}
+
+				} else if (file.isDirectory()){
+					allFiles.addAll(listJavaSsmergedFilesPath(file.getAbsolutePath()));
+				}
+			}
+		}
+		return allFiles;
+	}
+
 	private static String getFileContents(String filePath){
 		String content = "";
 		try {
@@ -549,36 +729,6 @@ public class Util {
 		}
 	}
 
-	public static String unMergeMethodSignature(String [] methodBodySplited) {
-		String leftPart  = methodBodySplited[0];
-		String rightPart = methodBodySplited[2];
-		String body = ((leftPart.startsWith("<<<<<<<"))?rightPart:leftPart).replaceAll("\\r\\n|\\r|\\n","");
-		if(!body.isEmpty()){
-			body = getMethodSignature(body);
-		}
-		return body;
-	}
-
-	public static void unMergeNonJavaFiles(String dir){
-		try {
-			File revFile = new File(dir);
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(revFile.getAbsolutePath()))); 
-			String leftRevName 	= bufferedReader.readLine();
-			String baseRevName 	= bufferedReader.readLine();
-			String rightRevName = bufferedReader.readLine();
-			String baseFolder 	= revFile.getParentFile() + File.separator + "_nonJavaFiles" + File.separator + baseRevName;
-			String leftFolder 	= revFile.getParentFile() + File.separator + "_nonJavaFiles" + File.separator + leftRevName;
-			String rightFolder 	= revFile.getParentFile() + File.separator + "_nonJavaFiles" + File.separator + rightRevName;
-			bufferedReader.close();
-
-			unMergeNonJavaFilesAux(leftRevName, leftFolder, baseRevName, baseFolder, rightRevName, rightFolder, true);
-			unMergeNonJavaFilesAux(leftRevName, leftFolder, baseRevName, baseFolder, rightRevName, rightFolder, false);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
 	private static void unMergeNonJavaFilesAux(String leftRevName, String leftFolder,
 			String baseRevName, String baseFolder, String rightRevName,
 			String rightFolder, boolean includeBase) {
@@ -695,137 +845,6 @@ public class Util {
 		}
 	}
 
-	public static String getSingleLineContent(String content) {
-		return (content.replaceAll("\\r\\n|\\r|\\n",""));
-	}
-
-	public static String getSingleLineContentNoSpacing(String content) {
-		return (content.replaceAll("\\r\\n|\\r|\\n","")).replaceAll("\\s+","");
-	}
-
-	public static boolean multimapContains(	Multimap<String, FSTNode> entries, String filename, FSTNode node) {
-		for(FSTNode n : entries.get(filename)){
-			if(n.getType().equals(node.getType()) && n.getName().equals(node.getName())){
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public static String removeReservedKeywords(String str) {
-		//		String[] keywords = {
-		//				"assert",
-		//				"abstract", "boolean", "break", "byte",
-		//				"case", "catch", "char", "class",
-		//				"const", "continue", "default", "do",
-		//				"double", "else", "extends", "final",
-		//				"finally", "float", "for", "goto",
-		//				"if", "implements", "import",
-		//				"instanceof", "int", "interface",
-		//				"long", "native", "new", "package",
-		//				"private", "protected", "public",
-		//				"return", "short", "static", "super",
-		//				"switch", "synchronized", "this",
-		//				"throw", "throws", "transient",
-		//				"try", "void", "volatile", "while"
-		//		};
-
-		String[] keywords = {
-				"assert",
-				"abstract", 
-				"class",
-				"const",
-				"extends", 
-				"final",
-				"implements",
-				"interface",
-				"native",
-				"private", "protected", "public",
-				"static", "synchronized", "this",
-				"throw", "throws", "transient",
-				"volatile"
-		};
-
-		for (int i = 0; i < keywords.length; ++i) {
-			str  = str.replaceAll(keywords[i], "");
-		}
-		return str;
-	}
-
-	public static double computeStringSimilarity(String first,String second) {
-		@SuppressWarnings("unused")
-		String longer = first, shorter = second;
-		if (first.length() < second.length()) { // longer should always have greater length
-			longer = second; 
-			shorter= first;
-		}
-		int longerLength = longer.length();
-		if (longerLength == 0) {
-			return 1.0; /* both strings are zero length */ 
-		}
-
-		int levenshteinDistance = StringUtils.getLevenshteinDistance(first, second);
-		return ((longerLength - levenshteinDistance)/(double) longerLength);
-
-	}
-
-	public static String readFileContent(File file){
-		//StringBuilder content = new StringBuilder();
-		String content = "";
-		try{
-			BufferedReader reader = Files.newBufferedReader(Paths.get(file.getAbsolutePath()), StandardCharsets.ISO_8859_1);
-			content = reader.lines().collect(Collectors.joining("\n"));
-		}catch(Exception e){
-			//System.err.println(e.getMessage());
-		}
-		return content;
-	}
-
-	public static List<MergeConflict> extractMergeConflicts(String mergedCode){
-		//FPFN uncomment String CONFLICT_HEADER_BEGIN= "<<<<<<< MINE";
-		String CONFLICT_HEADER_BEGIN= "<<<<<<<";
-		String CONFLICT_MID			= "=======";
-		//String CONFLICT_HEADER_END 	= ">>>>>>> YOURS";
-		String CONFLICT_HEADER_END 	= ">>>>>>>";
-		String leftConflictingContent = "";
-		String rightConflictingContent= "";
-		boolean isConflictOpen		  = false;
-		boolean isLeftContent		  = false;
-
-		List<MergeConflict> mergeConflicts = new ArrayList<MergeConflict>();
-		List<String> lines = new ArrayList<>();
-		BufferedReader reader = new BufferedReader(new StringReader(mergedCode));
-		lines = reader.lines().collect(Collectors.toList());
-		Iterator<String> itlines = lines.iterator();
-		while(itlines.hasNext()){
-			String line = itlines.next();
-			if(line.contains(CONFLICT_HEADER_BEGIN)){
-				isConflictOpen = true;
-				isLeftContent  = true;
-			}
-			else if(line.contains(CONFLICT_MID)){
-				leftConflictingContent+=line + "\n";
-				isLeftContent = false;
-			}
-			else if(line.contains(CONFLICT_HEADER_END)) {
-				rightConflictingContent+=line + "\n";
-				MergeConflict mergeConflict = new MergeConflict(leftConflictingContent,rightConflictingContent);
-				mergeConflicts.add(mergeConflict);
-				//reseting the flags
-				isConflictOpen	= false;
-				isLeftContent   = false;
-				leftConflictingContent = "";
-				rightConflictingContent= "";
-			} else {
-				if(isConflictOpen){
-					if(isLeftContent){leftConflictingContent+=line + "\n";
-					}else{rightConflictingContent+=line + "\n";}
-				}
-			}
-		}
-		return mergeConflicts;
-	}
-
 	private static boolean areSimilarConflicts(MergeConflict confa,	MergeConflict confb) {
 		if (null == confa || null == confb)
 			return false;
@@ -840,30 +859,11 @@ public class Util {
 		}
 	}
 
-	public static List<String> listJavaSsmergedFilesPath(String directory){
-		List<String> allFiles = new ArrayList<String>();
-		File[] fList = (new File(directory)).listFiles();
-		if(fList != null){
-			for (File file : fList){
-				if (file.isFile() && FilenameUtils.getExtension(file.getAbsolutePath()).equalsIgnoreCase("java")){
-					String unmergedFilePath = file.getAbsolutePath() +".merge";
-					if(new File(unmergedFilePath).exists()){ //only pairs of .java and .java.merge files interest
-						allFiles.add(file.getAbsolutePath());
-					}
-
-				} else if (file.isDirectory()){
-					allFiles.addAll(listJavaSsmergedFilesPath(file.getAbsolutePath()));
-				}
-			}
-		}
-		return allFiles;
-	}
-
 	private static List<MergeConflict> countEqualConflicts(File mergedFolder, MergeResult mergeResult) {
 		List<String> logEqualConfs 	= new ArrayList<String>();
 		List<String> logDiffeConfsUN= new ArrayList<String>();
 		List<String> logDiffeConfsSS= new ArrayList<String>();
-		
+
 		List<String> logDiffeConfsUNInclBase= new ArrayList<String>();
 
 		List<String> mergedFilesPath = listJavaSsmergedFilesPath(mergedFolder.getAbsolutePath());
@@ -873,7 +873,7 @@ public class Util {
 
 		//list of different textual confs for futher analysis
 		List<MergeConflict> unmergediffconfs = new ArrayList<MergeConflict>();
-		
+
 		for(String ssmergePath : mergedFilesPath){
 			File ssmerge = new File(ssmergePath);
 			File unmerge = new File(ssmergePath + ".merge");
@@ -908,12 +908,15 @@ public class Util {
 					if(!foundEqual){
 						String entry = ssmergePath+";"+unmergeconf.toString();
 						logDiffeConfsUN.add(entry);
-						
+
 						unmergeconf.originpath = ssmergePath;
 						unmergediffconfs.add(unmergeconf);
-						
-						entry		 = ssmergePath+";"+unmergeconf.toStringInclBase();
-						logDiffeConfsUNInclBase.add(entry);
+
+						//detailed log for manual analysis
+						if(unmergeconf.bodyInclBase != null){
+							entry =makeDetailedEntryUnmergeConfInclBase(ssmergePath,ssmerge, unmerge, unmergeconf, mergeResult);
+							logDiffeConfsUNInclBase.add(entry);
+						}
 					}
 				}
 
@@ -936,8 +939,35 @@ public class Util {
 		printDifferentConflictsLog(logDiffeConfsUN,false,false);
 		printDifferentConflictsLog(logDiffeConfsUNInclBase,false,true);
 		printDifferentConflictsLog(logDiffeConfsSS,true,false);
-		
+
 		return unmergediffconfs;
+	}
+
+	private static String makeDetailedEntryUnmergeConfInclBase(
+			String ssmergePath, File ssmerge, File unmerge,
+			MergeConflict unmergeconf, MergeResult mergeResult) {
+		File revisionsFile = new File( mergeResult.revision );
+		String[] revisions = (readFileContent(revisionsFile)).split("\\r?\\n");
+		String left = revisions[0]; 
+		String base = revisions[1];
+		String right= revisions[2];
+
+		String leftContent = readFileContent(new File((revisionsFile.getParent()+"/"+left+"/"+ssmerge.getName())));
+		String baseContent = readFileContent(new File((revisionsFile.getParent()+"/"+base+"/"+ssmerge.getName())));
+		String rightContent= readFileContent(new File((revisionsFile.getParent()+"/"+right+"/"+ssmerge.getName())));
+		String ssmeContent = readFileContent(ssmerge);
+		String unmeContent = readFileContent(unmerge);
+
+		StringBuilder builder = new StringBuilder();
+		builder.append("########################################################\n");
+		builder.append("File: " + ssmergePath + "\n");
+		builder.append("Conflict:\n" + unmergeconf.toStringInclBase() + "\n");
+		builder.append("Unstructered Merge Output:\n" + unmeContent   + "\n");
+		builder.append("Semistructured Merge Output:\n" + ssmeContent + "\n");
+		builder.append("Left Content:\n" + ((leftContent.isEmpty()) ?"<empty>":leftContent) + "\n");
+		builder.append("Base Content:\n" + ((baseContent.isEmpty()) ?"<empty>":baseContent) + "\n");
+		builder.append("Right Content:\n"+ ((rightContent.isEmpty())?"<empty>":rightContent)+ "\n");
+		return builder.toString();
 	}
 
 	private static void printEqualConflictsLog(List<String> logentries) {
@@ -964,45 +994,20 @@ public class Util {
 		try {
 			String header = "";
 			File file = (!isssmerge)?
-							((!inclbase)?new File("results/log_ssmerge_different_conflicts_textual.csv" ):new File("results/log_ssmerge_different_conflicts_textual_inclbase.csv" )) 
-							: new File("results/log_ssmerge_different_conflicts_ssmerge.csv") ;
-			if(!file.exists()){file.createNewFile();header = (!isssmerge)? "file;linedbasedConf\n" : "file;ssmergeConf\n" ;}
-			PrintWriter pw = new PrintWriter(new FileOutputStream(file, true), true);
-			try{
-				if(!header.isEmpty()){pw.append(header);}
-				for(String entry : logentries){pw.append(entry + "\n");}
-				pw.flush();pw.close();
-			}finally{
-				try{pw.close();}
-				catch(Exception e){e.printStackTrace();}
-			}
+					((!inclbase)?new File("results/log_ssmerge_different_conflicts_textual.csv" ):new File("results/log_ssmerge_different_conflicts_textual_inclbase.csv" )) 
+					: new File("results/log_ssmerge_different_conflicts_ssmerge.csv") ;
+					if(!file.exists()){file.createNewFile();header = (!isssmerge)? "file;linedbasedConf\n" : "file;ssmergeConf\n" ;}
+					PrintWriter pw = new PrintWriter(new FileOutputStream(file, true), true);
+					try{
+						if(!header.isEmpty()){pw.append(header);}
+						for(String entry : logentries){pw.append(entry + "\n");}
+						pw.flush();pw.close();
+					}finally{
+						try{pw.close();}
+						catch(Exception e){e.printStackTrace();}
+					}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
-	//	public static void main(String[] args) {
-	//
-	//		countConflicts("C:\\Users\\Guilherme\\Desktop\\rename2\\rev.revisions");
-	//		countConflicts("C:\\Users\\Guilherme\\Desktop\\rename2\\rev.revisions");
-	//
-	//		isFilesContentEqual("C:\\Users\\Guilherme\\Desktop\\n\\MemoryUtils.java", "C:\\Users\\Guilherme\\Desktop\\n\\MemoryUtils1.java", "C:\\Users\\Guilherme\\Desktop\\n\\MemoryUtils2.java");
-	//
-	//		getMethodBody("public int soma(int a, int b, int c){   int result = a + b + c;   return result;  }");
-	//
-	//		simplifyMethodSignature("soma(int-int-int-int) throws Execeptionption");
-	//
-	//		// String str ="public int soma(int a, int c) throws Exception {";
-	//		String str = "<T, S extends T> int copy(List<T> dest, List<S> src) {";
-	//		// PEGANDO A ASSINATURA DO M�TODO
-	//		String methodSignature = getMethodSignature(str);
-	//		String returnType = getMethodReturnType(methodSignature);
-	//		System.out.println(returnType);
-	//		System.out.println(methodSignature);
-	//		System.out.println(removeGenerics(methodSignature));
-	//		System.out.println(generateMethodStub(str));
-	//
-	//		generateJarFile("C:\\GGTS\\workspace\\ASM_TesteCaller");
-	//
-	//	}
 }
